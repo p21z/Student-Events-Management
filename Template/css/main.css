@@ -1,0 +1,15 @@
+.colorize-black{
+    color: #000000;
+}
+
+.add-input{
+    width:40%; margin-left:3%; margin-top:3%;
+}
+
+.full-div{
+    min-height: 827px;
+}
+
+.add-li{
+    margin-left:3%;
+}

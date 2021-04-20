@@ -1,0 +1,11 @@
+In users_edit:
+    find a way to transfer $url_id (from user_edit -> user_edit_proc)
+    Options: Session, Get, Post
+
+In general:
+    ADD THE SSTABLE PROJECT TO GIT
+In organizations:
+    Create orgs_manage w/db
+    Incorporate inclusions w joint sql
+    Figure out edit and delete w inclusions functions
+    create unset session function
