@@ -8,11 +8,5 @@ $org_data = array(
 );
 
 echo insert($org_data, $table_name);
-if ($this->session->userdata("org_category")==="Program-based")
-    {
-        redirect('organizations/organizations_add_2');
-    } else 
-    {
-        redirect('organizations');
-    }
+
 ?>

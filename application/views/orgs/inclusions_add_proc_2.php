@@ -3,7 +3,7 @@
     
 
     $table_name="tbl_programs";
-    $inclusion_data=array('org_id' => $this->session->userdata("org_id")+1);
+    $inclusion_data=array('org_id' => $this->session->userdata("url_id"));
     $init_counter=1;
     $test_counter=count_rows($table_name);
     

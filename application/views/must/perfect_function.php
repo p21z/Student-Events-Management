@@ -344,6 +344,19 @@ function dati_ayaw_niya_sakin($ngayonshewanna)
 	return $result;
 }
 
+function decent_function()
+{
+	$conn = getConnectionx();
+	$sql = 
+	"SELECT tbl_inclusion.prog_id FROM tbl_inclusion 
+	FULL OUTER JOIN tbl_orgs 
+	ON tbl_inclusion.org_id=tbl_orgs.org_id 
+	ORDER BY tbl_inclusion.org_id";
+
+	$result = $conn->query($sql);
+	return $result;
+}
+
 function search_stud($table_name, $search)
 {
 	$conn = getConnectionx();
