@@ -78,6 +78,15 @@
         </span>
     </a>
 
+    <a href="<?=base_url()?>officers/" class="btn btn-outline-danger btn-icon-split add-item btn-sm mb-4">
+        <span class="icon text-red-50">
+            <i class="fas fa-user-plus"></i>
+        </span>
+        <span class="text">
+            GO BACK
+        </span>
+    </a>
+
     <table class="table table-sm table-striped">
         <thead>
             <tr>
@@ -94,47 +103,50 @@
             </tr>
         </tfoot>
         <tbody>
+        <?php
+            $table_name = "tbl_officers";
+            $column = "user_id";
+            
+            $get_userData = get_where_custom($table_name, $column, $user_id);
+
+            foreach ($get_userData as $key => $row)
+            {
+                $off_id=$row['off_id'];
+                $user_id=$row['user_id'];
+                $org_id=$row['org_id'];
+                $off_type=$row['off_type'];
+        ?>
             <tr>
-                <td>Organization</td>
-                <td>Position</td>
                 <td>
-                    <a href="<?=base_url()?>users/users_edit" class="btn btn-warning btn-circle btn-sm" style="margin-bottom: 6px;">
+                    <?php
+                        $table_name = "tbl_orgs";
+                        $column = "org_id";
+                        
+                        $get_orgData = get_where_custom($table_name, $column, $org_id);
+            
+                        foreach ($get_orgData as $key => $row)
+                        {
+                            $org_id=$row['org_id'];
+                            $org_name=$row['org_name'];
+                        }
+                    ?>
+                    <?=$org_name?>
+                </td>
+                <td><?=$off_type?></td>
+                <td>
+                    <a href="<?=base_url()?>officers/position_edit/<?=$off_id?>" class="btn btn-warning btn-circle btn-sm" style="margin-bottom: 6px;">
                         <i class="far fa-edit"></i>
                     </a>
                     &nbsp;&nbsp;&nbsp;
-                    <a href="<?=base_url()?>users/users_delete" class="btn btn-danger btn-circle btn-sm" style="margin-bottom: 6px;">
+                    <a href="<?=base_url()?>officers/position_delete/<?=$off_id?>" class="btn btn-danger btn-circle btn-sm" style="margin-bottom: 6px;">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
             </tr>
             
-            <tr>
-                <td>Organization</td>
-                <td>Position</td>
-                <td>
-                    <a href="<?=base_url()?>users/users_edit" class="btn btn-warning btn-circle btn-sm" style="margin-bottom: 6px;">
-                        <i class="far fa-edit"></i>
-                    </a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a href="<?=base_url()?>users/users_delete" class="btn btn-danger btn-circle btn-sm" style="margin-bottom: 6px;">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>Organization</td>
-                <td>Position</td>
-                <td>
-                    <a href="<?=base_url()?>users/users_edit" class="btn btn-warning btn-circle btn-sm" style="margin-bottom: 6px;">
-                        <i class="far fa-edit"></i>
-                    </a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a href="<?=base_url()?>users/users_delete" class="btn btn-danger btn-circle btn-sm" style="margin-bottom: 6px;">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
+        <?php
+            }
+        ?>
             
         </tbody>
     </table>
