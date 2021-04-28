@@ -13,3 +13,15 @@
 .add-li{
     margin-left:3%;
 }
+
+.dp-pic{
+    position: absolute;
+    left: 10px;
+    top: -180px;
+    border-radius: 50%;
+}
+
+.org-desc-head{
+    max-height: 150px;
+    overflow: auto;
+}

@@ -1,3 +1,35 @@
+<?php
+    if (!$this->session->userdata('idxx'))
+    {
+        redirect('/login');
+    }
+    print_r($_SESSION);
+
+
+    function getConnection_header_special()
+{
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "semm";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	if ($conn->connect_error) {
+		die("Connection Failed: ".$conn->connect_error);
+	}
+
+	return $conn;
+}
+
+    function get_where_custom_header_special($table_name, $column, $value)
+    {
+        $conn = getConnection_header_special();
+        $sql = "SELECT * FROM $table_name where ".$column."='".$value."'";
+        $result = $conn->query($sql);
+        return $result;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,17 +78,22 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?=base_url()?>home">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Home</span></a>
             </li>
 
             <!-- Divider -->
+            <!-- ADMIN SIDE -->
+            <?php
+                if ($this->session->userdata('access')==="Dean")
+                {
+            ?>
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Admin Modules
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -74,7 +111,9 @@
                     </div>
                 </div>
             </li>
-
+            <?php
+                }
+            ?>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -99,7 +138,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Pages
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -107,13 +146,43 @@
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                     aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>My Organizations</span>
                 </a>
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
+                        <?php
+                            
+                            $table_name = "tbl_officers";
+                            $column = "user_id";
+                            
+                            $get_userData = get_where_custom_header_special($table_name, $column, $this->session->userdata('idxx'));
+                
+                            foreach ($get_userData as $key => $row)
+                            {
+                                $off_id=$row['off_id'];
+                                $user_id=$row['user_id'];
+                                $org_id=$row['org_id'];
+                                $off_type=$row['off_type'];
+                                
+                                $table_name = "tbl_orgs";
+                                $column = "org_id";
+                                
+                                $get_orgData = get_where_custom_header_special($table_name, $column, $org_id);
+                    
+                                foreach ($get_orgData as $key => $row)
+                                {
+                                    $org_id=$row['org_id'];
+                                    $org_name=$row['org_name'];
+                                }
+                        ?>
+
+                        <a class="collapse-item" href="login.html"><?= $org_name ?></a>
+
+                        <?php
+                            }
+                        ?>
+
                         <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
@@ -329,7 +398,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="https://via.placeholder.com/250">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -347,7 +416,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="<?=base_url()?>logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
