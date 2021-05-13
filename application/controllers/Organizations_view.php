@@ -3,14 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Organizations_view extends CI_Controller {
 
-	function index()
+	function approved_events()
 	{
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
         $this->session->set_userdata('nav_active', 'Approved');
-        print_r($_SESSION);
+        
 		$this->load->view('must/header');
-        $this->load->view('organizations_view/head');
+        $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
-        print_r($_SESSION);
+        
         $this->load->view('organizations_view/events_approved');
 
         $this->load->view('organizations_view/foot');
@@ -19,13 +22,16 @@ class Organizations_view extends CI_Controller {
 
     function pending_events()
 	{
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
         $this->session->set_userdata('nav_active', 'Pending');
-        print_r($_SESSION);
+        
 		$this->load->view('must/header');
-        $this->load->view('organizations_view/head');
+        $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
-        print_r($_SESSION);
-        $this->load->view('organizations_view/events_approved');
+        
+        $this->load->view('organizations_view/events_pending');
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');
@@ -33,12 +39,15 @@ class Organizations_view extends CI_Controller {
 
     function archived_events()
 	{
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
         $this->session->set_userdata('nav_active', 'Archived');
-        print_r($_SESSION);
+        
 		$this->load->view('must/header');
-        $this->load->view('organizations_view/head');
+        $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
-        print_r($_SESSION);
+        
         $this->load->view('organizations_view/events_approved');
 
         $this->load->view('organizations_view/foot');
@@ -47,16 +56,23 @@ class Organizations_view extends CI_Controller {
 
     function all_events()
 	{
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
         $this->session->set_userdata('nav_active', 'All');
-        print_r($_SESSION);
+        
 		$this->load->view('must/header');
-        $this->load->view('organizations_view/head');
+        $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
-        print_r($_SESSION);
+        
         $this->load->view('organizations_view/events_approved');
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');
 	}
 
+    function add_event()
+	{
+        echo "hello";
+	}
 }

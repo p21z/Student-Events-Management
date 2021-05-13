@@ -108,7 +108,7 @@ class Organizations extends CI_Controller {
         $this->load->view('must/perfect_function');
         $this->load->view('orgs/orgs_add_proc');
         // $this->users_session_unset();
-		// redirect('/users');
+		redirect('/organizations');
     }
 
     function organizations_add_2()
@@ -129,8 +129,8 @@ class Organizations extends CI_Controller {
             }
         } else
         {
-            $this->load->view('orgs/orgs_add_proc');
-            redirect('organizations');
+            
+            redirect('organizations/organizations_add_proc');
         }
 		
         

@@ -8,16 +8,25 @@
                 <img src="https://via.placeholder.com/250x250/ff0000/000000" class="card-img-top dp-pic" alt="...">
             </div>
             <div class="col-8 ml-4">
-                <h2 class="card-title">Organization Name</h2>
+            <?php
+                $table_name="tbl_orgs";
+                $column="org_id";
+                
+
+                $user_data=get_where_custom($table_name, $column, $url_id);
+
+                foreach ($user_data as $key => $row) {
+                    $org_id=$row['org_id'];
+                    $org_name=$row['org_name'];
+                    $org_description=$row['org_description'];
+
+                }
+            ?>
+                <h2 class="card-title"><?=$org_name?></h2>
                 <p class="card-text org-desc-head">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    
+                    <?=$org_description?>
                 </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="<?=base_url()?>events/add_events/<?=$url_id?>" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 
@@ -28,16 +37,16 @@
         <ul class="nav nav-tabs">
 
             <li class="nav-item">
-                <a class="nav-link <?php if($this->session->userdata('nav_active')==='Approved'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view">Approved</a>
+                <a class="nav-link <?php if($this->session->userdata('nav_active')==='Approved'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/approved_events/<?=$url_id?>">Approved</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link <?php if($this->session->userdata('nav_active')==='Pending'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/pending_events">Pending</a>
+            <a class="nav-link <?php if($this->session->userdata('nav_active')==='Pending'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/pending_events/<?=$url_id?>">Pending</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link <?php if($this->session->userdata('nav_active')==='Archived'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/archived_events">Archived</a>
+            <a class="nav-link <?php if($this->session->userdata('nav_active')==='Archived'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/archived_events/<?=$url_id?>">Archived</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link <?php if($this->session->userdata('nav_active')==='All'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/all_events">All</a>
+            <a class="nav-link <?php if($this->session->userdata('nav_active')==='All'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/all_events/<?=$url_id?>">All</a>
             </li>
 
         </ul>

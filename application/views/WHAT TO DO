@@ -12,3 +12,10 @@ In organizations:
 
 In general:
     READ forms and plan for tbl_events
+
+In events->rsrv_cfr: DONE
+    Clean add_proc
+    Add org_id column
+
+In events:
+    remove foreign key when row is deleted

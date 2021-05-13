@@ -49,12 +49,15 @@
     <script src="<?=base_url('Template/vendor/jquery/jquery.min.js')?>"></script>
     <script src="<?=base_url('Template/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
     <!-- Core plugin JavaScript-->
     <script src="<?=base_url('Template/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url('Template/js/sb-admin-2.min.js')?>"></script>
     <script src="<?=base_url('Template/js/section-form.js')?>"></script>
+    <script src="<?=base_url('Template/js/collapse.js')?>"></script>
 
 </body>
 

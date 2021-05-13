@@ -22,13 +22,21 @@
 	return $conn;
 }
 
-    function get_where_custom_header_special($table_name, $column, $value)
-    {
-        $conn = getConnection_header_special();
-        $sql = "SELECT * FROM $table_name where ".$column."='".$value."'";
-        $result = $conn->query($sql);
-        return $result;
-    }
+function get_where_custom_header_special($table_name, $column, $value)
+{
+    $conn = getConnection_header_special();
+    $sql = "SELECT * FROM $table_name where ".$column."='".$value."'";
+    $result = $conn->query($sql);
+    return $result;
+}
+
+function get_header_special($table_name)
+{
+	$conn = getConnection_header_special();
+	$sql = "SELECT * FROM $table_name";
+	$result = $conn->query($sql);
+	return $result;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +52,8 @@
     <title>School Events Management</title>
 
     <!-- Custom fonts for this template-->
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
                 
     <link href="<?=base_url('Template/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
     <link
@@ -53,6 +63,9 @@
     <!-- Custom styles for this template-->
     <link href="<?=base_url('Template/css/sb-admin-2.min.css')?>" rel="stylesheet">
     <link href="<?=base_url('Template/css/main.css')?>" rel="stylesheet">
+    <link href="<?=base_url('Template/css/collapse.css')?>" rel="stylesheet">
+
+    
 
 </head>
 
@@ -74,7 +87,7 @@
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0 colorize-black">
+            <hr class="sidebar-divider my-0 colorize-primary">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
@@ -101,13 +114,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Idkwhatocall</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="<?=base_url()?>users">Users</a>
+                        <a class="collapse-item" href="<?=base_url()?>officers">Officers</a>
+                        <a class="collapse-item" href="<?=base_url()?>organizations">Organizations</a>
                     </div>
                 </div>
             </li>
@@ -115,20 +129,21 @@
                 }
             ?>
             <!-- Nav Item - Utilities Collapse Menu -->
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Events</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="utilities-color.html">Pending</a>
+                        <a class="collapse-item" href="utilities-border.html">Approved</a>
+                        <a class="collapse-item" href="utilities-animation.html">Archived</a>
+                        <a class="collapse-item" href="utilities-other.html">All</a>
                     </div>
                 </div>
             </li>
@@ -140,56 +155,93 @@
             <div class="sidebar-heading">
                 Pages
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
+            <?php
+                if ($this->session->userdata('access')==="Dean")
+                {
+            ?>
+            
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                     aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>My Organizations</span>
+                    <span>Organizations</span>
                 </a>
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <?php
                             
-                            $table_name = "tbl_officers";
-                            $column = "user_id";
-                            
-                            $get_userData = get_where_custom_header_special($table_name, $column, $this->session->userdata('idxx'));
-                
-                            foreach ($get_userData as $key => $row)
-                            {
-                                $off_id=$row['off_id'];
-                                $user_id=$row['user_id'];
-                                $org_id=$row['org_id'];
-                                $off_type=$row['off_type'];
-                                
                                 $table_name = "tbl_orgs";
-                                $column = "org_id";
+                                // $column = "org_id";
                                 
-                                $get_orgData = get_where_custom_header_special($table_name, $column, $org_id);
+                                $get_orgData = get_header_special($table_name);
                     
                                 foreach ($get_orgData as $key => $row)
                                 {
                                     $org_id=$row['org_id'];
                                     $org_name=$row['org_name'];
-                                }
+                                
                         ?>
 
-                        <a class="collapse-item" href="login.html"><?= $org_name ?></a>
+                        <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_name ?></a>
 
                         <?php
-                            }
+                                }
+                } else 
+                {
                         ?>
 
-                        <a class="collapse-item" href="register.html">Register</a>
+                            <!-- Nav Item - Pages Collapse Menu -->
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                                    aria-controls="collapsePages">
+                                    <i class="fas fa-fw fa-folder"></i>
+                                    <span>My Organizations</span>
+                                </a>
+                                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                                    data-parent="#accordionSidebar">
+                                    <div class="bg-white py-2 collapse-inner rounded">
+                                        <?php
+                                            
+                                            $table_name = "tbl_officers";
+                                            $column = "user_id";
+                                            
+                                            $get_userData = get_where_custom_header_special($table_name, $column, $this->session->userdata('idxx'));
+                                
+                                            foreach ($get_userData as $key => $row)
+                                            {
+                                                $off_id=$row['off_id'];
+                                                $user_id=$row['user_id'];
+                                                $org_id=$row['org_id'];
+                                                $off_type=$row['off_type'];
+                                                
+                                                $table_name = "tbl_orgs";
+                                                $column = "org_id";
+                                                
+                                                $get_orgData = get_where_custom_header_special($table_name, $column, $org_id);
+                                    
+                                                foreach ($get_orgData as $key => $row)
+                                                {
+                                                    $org_id=$row['org_id'];
+                                                    $org_name=$row['org_name'];
+                                                }
+                                        ?>
+
+                                        <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_name ?></a>
+
+                                        <?php
+                                            }
+
+                    }
+                                        ?>
+
+                        <!-- <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
                         <a class="collapse-item active" href="blank.html">Blank Page</a>
-                    </div>
+                    </div> -->
                 </div>
             </li>
 
@@ -396,7 +448,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$this->session->userdata('firstnamexx')." ".$this->session->userdata('lastnamexx')?></span>
                                 <img class="img-profile rounded-circle"
                                     src="https://via.placeholder.com/250">
                             </a>
