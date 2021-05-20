@@ -48,7 +48,7 @@ class Organizations_view extends CI_Controller {
         $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
         
-        $this->load->view('organizations_view/events_approved');
+        $this->load->view('organizations_view/events_archived');
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');
@@ -65,7 +65,7 @@ class Organizations_view extends CI_Controller {
         $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
         
-        $this->load->view('organizations_view/events_approved');
+        $this->load->view('organizations_view/events_all');
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');

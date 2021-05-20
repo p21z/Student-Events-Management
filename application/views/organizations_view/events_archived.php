@@ -3,7 +3,7 @@
 <?php
     $table_name="tbl_events";
     $column1="statusxx";
-    $value1="Approved";
+    $value1="Archived";
     $column2="org_id";
     $value2=$url_id;
 

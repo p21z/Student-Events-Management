@@ -2,14 +2,13 @@
 
 <?php
     $table_name="tbl_events";
-    $column1="statusxx";
-    $value1="Approved";
+
     $column2="org_id";
     $value2=$url_id;
+    $column3="event_id";
 
 
-    $events_data=get_where_double_and($table_name, $column1, $value1, $column2, $value2);
-
+    $events_data=get_where_desc($table_name, $column2, $value2, $column3);
     foreach ($events_data as $key => $row)
     {
         $event_id=$row['event_id'];

@@ -19,3 +19,13 @@ In events->rsrv_cfr: DONE
 
 In events:
     remove foreign key when row is deleted
+
+In trip_ticket:
+    EDIT, delete
+
+In events:
+    remarks
+    EDIT, delete
+
+
+

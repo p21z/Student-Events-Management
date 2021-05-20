@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="<?=base_url()?>assets/img/v.jpg">
+
+    <?php
+    // if (isset($_POST['xzxz'])){
+    //     for ($x=0; $x <= $_POST['xzxz']; $x++){
+    //         $_SESSION['prefix'.$x]="sdasd ";
+    //         echo $_SESSION['prefix'.$x];
+    
+    //     }
+    // }
+    
+    ?>
+
+    <form action="<?=base_url()?>test" method="post">
+        <input type=text name="xzxz">
+    </form>
 </body>
 </html>

@@ -140,10 +140,10 @@ function get_header_special($table_name)
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Pending</a>
-                        <a class="collapse-item" href="utilities-border.html">Approved</a>
-                        <a class="collapse-item" href="utilities-animation.html">Archived</a>
-                        <a class="collapse-item" href="utilities-other.html">All</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/pending_events_view"">Pending</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/approved_events_view"">Approved</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/archived_events_view"">Archived</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/all_events_view"">All</a>
                     </div>
                 </div>
             </li>

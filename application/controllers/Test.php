@@ -5,7 +5,9 @@ class Test extends CI_Controller {
 
 	function index()
 	{
-		$this->load->view('test.php');
+		$this->load->view('must/perfect_function');
+		$this->load->view('test');
+		print_r($_SESSION);
 	}
 
 }
