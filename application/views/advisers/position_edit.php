@@ -1,23 +1,24 @@
 <?php
+$table_name = "tbl_officers";
+$column = "off_id";
 
-$table_name = "tbl_orgs";
-$column = "org_id";
-$value = $this->session->userdata("org_id");
 
-$get_orgData = get_where_custom($table_name, $column, $value);
+$get_offData = get_where_custom($table_name, $column, $url_id);
 
-foreach ($get_orgData as $key => $row) {
+foreach ($get_offData as $key => $row) {
+    $off_id=$row['off_id'];
+    $user_id=$row['user_id'];
     $org_id=$row['org_id'];
-    $org_name=$row['org_name'];
-    $org_category=$row['org_category'];
+    // $org_name=$row['org_name'];
+    // $org_category=$row['org_category'];
 }
-echo $org_name;
+echo $off_id. $org_id. $user_id;
 
 $table_name = "tbl_users";
 $column = "user_id";
-$value = $this->session->userdata("user_id");
 
-$get_userData = get_where_custom($table_name, $column, $value);
+
+$get_userData = get_where_custom($table_name, $column, $user_id);
 
 //fetch result and pass it  to an array
     foreach ($get_userData as $key => $row) {
@@ -26,19 +27,21 @@ $get_userData = get_where_custom($table_name, $column, $value);
         $username=$row['username'];
         $firstname=$row['firstname'];
         $lastname=$row['lastname'];
-        $password=$row['password'];
-        $email=$row['email'];
-        $contact_no=$row['contact_no'];
-        $gender=$row['gender'];
-        $user_type=$row['user_type'];
-        $time_stamp=$row['time_stamp'];
-        $year_level=$row['year_level'];
-        $program=$row['program'];
-        $section=$row['section'];
-        $archive=$row['archive'];
-        $statusxx=$row['statusxx'];
-        $counterxx=$row['counterxx'];
+
+    }
+
+$table_name = "tbl_orgs";
+$column = "org_id";
     
+    
+$get_orgData = get_where_custom($table_name, $column, $org_id);
+
+//fetch result and pass it  to an array
+    foreach ($get_orgData as $key => $row) {
+        
+        $org_id=$row['org_id'];
+        $org_name=$row['org_name'];
+        $org_category=$row['org_category'];
     }
     
 ?>
@@ -46,15 +49,15 @@ $get_userData = get_where_custom($table_name, $column, $value);
 <div align=center>
     <div class="card mb-4 w-75">
         <div class="card-header">
-            ADD NEW POSITION
+            EDIT POSITION
         </div>
 
-        <form method="post" action="<?=base_url()?>officers/position_add/<?=$this->session->userdata("user_id")?>/<?=$this->session->userdata("org_id")?>">
+        <form method="post" action="<?=base_url()?>officers/position_edit/<?=$off_id?>">
             
-                <div class="" style="">
+            <div class="" style="">
                     
-                    <input type="text" name="user_id" value="<?=$this->session->userdata("user_id")?>" hidden>
-                    <input type="text" name="org_id" value="<?=$this->session->userdata("org_id")?>" hidden>
+                    <input type="text" name="user_id" value="<?=$user_id?>" hidden>
+                    <input type="text" name="org_id" value="<?=$org_id?>" hidden>
 
                     <input type="text" name="firstname" class="form-control form-control-user add-input" autocomplete=off value="<?=$org_name?>" required readonly>
 
@@ -88,13 +91,7 @@ $get_userData = get_where_custom($table_name, $column, $value);
                     <?php
                         }
                     ?>
-
                 </select>
-
-            </div>
-
-            <br>
-            <br>
 
             <!-- BUTTONS -->
             <button type="submit" class="btn btn-success btn-icon-split" style="margin-left:%; margin-top:3%; margin-bottom: 5%">
@@ -117,8 +114,8 @@ $get_userData = get_where_custom($table_name, $column, $value);
             </a>
 
         
-        <form>
-
+        </form>
+        </div>
     </div>
 
 </div>

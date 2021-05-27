@@ -1,5 +1,5 @@
 
-<div class="card">
+<div class="card"  style="min-height: 960px;">
     <img src="https://via.placeholder.com/1080x250" class="card-img-top " alt="...">
     <div class="card-body">
 

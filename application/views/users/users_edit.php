@@ -81,7 +81,11 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
                 }
             ?>
             
-                
+                <select type="text" name="statusxx" class="form-control form-control-user add-input" autocomplete=off required>
+                <option value="">Status</option>
+                <option value="0">Active</option>
+                <option value="1">Inactive</option>
+                </select>  
 
                 <select type="text" name="gender" class="form-control form-control-user add-input" autocomplete=off required>
                 <option value="">Gender</option>
@@ -94,6 +98,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
                 <option value="Dean">Dean</option>
                 <option value="Adviser">Adviser</option>
                 <option value="Officer">Officer</option>
+                <option value="Student">Student</option>
                 </select>
 
             </div>

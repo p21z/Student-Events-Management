@@ -18,6 +18,21 @@
         $start_date=$row['start_date'];
         $end_date=$row['end_date'];
         $venue=$row['venue'];
+        $statusxx=$row['statusxx'];
+
+        // UPDATE STATUSXX WHEN END DATE PASSES
+        $current_date= $currentDateTime = date('Y-m-d');
+        // echo $current_date;
+
+        if ($current_date>$end_date)
+        {
+            $user_editedValues = array(
+                'statusxx' => "Archived"
+            );
+            echo update_from($user_editedValues, $event_id, $table_name, "event_id");
+            echo $event_id;
+        } else 
+        {
 ?>
         <div class="card ml-3 mt-3 w-25 ">
             <h5 class="card-header"><?=$event_name?></h5>
@@ -43,6 +58,7 @@
             </div>
         </div>
 <?php
+        }
     }
 ?>
 

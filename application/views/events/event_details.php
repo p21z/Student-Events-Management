@@ -38,7 +38,7 @@
                 $end_time=$row['end_time'];
                 $venue=$row['venue'];
                 $event_description=$row['event_description'];
-                $statusxx=$row['statusxx'];
+                $statusxxx=$row['statusxx'];
                 $remarks=$row['remarks'];
                 $in_cmp_id=$row['in_cmp_id'];
                 $rsrv_cfr_id=$row['rsrv_cfr_id'];
@@ -85,7 +85,7 @@
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Status&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             </div>
-                            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="<?=$statusxx?>" readonly style="font-weight: bold;">
+                            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="<?=$statusxxx?>" readonly style="font-weight: bold;">
                         </div>
                     </form>
                     
@@ -108,10 +108,17 @@
             </div>
 
             <div class="col-1 text-right">
-                
-                <a href="<?=base_url()?>events/edit_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-warning btn-circle btn-sm">
+                <?php
+                if ($statusxxx==="Pending")
+                {
+                ?>
+                    <a href="<?=base_url()?>events/edit_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-warning btn-circle btn-sm">
                     <i class="far fa-edit"></i>
                 </a>
+                <?php
+                }
+                ?>
+                
                 &nbsp;
                 <a href="<?=base_url()?>events/delete_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-danger btn-circle btn-sm">
                     <i class="fas fa-trash"></i>
@@ -138,7 +145,16 @@
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
                             <p class="card-text">Something about the said document must be written here</p>
-                            <a href="<?=base_url()?>events/add_common_function_room/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_common_function_room/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            }
+                            ?>
+                            
                             <!-- added event id in url, assign it as session now -->
                         </div>
 
@@ -181,12 +197,19 @@
                                 <div class="col-11">&nbsp;
                                 </div>
                                 <div class="col-1">
-                                    <a href="<?=base_url()?>events/edit_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-warning btn-circle btn-sm">
-                                        <i class="far fa-edit"></i>
-                                    </a>
-                                    <a href="<?=base_url()?>events/delete_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-danger btn-circle btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <?php
+                                    if ($statusxxx==="Pending")
+                                    {
+                                    ?>
+                                        <a href="<?=base_url()?>events/edit_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-warning btn-circle btn-sm">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                        <a href="<?=base_url()?>events/delete_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-danger btn-circle btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             
@@ -287,7 +310,17 @@
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
                             <p class="card-text">Something about the said document must be written here</p>
-                            <a href="<?=base_url()?>events/add_cash_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_cash_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            }
+                            ?>
+
+                            
                         </div>
 
                     </div>
@@ -329,12 +362,19 @@
                                 <div class="col-11">&nbsp;
                                 </div>
                                 <div class="col-1">
-                                    <a href="<?=base_url()?>events/edit_cash_requisition/<?=$org_id?>/<?=$event_id?>/<?=$csh_req_id?>" class="btn btn-warning btn-circle btn-sm">
-                                        <i class="far fa-edit"></i>
-                                    </a>
-                                    <a href="<?=base_url()?>events/delete_cash_requisition/<?=$org_id?>/<?=$event_id?>/<?=$csh_req_id?>" class="btn btn-danger btn-circle btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <?php
+                                        if ($statusxxx==="Pending")
+                                        {
+                                        ?>
+                                        <a href="<?=base_url()?>events/edit_cash_requisition/<?=$org_id?>/<?=$event_id?>/<?=$csh_req_id?>" class="btn btn-warning btn-circle btn-sm">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                        <a href="<?=base_url()?>events/delete_cash_requisition/<?=$org_id?>/<?=$event_id?>/<?=$csh_req_id?>" class="btn btn-danger btn-circle btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             
@@ -449,12 +489,21 @@
                 if ($count_cat_req===0)
                 {
                 ?>
-                    <div class="card text-center mt-4 mb-4 w-75">
+                    <div class="card text-center mt-4 mb-4 w-100">
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
                             <p class="card-text">Something about the said document must be written here</p>
-                            <a href="<?=base_url()?>events/add_catering_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <!-- CONTINUE THIS N NEXT FORMS -->
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_catering_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            }
+                            ?>
+                            
                         </div>
 
                     </div>
@@ -532,6 +581,10 @@
                                                 <td><?=$venue?></td>
                                                 <td><?=$remarks?></td>
                                                 <td>
+                                                <?php
+                                                if ($statusxxx==="Pending")
+                                                {
+                                                ?>
                                                     <a href="<?=base_url()?>events/edit_catering_requisition/<?=$org_id?>/<?=$event_id?>/<?=$cat_req_id?>" class="btn btn-warning btn-circle btn-sm">
                                                         <i class="far fa-edit"></i>
                                                     </a>
@@ -539,6 +592,9 @@
                                                     <a href="<?=base_url()?>events/delete_catering_requisition/<?=$org_id?>/<?=$event_id?>/<?=$cat_req_id?>" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
+                                                <?php
+                                                }
+                                                ?>
                                                 </td>
                                             </tr>
                                         <?php
@@ -567,7 +623,15 @@
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
                             <p class="card-text">Something about the said document must be written here</p>
-                            <a href="<?=base_url()?>events/add_in_campus_activity/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_in_campus_activity/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            }
+                            ?>
+                            
                         </div>
 
                     </div>
@@ -603,12 +667,19 @@
                                 <div class="col-11">&nbsp;
                                 </div>
                                 <div class="col-1">
+                                <?php
+                                if ($statusxxx==="Pending")
+                                {
+                                ?>
                                     <a href="<?=base_url()?>events/edit_in_campus_activity/<?=$org_id?>/<?=$event_id?>/<?=$in_cmp_id?>" class="btn btn-warning btn-circle btn-sm">
                                         <i class="far fa-edit"></i>
                                     </a>
                                     <a href="<?=base_url()?>events/delete_in_campus_activity/<?=$org_id?>/<?=$event_id?>/<?=$in_cmp_id?>" class="btn btn-danger btn-circle btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a>
+                                <?php
+                                }
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -702,7 +773,15 @@
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
                             <p class="card-text">Something about the said document must be written here</p>
-                            <a href="<?=base_url()?>events/add_travel_permit/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_travel_permit/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            }
+                            ?>
+                            
                         </div>
 
                     </div>
@@ -785,6 +864,10 @@
                                     <td><?=$relation2?></td>
                                     <td><?=$others?></td>
                                     <td>
+                                    <?php
+                                    if ($statusxxx==="Pending")
+                                    {
+                                    ?>
                                         <a href="<?=base_url()?>events/edit_travel_permit/<?=$org_id?>/<?=$event_id?>/<?=$tra_prmt_id?>" class="btn btn-warning btn-circle btn-sm">
                                             <i class="far fa-edit"></i>
                                         </a>
@@ -792,6 +875,9 @@
                                         <a href="<?=base_url()?>events/delete_travel_permit/<?=$org_id?>/<?=$event_id?>/<?=$tra_prmt_id?>" class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
+                                    <?php
+                                    }
+                                    ?>
                                     </td>
                                 </tr>
                             <?php
@@ -879,6 +965,10 @@
                                             <td><?=$program?></td>
                                             <td><?=$section?></td>
                                             <td>
+                                            <?php
+                                            if ($statusxxx==="Pending")
+                                            {
+                                            ?>
                                                 <a href="<?=base_url()?>events/edit_student_list/<?=$org_id?>/<?=$event_id?>/<?=$stud_list_id?>" class="btn btn-warning btn-circle btn-sm">
                                                     <i class="far fa-edit"></i>
                                                 </a>
@@ -886,6 +976,9 @@
                                                 <a href="<?=base_url()?>events/delete_student_list/<?=$org_id?>/<?=$event_id?>/<?=$stud_list_id?>" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
+                                            <?php
+                                            }
+                                            ?>
                                             </td>
                                         </tr>
                                     <?php
@@ -921,7 +1014,15 @@
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
                             <p class="card-text">Something about the said document must be written here</p>
-                            <a href="<?=base_url()?>events/add_trip_ticket/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_trip_ticket/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                            <?php
+                            }
+                            ?>
+                            
                         </div>
 
                     </div>
@@ -1004,6 +1105,10 @@
                                             <td><?=date('h:i a', strtotime($dept_time))?></td>
                                             <td><?=date('h:i a', strtotime($eta))?></td>
                                             <td>
+                                            <?php
+                                            if ($statusxxx==="Pending")
+                                            {
+                                            ?>
                                                 <a href="<?=base_url()?>events/edit_trip_ticket/<?=$org_id?>/<?=$event_id?>/<?=$trp_tckt_id?>" class="btn btn-warning btn-circle btn-sm">
                                                     <i class="far fa-edit"></i>
                                                 </a>
@@ -1011,6 +1116,9 @@
                                                 <a href="<?=base_url()?>events/delete_trip_ticket/<?=$org_id?>/<?=$event_id?>/<?=$trp_tckt_id?>" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
+                                            <?php
+                                            }
+                                            ?>
                                             </td>
                                         </tr>
 
@@ -1037,8 +1145,24 @@
     </ul>
             
 <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <?php
+    if($statusxxx!=="Pending")
+    {
+    ?>
+        <a href="<?=base_url()?>attendance/all/<?=$event_id?>" class="card-link">Attendance</a>
+    <?php
+    }
+    ?>
+    <?php
+    if($statusxxx==="Archived")
+    {
+    ?>
+        <a href="<?=base_url()?>evaluation/<?=$event_id?>" class="card-link">Evaluation</a>
+        <a href="<?=base_url()?>responses/<?=$event_id?>" class="card-link">Responses</a>
+    <?php
+    }
+    ?>
+
 </div>
 </div>
 

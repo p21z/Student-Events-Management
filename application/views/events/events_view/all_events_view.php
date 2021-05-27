@@ -29,7 +29,7 @@
 
 
             $events_data=get_desc($table_name, $column3);
-            // here
+            
             foreach ($events_data as $key => $row)
             {
                 $event_id=$row['event_id'];

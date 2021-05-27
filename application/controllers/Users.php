@@ -79,7 +79,7 @@ class Users extends CI_Controller {
         if ($this->form_validation->run() == TRUE)
         {
             $this->users_session();
-            if ($this->session->userdata("user_type")==="Officer")
+            if ($this->session->userdata("user_type")==="Officer" or $this->session->userdata("user_type")==="Student")
             {
                 redirect('/users/users_add_2');
             } else
@@ -125,7 +125,7 @@ class Users extends CI_Controller {
         if ($this->form_validation->run() == TRUE)
         {
             $this->users_session();
-            if ($this->session->userdata("user_type")==="Officer")
+            if ($this->session->userdata("user_type")==="Officer" or $this->session->userdata("user_type")==="Student")
             {
                 redirect('/users/users_edit_2');
             } else

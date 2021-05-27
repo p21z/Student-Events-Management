@@ -48,7 +48,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
                 <option value="BSEnSE">BSEnSE</option>
                 </select>
 
-                <input type="text" name="section" class="form-control form-control-user add-input" autocomplete=off value="<?=$section?>" required>
+                <input type="text" name="section" class="form-control form-control-user add-input" autocomplete=off value="<?=$section?>">
 
             </div>
 

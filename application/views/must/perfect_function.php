@@ -58,6 +58,22 @@ function get_where_double_and($table_name, $column1, $value1, $column2, $value2)
 	return $result;
 }
 
+function get_where_triple_hybrid_not($table_name, $column1, $value1, $column2, $value2, $column3, $value3)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM $table_name where (".$column1." ='".$value1."' or ".$column2."='".$value2."') and ".$column3." != '".$value3."'";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function get_where_quatro($table_name, $column1, $value1, $column2, $value2, $column3, $value3, $column4, $value4)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM $table_name where (".$column1." ='".$value1."' or ".$column2."='".$value2."') and ".$column3." = '".$value3."' and ".$column4." = '".$value4."'";
+	$result = $conn->query($sql);
+	return $result;
+}
+
 function count_where($table_name, $column1, $value1)
 {
 	$conn = getConnectionx();
@@ -182,6 +198,18 @@ function delete_from($id, $table_name, $column)
 {
 	$conn = getConnectionx();
 	$sql = "DELETE FROM $table_name where ".$column."=$id";
+	if ($conn->query($sql) == TRUE) {
+		$result = "Record deleted successfully";
+	} else {
+		$result = "Error: " . $sql . "<br>" . $conn->error;	
+	}
+	return $result;
+}
+
+function delete_from_special($id, $table_name, $column)
+{
+	$conn = getConnectionx();
+	$sql = "DELETE FROM $table_name where ".$column." = '".$id."'";
 	if ($conn->query($sql) == TRUE) {
 		$result = "Record deleted successfully";
 	} else {
@@ -551,6 +579,14 @@ function get_where_not_custom($table_name, $column1, $value1)
 {
 	$conn = getConnectionx();
 	$sql = "SELECT * FROM $table_name where ".$column1."!='".$value1."'";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function get_where_not_hybrid_custom($table_name, $column1, $value1, $column2, $value2)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM $table_name where ".$column1."!='".$value1."' and ".$column2." = '".$value2."'";
 	$result = $conn->query($sql);
 	return $result;
 }

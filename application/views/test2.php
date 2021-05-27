@@ -65,9 +65,9 @@ function get_header_special($table_name)
     <link href="<?=base_url('Template/css/main.css')?>" rel="stylesheet">
     <link href="<?=base_url('Template/css/collapse.css')?>" rel="stylesheet">
 
-    <link href="<?=base_url('Template/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">    
+    <link href="<?=base_url('Template/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
 
-
+    
 
 </head>
 
@@ -85,7 +85,7 @@ function get_header_special($table_name)
                 <div class="sidebar-brand-icon rotate-n-10">
                 <i class="fas fa-chalkboard-teacher colorize-black"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3 colorize-black">SEMS<sup></sup></div>
+                <div class="sidebar-brand-text mx-3 colorize-black">Iskul Events Management<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -458,7 +458,7 @@ function get_header_special($table_name)
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?=base_url()?>profile">
+                                <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

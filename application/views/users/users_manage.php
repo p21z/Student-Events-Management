@@ -1,11 +1,8 @@
-<!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800"></h1>
-                    <p class="mb-4"></p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Users</h5>
+                            <h6 class="m-0 font-weight-bold text-primary">Users</h6>
                         </div>
                         <div class="card-body">
 
@@ -22,7 +19,6 @@
 
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -60,8 +56,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
-                                        <?php
+                                    <?php
                                             $table_name="tbl_users";
 
                                             $user_data=get($table_name);
@@ -106,8 +101,18 @@
                                                 <td><?=$year_level?></td>
                                                 <td><?=$programx?></td>
                                                 <!-- <td><?=$archive?></td> -->
-                                                <td><?=$statusxx?></td>
-                                                <!-- <td>0</td> -->
+                                                <td>
+                                                    <?php
+                                                        if ($statusxx==="0")
+                                                        {
+                                                            echo "ACTIVE";
+                                                        } elseif ($statusxx==="1"){
+                                                            echo "INACTIVE";
+                                                        }
+                                                    ?>
+                                                </td>
+                                                
+                                                
                                                 <td>
                                                     <a href="<?=base_url()?>users/users_edit/<?=$user_id?>" class="btn btn-warning btn-circle btn-sm">
                                                         <i class="far fa-edit"></i>
@@ -127,3 +132,5 @@
                             </div>
                         </div>
                     </div>
+
+                

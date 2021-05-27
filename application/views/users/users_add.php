@@ -54,9 +54,9 @@
                 <select type="text" name="user_type" class="form-control form-control-user add-input" autocomplete=off required>
                 <option value="">User type</option>
                 <option value="Dean">Dean</option>
-                <option value="PSG-Adviser">PSG-Adviser</option>
                 <option value="Adviser">Adviser</option>
                 <option value="Officer">Officer</option>
+                <option value="Student">Student</option>
                 </select>
 
             </div>

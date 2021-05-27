@@ -5,10 +5,9 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Officers</h5>
+                            <h5 class="m-0 font-weight-bold text-primary">Advisers</h5>
                         </div>
                         <div class="card-body">
-
 
                             <hr>
 
@@ -22,7 +21,6 @@
                                             <th>Full Name</th>
                                             <th>Contacts</th>
                                             <th>???</th>
-                                            <th>???</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -33,17 +31,17 @@
                                             <th>Full Name</th>
                                             <th>Contacts</th>
                                             <th>???</th>
-                                            <th>???</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
 
                                         <?php
                                             $table_name="tbl_users";
-                                            $column="user_type";
-                                            $value="Officer";
-
-                                            $user_data=get_where_custom($table_name, $column, $value);
+                                            $column1="user_type";
+                                            $value1="Adviser";
+                                            $value2="PSG-Adviser";
+                                            
+                                            $user_data=get_where_double($table_name, $column1, $value1, $column1, $value2);
 
                                             foreach ($user_data as $key => $row) {
                                                 $user_id=$row['user_id'];
@@ -80,14 +78,13 @@
                                                 <!-- <td><?=$gender?></td> -->
                                                 <!-- <td><?=$user_type?></td> -->
                                                 <!-- <td><?=$time_stamp?></td> -->
-                                                <td><?=$year_level?> - <?=$programx?></td>
                                                 
                                                 <!-- <td><?=$archive?></td> -->
                                                 <!-- <td><?=$statusxx?></td> -->
                                                 <!-- <td>0</td> -->
                                                 <td>
 
-                                                <a href="<?=base_url()?>officers/officer_details/<?=$user_id?>" class="btn btn-dark btn-icon-split">
+                                                <a href="<?=base_url()?>advisers/adviser_details/<?=$user_id?>" class="btn btn-dark btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="far fa-eye"></i>
                                                     </span>
