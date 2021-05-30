@@ -27,6 +27,21 @@ class Profile extends CI_Controller {
         $this->session->set_userdata($user_data);
     }
 
+    function pass_session()
+    {
+        $user_data = array(
+
+			'old_pass' => $this->input->post('old_pass'),
+            'new_pass_1' => $this->input->post('new_pass_1'),
+            'new_pass_2' => $this->input->post('new_pass_2')
+
+        );
+
+        $this->session->set_userdata($user_data);
+    }
+
+    
+
     function profile_session_unset()
     {
         $this->session->unset_userdata("url_id");
@@ -47,6 +62,10 @@ class Profile extends CI_Controller {
     
         $this->session->unset_userdata("archive");
         $this->session->unset_userdata("statusxx");
+
+        $this->session->unset_userdata("old_pass");
+        $this->session->unset_userdata("new_pass_1");
+        $this->session->unset_userdata("new_pass_2");
     }
 
 	function index()
@@ -72,6 +91,32 @@ class Profile extends CI_Controller {
         $this->load->view('profile/profile_edit_proc');
         $this->profile_session_unset();
 		redirect('/home');
+    }
+
+    function change_password()
+	{
+        $this->profile_session_unset();
+		$this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('profile/change_password');
+		$this->load->view('must/footer');
+
+        $this->form_validation->set_rules('old_pass','Old Password','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->pass_session();
+            redirect('/profile/change_password_auth');
+            
+        }
+		
+    }
+
+    function change_password_auth()
+    {
+        $this->load->view('must/perfect_function');
+        $this->load->view('profile/change_password_auth');
+        // $this->profile_session_unset();
+		// redirect('/home');
     }
 
 }

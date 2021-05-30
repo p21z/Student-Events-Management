@@ -64,7 +64,7 @@
                 <input type="text" name="username" placeholder="Username" required autocomplete="off" class="form-control form-control-user" style="width:40%; margin-left:3%; margin-top:6%;">
                 <input type="password" name="password" placeholder="Password" required autocomplete="off" class="form-control form-control-user" style="width:40%; margin-left:3%; margin-top:3%;">
                 <input type="submit" name="Sign in" class="btn btn-success" style="margin-top: 30px;">
-                <a href="register.php" class="btn btn-primary" style="margin-top: 30px;">Register</a>
+                <!-- <a href="register.php" class="btn btn-primary" style="margin-top: 30px;">Register</a> -->
             </form>
         </div>
     </div>

@@ -1,8 +1,6 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Welcome!</h1>
-    <p class="mb-4">SEMS is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
+    <p class="mb-4">SEMS is a consectetur adipiscing elit. Duis convallis fermentum fringilla. Pellentesque tristique nisi eget sodales congue. Sed congue molestie lorem, nec pretium libero sodales eget.</p>
 
     <!-- FETCH ALL EVENTS -->
     <?php

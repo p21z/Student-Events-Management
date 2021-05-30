@@ -90,6 +90,16 @@ $get_userData = get_where_custom($table_name, $column, $this->session->userdata(
                     EDIT USER
                 </span>
             </button>
+
+            &nbsp;&nbsp;
+            <a href="<?=base_url()?>profile/change_password" class="btn btn-warning btn-icon-split" style=" margin-top:3%; margin-bottom: 5%">
+                <span class="icon text-white-50">
+                    <i class="fas fa-ban"></i>
+                </span>
+                <span class="text">
+                    CHANGE PASSWORD
+                </span>
+            </a>
             
             &nbsp;&nbsp;
             <a href="<?=base_url()?>users" class="btn btn-danger btn-icon-split" style=" margin-top:3%; margin-bottom: 5%">

@@ -24,6 +24,10 @@ $user_editedValues = array(
 
 update_from($user_editedValues, $url_id, $table_name, $column);
 
-$_SESSION['firstnamexx']=$this->session->userdata("firstname");
-$_SESSION['lastnamexx']=$this->session->userdata("lastname");
+if ($url_id==$this->session->userdata('idxx'))
+{
+    $_SESSION['firstnamexx']=$this->session->userdata("firstname");
+    $_SESSION['lastnamexx']=$this->session->userdata("lastname");
+}
+
 // update_from($user_editedValues, $id, $table_name, $column);

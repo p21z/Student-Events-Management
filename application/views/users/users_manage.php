@@ -23,7 +23,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Username</th>
-                                            <th>Password</th>
+                                            
                                             <th>Firstname</th>
                                             <th>Lastname</th>
                                             <th>Email</th>
@@ -41,7 +41,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Username</th>
-                                            <th>Password</th>
+                                            
                                             <th>Firstname</th>
                                             <th>Lastname</th>
                                             <th>Email</th>
@@ -64,7 +64,7 @@
                                             foreach ($user_data as $key => $row) {
                                                 $user_id=$row['user_id'];
                                                 $username=$row['username'];
-                                                $password=$row['password'];
+                                                
                                                 $firstname=$row['firstname'];
                                                 $lastname=$row['lastname'];
                                                 $email=$row['email'];
@@ -90,7 +90,7 @@
                                             <tr>
                                                 <td><?=$user_id?></td>
                                                 <td><?=$username?></td>
-                                                <td><?=$password?></td>
+                                                
                                                 <td><?=$firstname?></td>
                                                 <td><?=$lastname?></td>
                                                 <td><?=$email?></td>

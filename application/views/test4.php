@@ -8,3 +8,6 @@
 
     echo "<br><br>";
     echo $hash_brown_2. " ".$hash_brown;
+?>
+
+<script src="<?=base_url('Template/js/test5.js')?>"></script>

@@ -10,6 +10,7 @@ class Test extends CI_Controller {
 		$this->load->view('test4');
 		$this->load->view('must/footer');
 		
+		
     }
 
 }

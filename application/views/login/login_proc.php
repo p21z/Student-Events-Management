@@ -34,7 +34,7 @@ echo $count_user_data;
             header("Location:".base_url()."login");
         } else
         {
-            if ($password1==$password)
+            if ($password1==_hash_string($password))
             {
 
                 $_SESSION['idxx'] = $idxx;

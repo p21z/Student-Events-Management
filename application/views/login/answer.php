@@ -40,13 +40,13 @@ echo "<!DOCTYPE html>
 </head>";
 
 echo "<div class='container-fluid' align=center style='height: 100%; padding:180px;'>";
-echo "<div class='card shadow-lg' style='width: 45rem; margin: 3% 0% 3% 0%;'>";
-echo "<div class='card-body'>";
-echo "<h3 class='card-title' style='color: #000;'>";
-echo "<br>Answer the question to prove you're a human.<br><br>";
-echo "<h2 style=color:blue;>";
-echo $var1." ". $opera." ". $var2. " =";
-echo "</h2>";
+    echo "<div class='card shadow-lg' style='width: 45rem; margin: 3% 0% 3% 0%;'>";
+        echo "<div class='card-body'>";
+            echo "<h3 class='card-title' style='color: #000;'>";
+            echo "<br>Answer the question to prove you're a human.<br><br>";
+            echo "<h2 style=color:blue;>";
+                echo $var1." ". $opera." ". $var2. " =";
+            echo "</h2>";
 
 ?>
 <br>
@@ -54,12 +54,14 @@ echo "</h2>";
 
     <form method=post action="<?=base_url()?>login/human_or_not" class="form-group w-25">
 
-    <div class="input-group">    
-    <input type=number name=answer class="form-control" autocomplete="off" maxlength="4" style="margin-left:8px;" required>
+<div class="input-group">    
+    <input type=number name=answer class="form-control" autocomplete="off" maxlength="4" style="margin-left:0px;" required>
+
 
     <div class="input-group-append">
-    <button type=submit class="btn btn-success" style="margin-left:25px;"> Submit </button>
+        <button type=submit class="btn btn-success" style="margin-left:25px;"> Submit </button>
     </div>
+
 </div>
 
     <input type=text name=var1 value=<?=$var1?> hidden>

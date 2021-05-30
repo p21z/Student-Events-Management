@@ -5,6 +5,10 @@ class Users extends CI_Controller {
 
 	function index()
 	{
+        if ($this->session->userdata('access')!== "Dean")
+        {
+            redirect('/home');
+        }
         $this->users_session_unset();
 		$this->load->view('must/perfect_function');
         $this->load->view('must/header');
