@@ -164,9 +164,53 @@
                 }   else
                 {
                 ?>
-                        <div class="mt-4 mb-4" style="width: 200px;">
+
+                <!-- REDISGN TO TABLE -->
+                <div class="card mt-4 mb-4 w-100">
+                    <div class="card-body">
+                        
+                        <a href="<?=base_url()?>events/add_common_function_room/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-user-plus"></i>
+                            </span>
+                            <span class="text">
+                                ADD FORM
+                            </span>
+                        </a>
+
+                        <hr>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Facility</th>
+                                        <th>No. of Users</th>
+                                        <th>Person Responsible</th>
+                                        <th>Purpose</th>
+                                        <th>Date & Time</th>
+                                        <th>Specs</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Facility</th>
+                                        <th>No. of Users</th>
+                                        <th>Person Responsible</th>
+                                        <th>Purpose</th>
+                                        <th>Date & Time</th>
+                                        <th>Specs</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                
+                
+                
+                        <!-- <div class="mt-4 mb-4" style="width: 200px;">
                             <a href="<?=base_url()?>events/add_common_function_room/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
-                        </div>
+                        </div> -->
                 <?php
                         $table_name="tbl_rsrv_cfr";
                         $column="event_id";
@@ -190,110 +234,51 @@
                             $end_time=$row['end_time'];
 
                 ?>
+                                    <tr>
+                                        <td><?=$func_room?></td>
+                                        <td><?=$num_users?></td>
+                                        <td><?=$person_respo?></td>
+                                        <td><?=$purpose?></td>
+                                        <td>
+                                            <?php
+                                            if ($start_date===$end_date)
+                                            {
+                                                echo $start_date."(".date('h:i:s a', strtotime($start_time))."-".date('h:i:s a', strtotime($end_time)).")";
+                                            } else
+                                            {
+                                                echo $start_date."-".$end_date."(".date('h:i:s a', strtotime($start_time))."-".date('h:i:s a', strtotime($end_time)).")";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td><?=$specs?></td>
+                                        <td>
+                                        <?php
+                                        if ($statusxxx==="Pending")
+                                        {
+                                        ?>
+                                            <a href="<?=base_url()?>events/edit_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-warning btn-circle btn-sm">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                            &nbsp;
+                                            <a href="<?=base_url()?>events/delete_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-danger btn-circle btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        <?php
+                                        }
+                                        ?>
+                                        </td>
 
-                    <div class="card text-center mt-4 mb-4 w-75">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-11">&nbsp;
-                                </div>
-                                <div class="col-1">
+                                    </tr>
                                     <?php
-                                    if ($statusxxx==="Pending")
-                                    {
+                                        }
                                     ?>
-                                        <a href="<?=base_url()?>events/edit_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-                                        <a href="<?=base_url()?>events/delete_common_function_room/<?=$org_id?>/<?=$event_id?>/<?=$rsrv_cfr_id?>" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="row card-body rsrv_cfr_card">
 
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Facility/Function Room</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$func_room?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-6">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Unit/Department</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="SITE" readonly>
-                            </div>
-                            
-                            <div class="input-group mb-3 col-6">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">No. of Users</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$num_users?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Person Responsible</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$person_respo?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Purpose</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$purpose?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Source of Fund</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$fund_source?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Amount</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$amount?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Date/Time Needed</span>
-                                </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="
-                                <?php 
-                                if ($start_date===$end_date)
-                                {
-                                    echo $start_date."(".date('h:i:s a', strtotime($start_time))."-".date('h:i:s a', strtotime($end_time)).")";
-                                } else
-                                {
-                                    echo $start_date."-".$end_date."(".date('h:i:s a m/d/Y', strtotime($start_time))."-".date('h:i:s a', strtotime($end_time)).")";
-                                }
-                                ?>" readonly>
-                            </div>
-
-                            <div class="input-group mb-3 col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Specifications</span>
-                                </div>
-                                <textarea class="form-control" aria-label="Specifications" readonly><?=$specs?></textarea>
-                            </div>
-                            
-                        </div>
                     </div>
-                    <hr>
-                    <?php
-                        }
-                    ?>
+                </div>
+                <!-- REDESIGN TO TABLE END -->
                 <?php
                 }
                 ?> 
@@ -752,7 +737,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon3">Program Budget</span>
                                 </div>
-                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<?=$program_budget?>" readonly>
+                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="Student Activity Fund" readonly>
                             </div>
 
                         </div>
@@ -1157,7 +1142,7 @@
     if($statusxxx==="Archived")
     {
     ?>
-        <a href="<?=base_url()?>evaluation/<?=$event_id?>" class="card-link">Evaluation</a>
+        <a href="<?=base_url()?>evaluation/add_evaluation/<?=$event_id?>/<?=$this->session->userdata('idxx')?>" class="card-link">Evaluation</a>
         <a href="<?=base_url()?>responses/<?=$event_id?>" class="card-link">Responses</a>
     <?php
     }

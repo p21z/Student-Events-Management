@@ -20,9 +20,9 @@
 
             <input type="number" name="num_users" class="form-control form-control-user add-input" autocomplete=off placeholder="No. of Users" value="<?=$this->session->userdata("num_users")?>" required>
 
-            <input type="text" name="purpose" class="form-control form-control-user add-input" autocomplete=off placeholder="Purpose of usage" value="<?=$this->session->userdata("purpose")?>" required>
+            <textarea name="purpose" class="form-control form-control-user add-input" placeholder="Purpose of usage" id="floatingTextarea2" style="height: 100px"><?=$this->session->userdata("purpose")?></textarea>
 
-            <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" value="<?=$this->session->userdata("fund_source")?>" required>
+            <!-- <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" value="<?=$this->session->userdata("fund_source")?>" required> -->
 
             <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Amount" value="<?=$this->session->userdata("num_users")?>" required>
 
@@ -43,9 +43,9 @@
 
                 <input type="number" name="num_users" class="form-control form-control-user add-input" autocomplete=off placeholder="No. of Users" required>
 
-                <input type="text" name="purpose" class="form-control form-control-user add-input" autocomplete=off placeholder="Purpose of usage" required>
+                <textarea name="purpose" class="form-control form-control-user add-input" placeholder="Purpose of usage" id="floatingTextarea2" style="height: 100px"></textarea>
 
-                <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" required>
+                <!-- <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" required> -->
 
                 <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Amount" required>
 

@@ -42,7 +42,13 @@ foreach ($events_data as $key => $row)
 
             <input type="text" name="organizer" class="form-control form-control-user add-input" autocomplete=off placeholder="Organizer" value="<?=$organizer?>" required>
 
-            <input type="text" name="nature" class="form-control form-control-user add-input" autocomplete=off placeholder="Nature" value="<?=$nature?>" required>
+            <select type="text" name="nature" class="form-control form-control-user add-input" autocomplete=off required>
+                <option value="">Nature</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Training">Training</option>
+                <option value="Competition">Competition</option>
+            </select>
 
             <input type="text" name="datexx" class="form-control form-control-user add-input" autocomplete=off placeholder="Date" value="<?=$datexx?>" required
             onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>
@@ -56,7 +62,7 @@ foreach ($events_data as $key => $row)
 
             <input type="number" name="num_participants" class="form-control form-control-user add-input" autocomplete=off placeholder="No. of Participants" value="<?=$num_participants?>" required>
 
-            <input type="number" name="program_budget" class="form-control form-control-user add-input" autocomplete=off placeholder="Program Budget" value="<?=$program_budget?>">
+            <!-- <input type="number" name="program_budget" class="form-control form-control-user add-input" autocomplete=off placeholder="Program Budget" value="<?=$program_budget?>"> -->
 
             <textarea name="objective_1" class="form-control form-control-user add-input" placeholder="Objective 1" id="floatingTextarea2" style="height: 100px"><?=$objective_1?></textarea>
 

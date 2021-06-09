@@ -37,6 +37,8 @@ function get_header_special($table_name)
 	$result = $conn->query($sql);
 	return $result;
 }
+
+date_default_timezone_set('Asia/Singapore');
 ?>
 <!DOCTYPE html>
 <html lang="en">

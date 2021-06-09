@@ -11,7 +11,7 @@ foreach ($get_orgData as $key => $row) {
     $org_name=$row['org_name'];
     $org_category=$row['org_category'];
 }
-echo $org_name;
+
 
 $table_name = "tbl_users";
 $column = "user_id";
@@ -56,6 +56,8 @@ $get_userData = get_where_custom($table_name, $column, $value);
                     <input type="text" name="user_id" value="<?=$this->session->userdata("user_id")?>" hidden>
                     <input type="text" name="org_id" value="<?=$this->session->userdata("org_id")?>" hidden>
 
+                    
+
                     <input type="text" name="firstname" class="form-control form-control-user add-input" autocomplete=off value="<?=$org_name?>" required readonly>
 
                     <input type="text" name="lastname" class="form-control form-control-user add-input" autocomplete=off value="<?=$firstname?> <?=$lastname?>" required readonly>
@@ -64,9 +66,27 @@ $get_userData = get_where_custom($table_name, $column, $value);
                     <?php
                         if ($org_category=="Paulinian Student Government")
                         {
+
+                        $value1=$this->session->userdata("org_id");
+                        $count_governor=count_where_double_and('tbl_officers', 'org_id', $value1 , 'off_type', 'Governor');
+
+                        if (!($count_governor>0))
+                        {
                     ?>
                             <option value="Governor">Governor</option>
+                    <?php
+                        }
+
+                        $value1=$this->session->userdata("org_id");
+                        $count_vice_governor=count_where_double_and('tbl_officers', 'org_id', $value1 , 'off_type', 'Vice-Governor');
+
+                        if (!($count_vice_governor>0))
+                        {
+                    ?>
                             <option value="Vice-Governor">Vice-Governor</option>
+                    <?php
+                        }
+                    ?>
 
                             <option value="Secretary">Secretary</option>
                             <option value="Treasurer">Treasurer</option>

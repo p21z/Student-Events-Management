@@ -97,10 +97,45 @@
                                                 <td><?=$contact_no?></td>
                                                 <td><?=$gender?></td>
                                                 <td><?=$user_type?></td>
-                                                <td><?=$time_stamp?></td>
-                                                <td><?=$year_level?></td>
-                                                <td><?=$programx?></td>
-                                                <!-- <td><?=$archive?></td> -->
+                                                <td>
+                                                    <?php
+                                                    
+                                                    if($time_stamp==="")
+                                                    {
+                                                        echo "N/A";
+                                                    } else
+                                                    {
+                                                        echo $time_stamp;
+                                                    }
+
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    
+                                                    if($year_level==="")
+                                                    {
+                                                        echo "N/A";
+                                                    } else
+                                                    {
+                                                        echo $year_level;
+                                                    }
+
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    
+                                                    if($programx==="")
+                                                    {
+                                                        echo "N/A";
+                                                    } else
+                                                    {
+                                                        echo $programx;
+                                                    }
+
+                                                    ?>
+                                                </td>   
                                                 <td>
                                                     <?php
                                                         if ($statusxx==="0")
