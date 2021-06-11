@@ -119,4 +119,21 @@ class Profile extends CI_Controller {
 		// redirect('/home');
     }
 
+    function change_picture()
+    {
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('profile/change_picture');
+		$this->load->view('must/footer');
+    }
+
+    function change_profile_proc()
+    {
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('profile/change_profile_proc');
+		$this->load->view('must/footer');
+        redirect('/profile');
+    }
+
 }

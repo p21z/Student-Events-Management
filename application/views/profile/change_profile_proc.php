@@ -46,6 +46,7 @@
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo $error_msg1;
+            $_SESSION['error_msg1']=$error_msg1;
             // $_SESSION['pic_errormsg'] = $error_msg1. "Your file was not uploaded.";
             // header("Location: article_create.php");
         // if everything is ok, try to upload file
@@ -69,8 +70,9 @@
                     );
 
                     update_from($dp_data, $value, $table_name, $column);
+            
+            $_SESSION['error_msg1']="Your image was successfully changed!";
             ?>
-            Your article was successfully added!
             <!--  -->
                 
             </div>

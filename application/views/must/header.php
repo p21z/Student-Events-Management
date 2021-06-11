@@ -454,8 +454,21 @@ date_default_timezone_set('Asia/Singapore');
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$this->session->userdata('firstnamexx')." ".$this->session->userdata('lastnamexx')?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="https://via.placeholder.com/250">
+                                
+                                <?php
+                                    $table_name="tbl_users";
+                                    $column="user_id";
+                                    $value=$this->session->userdata('idxx');
+
+                                    $dp_data=get_where_custom_header_special($table_name, $column, $value);
+
+                                    foreach ($dp_data as $key => $row) {
+                                        $image=$row['image'];
+                                    }
+                                ?>
+
+                                <img class="img-profile rounded-circle object-fit-dp"
+                                    src="<?=base_url()?>assets/img/<?=$image?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
