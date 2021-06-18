@@ -1,41 +1,54 @@
 <div class="card col-8">
     <!-- <img src="https://via.placeholder.com/720x540"> -->
   <div class="card-body">
-    <img class="col-3" src="https://via.placeholder.com/700x700">
+    <?php
+
+    $table_name="tbl_users";
+    $column="user_id";
+    $value= $this->uri->segment(3);
+
+    $user_data=get_where_custom($table_name, $column, $value);
+
+    foreach ($user_data as $key => $row) {
+        $user_id=$row['user_id'];
+        $username=$row['username'];
+        $firstname=$row['firstname'];
+        $lastname=$row['lastname'];
+        $email=$row['email'];
+        $contact_no=$row['contact_no'];
+        $year_level=$row['year_level'];
+        $program=$row['program'];
+        $section=$row['section'];
+        if ($section!=="")
+        {
+            $programx=$program."-".$section;
+        } else
+        {
+            $programx=$program;
+        }
+
+        $url_data = array(
+            'program' => $program
+        );
+        $this->session->set_userdata($url_data);
+        $image=$row['image'];
+
+    if ($image==="")
+    {
+    ?>
+    <img class="col-3" style="width: 300px; backgroun-color: red" src="<?=base_url()?>assets/img/default_2.jpg">
+    <?php
+    } else
+    {
+    ?>
+    <img class="col-3 object-fit-details" src="<?=base_url()?>assets/img/<?=$image?>">
+    <?php
+    }
+    ?>
         
     <div class="col-9"style="float: right;">
     
-    <?php
-
-        $table_name="tbl_users";
-        $column="user_id";
-        $value= $this->uri->segment(3);
-
-        $user_data=get_where_custom($table_name, $column, $value);
-
-        foreach ($user_data as $key => $row) {
-            $user_id=$row['user_id'];
-            $username=$row['username'];
-            $firstname=$row['firstname'];
-            $lastname=$row['lastname'];
-            $email=$row['email'];
-            $contact_no=$row['contact_no'];
-            $year_level=$row['year_level'];
-            $program=$row['program'];
-            $section=$row['section'];
-            if ($section!=="")
-            {
-                $programx=$program."-".$section;
-            } else
-            {
-                $programx=$program;
-            }
-
-            $url_data = array(
-                'program' => $program
-            );
-            $this->session->set_userdata($url_data);
-    ?>
+    
     <table class="col-12" border=0>
         <tr>
             <th colspan=3><h1><?=$firstname?> <?=$lastname?></h1></th>

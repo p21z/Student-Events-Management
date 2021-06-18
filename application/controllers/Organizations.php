@@ -215,5 +215,55 @@ class Organizations extends CI_Controller {
 		redirect('/organizations');
     }
 
+    // PLAYING IN
+    function organization_change_picture()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('orgs/change_picture', $url_info);
+		$this->load->view('must/footer');
+    }
+
+    
+    function change_organization_image()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('orgs/change_organization_image', $url_info);
+		$this->load->view('must/footer');
+    }
+
+    function change_profile_proc_1()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('orgs/change_profile_proc_1', $url_info);
+		$this->load->view('must/footer');
+        // redirect('/profile') ;   
+    }
+
+    function change_organization_cover()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('orgs/change_organization_cover', $url_info);
+		$this->load->view('must/footer');
+    }
+
+    function change_profile_proc_2()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('orgs/change_profile_proc_2', $url_info);
+		$this->load->view('must/footer');
+        // redirect('/profile') ;   
+    }
+    // END
+
 
 }

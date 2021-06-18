@@ -1177,7 +1177,7 @@ class Events extends CI_Controller {
     
     
 //EVENTS_VIEW
-function all_events_view()
+    function all_events_view()
     {
         $this->load->view('must/perfect_function');
         $this->events_session_unset();
@@ -1216,7 +1216,28 @@ function all_events_view()
         $this->load->view('must/footer');
         
     }
-    
+
+// CHANGE PICTURE
+
+function change_picture()
+{
+    $url_info['url_id'] = $this->uri->segment(3);
+    $this->load->view('must/perfect_function');
+    $this->load->view('must/header');
+    $this->load->view('events/change_picture', $url_info);
+    $this->load->view('must/footer');
+}
+
+function change_profile_proc()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('events/change_profile_proc', $url_info);
+		$this->load->view('must/footer');
+        // redirect('/profile') ;   
+    }
+
 
 
 }

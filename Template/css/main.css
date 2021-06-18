@@ -3,7 +3,7 @@
 }
 
 .add-input{
-    width:40%; margin-left:3%; margin-top:3%;
+    width:40%; margin-left:1%; margin-top:3%;
 }
 
 .full-div{
@@ -19,6 +19,21 @@
     left: 10px;
     top: -180px;
     border-radius: 50%;
+
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.logo-pic{
+    position: absolute;
+    left: 10px;
+    top: -250px;
+    border-radius: 50%;
+
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .org-desc-head{
@@ -32,3 +47,32 @@
     object-fit: cover;
 }
 
+.object-fit-dp-manage{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.object-fit-details{
+    width: 300px;
+    height: 265px;
+    object-fit: cover;
+}
+
+.object-fit-cover-1{
+    width: 1324px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.object-fit-cover-head{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.object-fit-event{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}

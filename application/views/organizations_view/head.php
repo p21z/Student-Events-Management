@@ -1,27 +1,57 @@
 
+<?php
+    $table_name="tbl_orgs";
+    $column="org_id";
+
+
+    $user_data=get_where_custom($table_name, $column, $url_id);
+
+    foreach ($user_data as $key => $row) {
+        $org_id=$row['org_id'];
+        $org_name=$row['org_name'];
+        $org_description=$row['org_description'];
+        $org_image=$row['org_image'];
+        $cover_image=$row['cover_image'];
+
+    }
+?>
+
 <div class="card"  style="min-height: 960px;">
-    <img src="https://via.placeholder.com/1080x250" class="card-img-top " alt="...">
+    <!-- <img src="https://via.placeholder.com/1080x250" class="card-img-top " alt="..."> -->
+    <?php
+        if ($cover_image==="")
+        {
+        ?>
+            <img src="<?=base_url()?>assets/img/cover_img.png" class="card-img-top object-fit-cover-head" alt="...">
+    <?php
+        } else
+        {
+    ?>
+            <img src="<?=base_url()?>assets/img/<?=$cover_image?>" class="card-img-top object-fit-cover-head" alt="...">
+    <?php
+        }
+    ?>
     <div class="card-body">
 
         <div class="row">
             <div class="col-2">
-                <img src="https://via.placeholder.com/250x250/ff0000/000000" class="card-img-top dp-pic" alt="...">
+                <!-- <img src="https://via.placeholder.com/250x250/ff0000/000000" class="card-img-top dp-pic" alt="..."> -->
+                <?php
+                if ($org_image==="")
+                {
+                ?>
+                    <img src="<?=base_url()?>assets/img/org_img.png" class="card-img-top dp-pic" alt="...">
+                <?php
+                } else
+                {
+                ?>
+                    <img src="<?=base_url()?>assets/img/<?=$org_image?>" class="card-img-top dp-pic" alt="...">
+                <?php
+                }
+                ?>
             </div>
             <div class="col-8 ml-4">
-            <?php
-                $table_name="tbl_orgs";
-                $column="org_id";
-                
-
-                $user_data=get_where_custom($table_name, $column, $url_id);
-
-                foreach ($user_data as $key => $row) {
-                    $org_id=$row['org_id'];
-                    $org_name=$row['org_name'];
-                    $org_description=$row['org_description'];
-
-                }
-            ?>
+            
                 <h2 class="card-title"><?=$org_name?></h2>
                 <p class="card-text org-desc-head">
                     <?=$org_description?>

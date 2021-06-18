@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2021 at 05:15 PM
+-- Generation Time: Jun 18, 2021 at 08:48 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -81,7 +81,18 @@ INSERT INTO `tbl_attendee` (`attendance_id`, `event_id`, `user_id`, `username`, 
 (6400, 16, 24, 'user10', 'Amara', 'Kent', 'kent_amara@hexa.on', '09765769035', 'Student', '4', 'BSEnSE', 'A', 'Absent'),
 (6401, 16, 28, 'user13', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Student', '3', 'BSCpE', 'A', 'Absent'),
 (6402, 16, 208, 'user14', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Student', '1', 'BSIT', 'A', 'Absent'),
-(6403, 16, 209, 'user_today', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Officer', '2', 'BSCE', 'B', 'Absent');
+(6403, 16, 209, 'user_today', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Officer', '2', 'BSCE', 'B', 'Absent'),
+(6965, 18, 12, 'norma', 'Norma', 'Lin', 'norma13@gma.il', '093457821', 'Student', '3', 'BSIT', 'C', 'Absent'),
+(6966, 18, 13, 'user3', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Officer', '3', 'BSCpE', 'B', 'Absent'),
+(6967, 18, 18, 'user5', 'Francis', 'Tuliao', 'ptuliao@sagi.ru', '0908426542', 'Officer', '2', 'BSCE', 'B', 'Absent'),
+(6968, 18, 19, 'user6', 'Graig ', 'Wairner', 'gwairner@g.co', '0927591400', 'Student', '3', 'BSIT', '', 'Absent'),
+(6969, 18, 20, 'user7', 'Robin', 'Rosario', 'rrosario@syse.io', '09283342', 'Officer', '2', 'BSCpE', 'B', 'Absent'),
+(6970, 18, 21, 'user8', 'Bryce ', 'Mahoney', 'mbryce@osdf.com', '0985649324', 'Officer', '3', 'BSIT', '', 'Absent'),
+(6971, 18, 22, 'user9', 'Ellsworth', 'Howell', 'howellell@gmco.re', '0934256477', 'Student', '1', 'BSEnSE', 'C', 'Absent'),
+(6972, 18, 24, 'user10', 'Amara', 'Kent', 'kent_amara@hexa.on', '09765769035', 'Student', '4', 'BSEnSE', 'A', 'Absent'),
+(6973, 18, 28, 'user13', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Student', '3', 'BSCpE', 'A', 'Absent'),
+(6974, 18, 208, 'user14', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Student', '1', 'BSIT', 'A', 'Absent'),
+(6975, 18, 209, 'user_today', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Officer', '2', 'BSCE', 'B', 'Absent');
 
 -- --------------------------------------------------------
 
@@ -160,6 +171,38 @@ CREATE TABLE `tbl_departments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_evaluation`
+--
+
+CREATE TABLE `tbl_evaluation` (
+  `eval_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(65) NOT NULL,
+  `datexx` varchar(65) NOT NULL,
+  `venue` varchar(65) NOT NULL,
+  `ans1` varchar(11) NOT NULL,
+  `ans2` varchar(11) NOT NULL,
+  `ans3` varchar(11) NOT NULL,
+  `ans4` varchar(11) NOT NULL,
+  `ans5` varchar(11) NOT NULL,
+  `ans6` varchar(11) NOT NULL,
+  `ans7` varchar(11) NOT NULL,
+  `ans8` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_evaluation`
+--
+
+INSERT INTO `tbl_evaluation` (`eval_id`, `event_id`, `user_id`, `title`, `datexx`, `venue`, `ans1`, `ans2`, `ans3`, `ans4`, `ans5`, `ans6`, `ans7`, `ans8`) VALUES
+(1, 0, 0, '', '', '', '0', '3', '0', '3', '3', '1', '3', '2'),
+(2, 17, 1, '', '', '', '3', '2', '2', '1', '1', '1', '0', '0'),
+(3, 18, 1, 'Event 11', '2021-05-30-2021-05-31', 'Grandstand', '2', '3', '1', '1', '1', '2', '2', '3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_events`
 --
 
@@ -180,27 +223,29 @@ CREATE TABLE `tbl_events` (
   `csh_req_id` varchar(65) NOT NULL,
   `cat_req_id` varchar(65) NOT NULL,
   `trip_tkt_id` varchar(65) NOT NULL,
-  `trip_prmt_id` varchar(65) NOT NULL
+  `trip_prmt_id` varchar(65) NOT NULL,
+  `event_image` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_events`
 --
 
-INSERT INTO `tbl_events` (`event_id`, `org_id`, `event_name`, `start_date`, `end_date`, `start_time`, `end_time`, `venue`, `event_description`, `remarks`, `statusxx`, `in_cmp_id`, `rsrv_cfr_id`, `csh_req_id`, `cat_req_id`, `trip_tkt_id`, `trip_prmt_id`) VALUES
-(1, 1, 'Event 1', '2021-05-20', '2021-05-20', '16:49', '16:49', 'MM Hall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Cursus risus at ultrices mi. Eu ultrices vitae auctor eu augue ut. Eu consequat ac felis donec et odio pellentesque diam.', 'Lorem ipsum dolor sit amet', 'Archived', '', '11', '', '', '', ''),
-(7, 2, 'Event 2', '2021-05-07', '2021-05-07', '22:17', '22:17', 'Student Center', 'kinenenene', 'consectetur adipiscing elit', 'Archived', '', '13', '7', '', '', ''),
-(8, 1, 'Event 3', '2021-02-03', '2021-05-09', '19:42', '19:43', 'LR103', 'Scelerisque in dictum non consectetur a erat nam at. Ut lectus arcu bibendum at varius vel pharetra vel. Id volutpat lacus laoreet non curabitur gravida arcu ac. Malesuada fames ac turpis egestas integer eget. Nibh ipsum consequat nisl vel pretium lectus quam.', '', 'Pending', '', '14', '', '', '', ''),
-(10, 1, 'Event 4', '2021-05-20', '2021-05-20', '19:15', '19:15', 'LR106', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel.', '', 'Archived', '', '', '', '', '', ''),
-(11, 1, 'Event 5', '2021-05-20', '2021-05-20', '19:19', '19:19', 'University Gym', 'Duis convallis convallis tellus id interdum velit. Purus faucibus ornare suspendisse sed nisi. Lobortis feugiat vivamus at augue.', '', 'Archived', '', '', '', '', '', ''),
-(12, 1, 'Event 6', '2021-05-20', '2021-05-20', '19:58', '19:58', 'SP Hall', 'Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Sagittis nisl rhoncus mattis rhoncus.', 'sed do eiusmod tempor', 'Archived', '', '', '', '', '', ''),
-(13, 1, 'Event Yesterday', '2021-05-23', '2021-05-23', '20:07', '20:07', 'LRC', 'Tellus id interdum velit laoreet id donec ultrices tincidunt. Libero enim sed faucibus turpis in eu mi.', '', 'Archived', '', '', '', '', '', ''),
-(14, 1, 'Event Today', '2021-05-24', '2021-05-24', '20:07', '20:07', 'Student Center', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '', 'Archived', '', '', '', '', '', ''),
-(15, 1, 'Event Tomorrrow', '2021-05-25', '2021-05-24', '20:08', '20:08', 'University Gym', 'Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Aliquam sem fringilla ut morbi. Libero volutpat sed cras ornare arcu.', '', 'Archived', '', '', '', '', '', ''),
-(16, 2, 'Event 9', '2021-05-27', '2021-05-27', '10:31', '10:31', 'BEU Gym', 'Dapat hindi magauto-absent today, bukas pwede na.', 'incididunt ut labore et', 'Archived', '', '15', '8', '', '', ''),
-(17, 4, 'Event 10', '2021-05-28', '2021-05-28', '12:08', '12:08', 'BEU Gym', 'Aliquam sem fringilla ut morbi. Libero volutpat sed cras ornare arcu. Euismod in pellentesque massa placerat duis ultricies.', '', 'Approved', '', '', '', '', '', ''),
-(18, 1, 'Event 11', '2021-05-30', '2021-05-31', '21:59', '21:59', 'Grandstand', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris in aliquam sem fringilla ut morbi tincidunt. Eu feugiat pretium nibh ipsum consequat nisl vel. Arcu dictum varius duis at consectetur.', 'Molestie ac feugiat sed lectus vestibulum mattis', 'Approved', '', '16', '9', '', '', ''),
-(19, 1, 'Hyperlink', '2021-05-29', '2021-05-29', '13:44', '13:44', 'University Gym', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra vel turpis. ', 'Change venue to Grandstand', 'Pending', '', '18', '10', '', '', '');
+INSERT INTO `tbl_events` (`event_id`, `org_id`, `event_name`, `start_date`, `end_date`, `start_time`, `end_time`, `venue`, `event_description`, `remarks`, `statusxx`, `in_cmp_id`, `rsrv_cfr_id`, `csh_req_id`, `cat_req_id`, `trip_tkt_id`, `trip_prmt_id`, `event_image`) VALUES
+(1, 1, 'Event 1', '2021-05-20', '2021-05-20', '16:49', '16:49', 'MM Hall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Cursus risus at ultrices mi. Eu ultrices vitae auctor eu augue ut. Eu consequat ac felis donec et odio pellentesque diam.', 'Lorem ipsum dolor sit amet', 'Archived', '', '11', '', '', '', '', ''),
+(7, 2, 'Event 2', '2021-05-07', '2021-05-07', '22:17', '22:17', 'Student Center', 'kinenenene', 'consectetur adipiscing elit', 'Archived', '', '13', '7', '', '', '', ''),
+(8, 1, 'Event 3', '2021-02-03', '2021-05-09', '19:42', '19:43', 'LR103', 'Scelerisque in dictum non consectetur a erat nam at. Ut lectus arcu bibendum at varius vel pharetra vel. Id volutpat lacus laoreet non curabitur gravida arcu ac. Malesuada fames ac turpis egestas integer eget. Nibh ipsum consequat nisl vel pretium lectus quam.', '', 'Pending', '', '14', '', '', '', '', ''),
+(10, 1, 'Event 4', '2021-05-20', '2021-05-20', '19:15', '19:15', 'LR106', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel.', '', 'Archived', '', '', '', '', '', '', ''),
+(11, 1, 'Event 5', '2021-05-20', '2021-05-20', '19:19', '19:19', 'University Gym', 'Duis convallis convallis tellus id interdum velit. Purus faucibus ornare suspendisse sed nisi. Lobortis feugiat vivamus at augue.', '', 'Archived', '', '', '', '', '', '', ''),
+(12, 1, 'Event 6', '2021-05-20', '2021-05-20', '19:58', '19:58', 'SP Hall', 'Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Sagittis nisl rhoncus mattis rhoncus.', 'sed do eiusmod tempor', 'Archived', '', '', '', '', '', '', ''),
+(13, 1, 'Event Yesterday', '2021-05-23', '2021-05-23', '20:07', '20:07', 'LRC', 'Tellus id interdum velit laoreet id donec ultrices tincidunt. Libero enim sed faucibus turpis in eu mi.', '', 'Archived', '', '', '', '', '', '', ''),
+(14, 1, 'Event Today', '2021-05-24', '2021-05-24', '20:07', '20:07', 'Student Center', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '', 'Archived', '', '', '', '', '', '', ''),
+(15, 1, 'Event Tomorrrow', '2021-05-25', '2021-05-24', '20:08', '20:08', 'University Gym', 'Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Aliquam sem fringilla ut morbi. Libero volutpat sed cras ornare arcu.', '', 'Archived', '', '', '', '', '', '', ''),
+(16, 2, 'Event 9', '2021-05-27', '2021-05-27', '10:31', '10:31', 'BEU Gym', 'Dapat hindi magauto-absent today, bukas pwede na.', 'incididunt ut labore et', 'Archived', '', '15', '8', '', '', '', ''),
+(17, 4, 'Event 10', '2021-05-28', '2021-05-28', '12:08', '12:08', 'BEU Gym', 'Aliquam sem fringilla ut morbi. Libero volutpat sed cras ornare arcu. Euismod in pellentesque massa placerat duis ultricies.', '', 'Archived', '', '', '', '', '', '', ''),
+(18, 1, 'Event 11', '2021-05-30', '2021-05-31', '21:59', '21:59', 'Grandstand', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris in aliquam sem fringilla ut morbi tincidunt. Eu feugiat pretium nibh ipsum consequat nisl vel. Arcu dictum varius duis at consectetur.', 'Molestie ac feugiat sed lectus vestibulum mattis', 'Archived', '', '16', '9', '', '', '', ''),
+(19, 1, 'Hyperlink', '2021-05-29', '2021-05-29', '13:44', '13:44', 'University Gym', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra vel turpis. ', 'Change venue to Grandstand', 'Pending', '', '21', '10', '', '', '', ''),
+(20, 1, 'asd', '2021-06-08', '2021-06-08', '21:44', '21:45', 'gyu', 'fghg', '', 'Pending', '', '', '', '', '', '', 'WIN_20200124_09_31_27_Pro.jpg');
 
 -- --------------------------------------------------------
 
@@ -275,10 +320,10 @@ CREATE TABLE `tbl_in_cmp` (
 
 INSERT INTO `tbl_in_cmp` (`in_cmp_id`, `event_id`, `organizer`, `nature`, `objective_1`, `objective_2`, `objective_3`, `datexx`, `timexx`, `speaker`, `venue`, `num_participants`, `program_budget`) VALUES
 (6, 7, '12234ssd', 'sdfgdshfgjhfd', 'sdfgsfg', 'asdfgasd', '', '2021-05-16', '20:23', 'sdfgsd45', 'fghjfdg', 4, 342523),
-(7, 8, 'sdfgsdf', 'sdfgsdf', 'rtyrtt', 'tyhfgh', 'fghf', '2021-05-26', '12:45', 'hjg', 'fghjgh', 45, 4564),
 (8, 16, 'Prim', 'Testing', 'testing nga yawa to', '', '', '2021-05-27', '10:36', '', 'Kwarto ni Prim', 12, 2332),
 (9, 18, 'Juro', 'Meeting', 'Magmeeting nga', 'opsyon', '', '2021-05-27', '22:05', '', 'MM halll', 315, 6900),
-(10, 19, 'Jonas Rivera', 'Seminar/Training/Workshop', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra vel turpis. ', '', '', '2021-05-28', '13:51', 'Vince Calimag', 'MM Hall', 315, 0);
+(11, 8, 'asd', 'Workshop', 'sdf', '', '', '2021-05-31', '23:57', 'sdfsd', 'sdfgd', 3, 3),
+(12, 19, 'asda', 'Seminar', 'dfdfgs', '', '', '2021-06-01', '21:46', 'dfd', 'sdfgdf', 234, 0);
 
 -- --------------------------------------------------------
 
@@ -303,9 +348,10 @@ INSERT INTO `tbl_officers` (`off_id`, `org_id`, `user_id`, `off_type`) VALUES
 (20, 11, 12, 'Chair'),
 (21, 1, 11, 'Adviser'),
 (22, 7, 11, 'Adviser'),
-(23, 1, 13, 'Governor'),
-(24, 1, 18, 'Governor'),
-(25, 1, 26, 'Adviser');
+(25, 1, 26, 'Adviser'),
+(26, 1, 13, 'Treasurer'),
+(28, 1, 18, 'Governor'),
+(29, 1, 20, 'Vice-Governor');
 
 -- --------------------------------------------------------
 
@@ -318,23 +364,25 @@ CREATE TABLE `tbl_orgs` (
   `org_name` varchar(65) NOT NULL,
   `org_category` varchar(65) NOT NULL,
   `org_description` varchar(400) NOT NULL,
-  `org_abbr` varchar(65) NOT NULL
+  `org_abbr` varchar(65) NOT NULL,
+  `org_image` varchar(65) NOT NULL,
+  `cover_image` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_orgs`
 --
 
-INSERT INTO `tbl_orgs` (`org_id`, `org_name`, `org_category`, `org_description`, `org_abbr`) VALUES
-(1, 'Organization 1', 'Paulinian Student Government', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mod', 'SITE'),
-(2, 'Organization 2', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e but Id rather light my spliff life jacket thats the protocol', 'SBAHM'),
-(4, 'Organization 3', 'Department-based', 'mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum', ''),
-(5, 'Organization 4', 'Program-based', 'orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at', ''),
-(7, 'Organization 5', 'Department-based', 'sed risus pretium quam vulputate dignissim suspendisse in est ante in nibh mauris cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet', ''),
-(11, 'Organization 6', 'Program-based', 'purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus', ''),
-(50, 'Organization 7', 'Department-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan lacus vel facilisis volutpat est velit egestas. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus.', ''),
-(51, 'Organization 8', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempor mi. Praesent blandit, lectus id maximus commodo, enim dolor euismod nisi, consequat interdum arcu odio a leo.', ''),
-(55, 'Organization 9', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra vel turpis. ', '');
+INSERT INTO `tbl_orgs` (`org_id`, `org_name`, `org_category`, `org_description`, `org_abbr`, `org_image`, `cover_image`) VALUES
+(1, 'Organization 1', 'Paulinian Student Government', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mod', 'SITE', 'WIN_20210112_09_58_40_Pro.jpg', 'habadu vince.jpg'),
+(2, 'Organization 2', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e but Id rather light my spliff life jacket thats the protocol', 'SBAHM', '', 'WIN_20210107_22_55_36_Pro.jpg'),
+(4, 'Organization 3', 'Department-based', 'mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum', '', 'WIN_20201209_16_45_16_Pro.jpg', ''),
+(5, 'Organization 4', 'Program-based', 'orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at', '', '', ''),
+(7, 'Organization 5', 'Department-based', 'sed risus pretium quam vulputate dignissim suspendisse in est ante in nibh mauris cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet', '', '', ''),
+(11, 'Organization 6', 'Program-based', 'purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus', '', '', ''),
+(50, 'Organization 7', 'Department-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan lacus vel facilisis volutpat est velit egestas. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus.', '', '', ''),
+(51, 'Organization 8', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempor mi. Praesent blandit, lectus id maximus commodo, enim dolor euismod nisi, consequat interdum arcu odio a leo.', '', '', ''),
+(55, 'Organization 9', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra vel turpis. ', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -389,10 +437,12 @@ CREATE TABLE `tbl_rsrv_cfr` (
 INSERT INTO `tbl_rsrv_cfr` (`rsrv_cfr_id`, `event_id`, `func_room`, `num_users`, `person_respo`, `purpose`, `fund_source`, `amount`, `specs`, `dean_check`, `start_date`, `end_date`, `start_time`, `end_time`) VALUES
 (11, 1, 'LRC', '350', '324w', 'Lolo mo lorem', 'UJsda', 1234, 'JKoisdhiguo', '', '2021-05-12', '2021-05-12', '18:55', '18:55'),
 (13, 7, 'qwerwqioio', '456', 'fghdf', '234r', '345', 34534, 'sdfghs', '', '2021-05-13', '2021-05-13', '23:51', '23:51'),
-(14, 8, 'asdasd', '4554', '34534', '345fg', '342', 2, 'yesgrg', '', '2021-05-20', '2021-05-20', '19:49', '19:49'),
+(14, 8, 'asdasd', '4554', '34534', 'Objective', '342', 2, 'yesgrg', '', '2021-05-31', '2021-05-31', '22:52', '22:52'),
 (15, 16, 'Mema lang sa docs', '12', 'Prim', 'Wala lang', 'Ewan ko ba', 2300, 'Basta may electric fan', '', '2021-05-27', '2021-05-27', '10:33', '10:33'),
 (16, 18, 'MM Hall', '315', 'Juro', 'Meeting', 'Clarete', 315, 'Chairs, tables, mics, speakers', '', '2021-05-27', '2021-05-27', '22:02', '22:02'),
-(18, 19, 'Hyperlink', '315', 'ASd', 'asdasd asdasd', 'erase this', 2, 'asdasd asdasd', '', '2021-05-28', '2021-05-28', '20:07', '20:07');
+(18, 19, 'Hyperlink', '315', 'ASd', 'asdasd asdasd', 'erase this', 2, 'asdasd asdasd', '', '2021-05-28', '2021-05-28', '20:07', '20:07'),
+(19, 19, 'asdfd', '231', '123', '123421', '', 200, '123', '', '2021-06-01', '2021-06-01', '21:43', '21:43'),
+(21, 19, 'sdf', '123', 'dfgsd', 'sdfgsdfg', '', 3432, 'sdfg', '', '2021-06-02', '2021-06-04', '02:32', '14:34');
 
 -- --------------------------------------------------------
 
@@ -476,7 +526,8 @@ INSERT INTO `tbl_trp_tckt` (`trp_tckt_id`, `event_id`, `request_unit`, `person`,
 (58, 7, 'SITE', 'Jebel', 'Miguel', 'Gran', 'Disney+', '2021-05-19', '14:17', '14:17'),
 (60, 16, 'SITE', 'prim', 'manong haime', 'bmw sedan', 'testing', '2021-05-27', '11:44', '11:44'),
 (61, 18, 'SITE', 'Juro', 'Manong Haime', 'innova na tinted', 'Stroll w manong high me', '2021-05-27', '22:08', '22:08'),
-(62, 19, 'SITE', 'Vince', 'Manong Haime', 'Sulat yung available na rides with plate no', 'Tree Planting', '2021-05-28', '13:55', '13:55');
+(62, 19, 'SITE', 'Vince', 'Manong Haime', 'Sulat yung available na rides with plate no', 'Tree Planting', '2021-05-28', '13:55', '13:55'),
+(63, 19, 'SITE', 'asdf', 'asdf', 'L300 ABC-123', 'aesf', '2021-06-02', '22:17', '22:17');
 
 -- --------------------------------------------------------
 
@@ -501,18 +552,18 @@ CREATE TABLE `tbl_users` (
   `archive` int(11) NOT NULL,
   `statusxx` int(11) NOT NULL,
   `counterxx` int(11) NOT NULL,
-  `matcher` varchar(65) NOT NULL
+  `image` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_users`
 --
 
-INSERT INTO `tbl_users` (`user_id`, `username`, `password`, `firstname`, `lastname`, `email`, `contact_no`, `gender`, `user_type`, `time_stamp`, `year_level`, `program`, `section`, `archive`, `statusxx`, `counterxx`, `matcher`) VALUES
-(1, 'user1', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Chrystal', 'Reeves', 'chrystalR@gmail.co', '0932457953', 'Female', 'Dean', '', '', '', '', 0, 0, 0, ''),
-(11, 'user2', 'pass', 'Anastasia ', 'Moss', 'anasmoss@flag.io', '935236545', 'Female', 'Adviser', '2021-04-16', '', '', '', 0, 0, 0, ''),
-(12, 'norma', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Norma', 'Lin', 'norma13@gma.il', '093457821', 'Female', 'Student', '2021-04-18', '3', 'BSIT', 'C', 0, 0, 0, ''),
-(13, 'user3', 'pass', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Male', 'Officer', '2021-04-18', '3', 'BSCpE', 'B', 0, 0, 0, ''),
+INSERT INTO `tbl_users` (`user_id`, `username`, `password`, `firstname`, `lastname`, `email`, `contact_no`, `gender`, `user_type`, `time_stamp`, `year_level`, `program`, `section`, `archive`, `statusxx`, `counterxx`, `image`) VALUES
+(1, 'user1', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Chrystal', 'Reeves', 'chrystalR@gmail.co', '0932457953', 'Female', 'Dean', '', '', '', '', 0, 0, 0, '230913a86ddd5b60a5a08ee49ebb11fe.png'),
+(11, 'user2', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Anastasia ', 'Moss', 'anasmoss@flag.io', '935236545', 'Female', 'Adviser', '2021-04-16', '', '', '', 0, 0, 1, 'WIN_20200120_10_19_26_Pro.jpg'),
+(12, 'norma', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Norma', 'Lin', 'norma13@gma.il', '093457821', 'Female', 'Student', '2021-04-18', '3', 'BSIT', 'C', 0, 0, 0, 'WIN_20210309_08_51_01_Pro.jpg'),
+(13, 'user3', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Male', 'Officer', '2021-04-18', '3', 'BSCpE', 'B', 0, 0, 0, 'WIN_20190902_11_46_25_Pro.jpg'),
 (14, 'user4', 'pass', 'Jack', 'Synderen', 'synderen@twit.ch', '0923565342', 'Male', 'Adviser', '2021-04-18', '', '', '', 0, 0, 0, ''),
 (18, 'user5', 'pass', 'Francis', 'Tuliao', 'ptuliao@sagi.ru', '0908426542', 'Male', 'Officer', '2021-04-18', '2', 'BSCE', 'B', 0, 0, 0, ''),
 (19, 'user6', 'pass', 'Graig ', 'Wairner', 'gwairner@g.co', '0927591400', 'Male', 'Student', '2021-04-18', '3', 'BSIT', '', 0, 0, 0, ''),
@@ -525,6 +576,29 @@ INSERT INTO `tbl_users` (`user_id`, `username`, `password`, `firstname`, `lastna
 (28, 'user13', 'pass', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Male', 'Student', '2021-05-26', '3', 'BSCpE', 'A', 0, 0, 0, ''),
 (208, 'user14', 'pass', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Male', 'Student', '2021-05-27', '1', 'BSIT', 'A', 0, 0, 0, ''),
 (209, 'user_today', 'de2a4d5751ab06dc4f987142db57c26d50925c8a', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Female', 'Officer', '2021-05-28', '2', 'BSCE', 'B', 0, 0, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_vehicles`
+--
+
+CREATE TABLE `tbl_vehicles` (
+  `car_id` int(11) NOT NULL,
+  `car_name` varchar(65) NOT NULL,
+  `car_plate` varchar(65) NOT NULL,
+  `avail` varchar(65) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_vehicles`
+--
+
+INSERT INTO `tbl_vehicles` (`car_id`, `car_name`, `car_plate`, `avail`) VALUES
+(1, 'L300', 'ABC-123', '1'),
+(2, 'Super Grandia', 'LMN-690', '1'),
+(3, 'School Bus', 'BLK-069', '1'),
+(4, 'Raptor', 'NXT-240', '1');
 
 --
 -- Indexes for dumped tables
@@ -553,6 +627,12 @@ ALTER TABLE `tbl_csh_req`
 --
 ALTER TABLE `tbl_departments`
   ADD PRIMARY KEY (`dept_id`);
+
+--
+-- Indexes for table `tbl_evaluation`
+--
+ALTER TABLE `tbl_evaluation`
+  ADD PRIMARY KEY (`eval_id`);
 
 --
 -- Indexes for table `tbl_events`
@@ -628,6 +708,12 @@ ALTER TABLE `tbl_users`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `tbl_vehicles`
+--
+ALTER TABLE `tbl_vehicles`
+  ADD PRIMARY KEY (`car_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -635,7 +721,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_attendee`
 --
 ALTER TABLE `tbl_attendee`
-  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6437;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7009;
 
 --
 -- AUTO_INCREMENT for table `tbl_cat_req`
@@ -656,10 +742,16 @@ ALTER TABLE `tbl_departments`
   MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_evaluation`
+--
+ALTER TABLE `tbl_evaluation`
+  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_events`
 --
 ALTER TABLE `tbl_events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_follow`
@@ -677,13 +769,13 @@ ALTER TABLE `tbl_inclusion`
 -- AUTO_INCREMENT for table `tbl_in_cmp`
 --
 ALTER TABLE `tbl_in_cmp`
-  MODIFY `in_cmp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `in_cmp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_officers`
 --
 ALTER TABLE `tbl_officers`
-  MODIFY `off_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `off_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_orgs`
@@ -701,7 +793,7 @@ ALTER TABLE `tbl_programs`
 -- AUTO_INCREMENT for table `tbl_rsrv_cfr`
 --
 ALTER TABLE `tbl_rsrv_cfr`
-  MODIFY `rsrv_cfr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `rsrv_cfr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_stud_list`
@@ -719,13 +811,19 @@ ALTER TABLE `tbl_tra_prmt`
 -- AUTO_INCREMENT for table `tbl_trp_tckt`
 --
 ALTER TABLE `tbl_trp_tckt`
-  MODIFY `trp_tckt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `trp_tckt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+
+--
+-- AUTO_INCREMENT for table `tbl_vehicles`
+--
+ALTER TABLE `tbl_vehicles`
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

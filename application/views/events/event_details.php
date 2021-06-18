@@ -46,11 +46,22 @@
                 $cat_req_id=$row['cat_req_id'];
                 $trip_tkt_id=$row['trip_tkt_id'];
                 $trip_prmt_id=$row['trip_prmt_id'];
+                $event_image=$row['event_image'];
                 
             }
 
+        if ($event_image==="")
+        {
         ?>
-    <img src="https://via.placeholder.com/1080x300" class="card-img-top" alt="...">
+            <img src="<?=base_url()?>assets/img/org_img.png" class="card-img-top object-fit-event" alt="...">
+        <?php
+        } else
+        {
+        ?>
+            <img src="<?=base_url()?>assets/img/<?=$event_image?>" class="card-img-top object-fit-event" alt="...">
+        <?php
+        }
+        ?>
     <div class="card-body">
         <div class="row">
 
@@ -112,6 +123,12 @@
                 if ($statusxxx==="Pending")
                 {
                 ?>
+                    <a href="<?=base_url()?>events/change_picture/<?=$event_id?>" class="btn btn-info btn-circle btn-sm">
+                        <i class="far fa-image"></i>
+                    </a>
+
+                    &nbsp;
+                
                     <a href="<?=base_url()?>events/edit_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-warning btn-circle btn-sm">
                     <i class="far fa-edit"></i>
                 </a>

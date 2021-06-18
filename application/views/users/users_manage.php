@@ -85,10 +85,25 @@
                                                 $archive=$row['archive'];
                                                 $statusxx=$row['statusxx'];
                                                 $counterxx=$row['counterxx'];
+                                                $image=$row['image'];
                                         ?>
 
                                             <tr>
-                                                <td><?=$user_id?></td>
+                                                <td>
+                                                    <?php
+                                                    if ($image==="")
+                                                    {
+                                                        echo '<i class="fas fa-user-circle fa-3x"></i>';
+                                                    } else
+                                                    {
+                                                    ?> 
+                                                    <img class="img-profile rounded-circle object-fit-dp-manage"
+                                                    src="<?=base_url()?>assets/img/<?=$image?>">
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    
+                                                </td>
                                                 <td><?=$username?></td>
                                                 
                                                 <td><?=$firstname?></td>
@@ -156,6 +171,7 @@
                                                     <a href="<?=base_url()?>users/users_delete/<?=$user_id?>" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
+                                                    
                                                 </td>
                                             </tr>
                                             

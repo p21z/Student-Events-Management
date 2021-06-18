@@ -1,10 +1,7 @@
 <div class="card col-8">
     <!-- <img src="https://via.placeholder.com/720x540"> -->
   <div class="card-body">
-    <img class="col-3" src="https://via.placeholder.com/700x700">
-        
-    <div class="col-9"style="float: right;">
-    
+
     <?php
 
         $table_name="tbl_users";
@@ -35,8 +32,25 @@
                 'program' => $program
             );
             $this->session->set_userdata($url_data);
+            $image=$row['image'];
+
+    if ($image==="")
+    {
     ?>
-    <table class="col-12" border=0>
+    <img class="col-3" style="width: 300px; backgroun-color: red" src="<?=base_url()?>assets/img/default_2.jpg">
+    <?php
+    } else
+    {
+    ?>
+    <img class="col-3 object-fit-details" src="<?=base_url()?>assets/img/<?=$image?>">
+    <?php
+    }
+    ?>
+        
+    <div class="col-9"style="float: right;">
+    
+    
+    <table class="col-12 " border=0>
         <tr>
             <th colspan=3><h1><?=$firstname?> <?=$lastname?></h1></th>
         </tr>

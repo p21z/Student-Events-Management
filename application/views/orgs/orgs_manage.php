@@ -32,10 +32,42 @@ Hello<!-- Page Heading -->
                     $org_name=$row['org_name'];
                     $org_category=$row['org_category'];
                     $org_description=$row['org_description'];
+                    $org_image=$row['org_image'];
+                    $cover_image=$row['cover_image'];
                 ?>
 <!--  -->
                     <div class="table-responsive mb-4 col-9">
                         <div class="card">
+                        <?php
+                            if ($cover_image==="")
+                            {
+                            ?>
+                                <img src="<?=base_url()?>assets/img/cover_img.png" class="card-img-top object-fit-cover-1" alt="...">
+                            <?php
+                            } else
+                            {
+                            ?>
+                            <img src="<?=base_url()?>assets/img/<?=$cover_image?>" class="card-img-top object-fit-cover-1" alt="...">
+                            <?php
+                            }
+                            ?>
+                            
+                            <div class="col-2">
+                            <?php
+                            if ($org_image==="")
+                            {
+                            ?>
+                            <img src="<?=base_url()?>assets/img/org_img.png" class="card-img-top logo-pic" alt="...">
+                            <?php
+                            } else
+                            {
+                            ?>
+                            <img src="<?=base_url()?>assets/img/<?=$org_image?>" class="card-img-top logo-pic" alt="...">
+                            <?php
+                            }
+                            ?>
+                                
+                            </div>
                             <div class="card-header py-3 bg-white">
                                 <table class="text-black"" width="100%" cellspacing="0">
                                     <tr>
@@ -43,11 +75,17 @@ Hello<!-- Page Heading -->
                                             <h5 class="m-0 font-weight-bold text-black"><?=$org_name?></h5>
                                         </td>
                                         <td style="float: right">
+                                            <a href="<?=base_url()?>organizations/organization_change_picture/<?=$org_id?>" class="btn btn-info btn-circle btn-sm">
+                                                <i class="far fa-image"></i>
+                                            </a>
+
+                                            &nbsp;
+
                                             <a href="<?=base_url()?>organizations/organizations_edit/<?=$org_id?>" class="btn btn-warning btn-circle btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </a>
 
-                                            &nbsp;&nbsp;&nbsp;
+                                            &nbsp;
 
                                             <a href="<?=base_url()?>organizations/organizations_delete/<?=$org_id?>" class="btn btn-danger btn-circle btn-sm">
                                                 <i class="fas fa-trash"></i>
@@ -58,6 +96,7 @@ Hello<!-- Page Heading -->
                             </div>
                         
                             <div class="card-body bg-light pb-4">
+
                                 <div class="table-responsive">
                                     <table class="text-black"" id="dataTable" width="100%" cellspacing="0">
                                         <tbody>
@@ -114,6 +153,7 @@ Hello<!-- Page Heading -->
                                     </table>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
 <!--  -->
