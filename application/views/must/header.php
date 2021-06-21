@@ -6,7 +6,7 @@
     print_r($_SESSION);
 
 
-    function getConnection_header_special()
+function getConnection_header_special()
 {
 	$servername = "localhost";
 	$username = "root";
@@ -336,7 +336,7 @@ date_default_timezone_set('Asia/Singapore');
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
+                                <span class="badge badge-danger badge-counter">5+</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -344,6 +344,68 @@ date_default_timezone_set('Asia/Singapore');
                                 <h6 class="dropdown-header">
                                     Alerts Center
                                 </h6>
+
+                            <!-- PLAY HERE -->
+
+                            <?php
+
+                            if ($this->session->userdata('access')==="Dean")
+                            {
+                                // SEE ALL NOTIF
+                                $notif_data=get_header_special("tbl_notif");
+
+                                foreach ($notif_data as $key => $row) {
+                                    $notif_id=$row['notif_id'];
+                                    $username=$row['username'];
+                                    $fullname=$row['fullname'];
+                                    $user_type=$row['user_type'];
+                                    $off_type=$row['off_type'];
+                                    $datexx=$row['datexx'];
+                                    $timexx=$row['timexx'];
+                                    $action=$row['action'];
+                                    $org_id=$row['org_id'];
+                                    $event_id=$row['event_id'];
+                                    
+                                    $table_name_2="tbl_events";
+                                    $column="event_id";
+                                    $value=$event_id;
+                                    $get_eventData=get_where_custom_header_special($table_name_2, $column, $value);
+
+                                    foreach ($get_eventData as $key => $row)
+                                    {
+                                        $event_name=$row['event_name'];
+                                    }
+
+                                ?>
+
+                                <a class="dropdown-item d-flex align-items-center" href="<?=base_url().'events/event_details/'.$event_id?>">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500"><?=$datexx?></div>
+                                        <?=$username?>
+                                        <span class="font-weight-bold">
+                                        <br>
+                                        <?=$event_name." ".$action?>
+                                       </span>
+                                    </div>
+                                </a>
+
+                                <?php
+
+                                }
+
+                            } else
+                            {
+                                // SEE NOTIF OF ORGS YOU HAVE POSITION IN`
+                            }
+
+                            ?>
+                                
+                            <!-- END PLAY -->
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
                                         <div class="icon-circle bg-primary">
@@ -465,10 +527,21 @@ date_default_timezone_set('Asia/Singapore');
                                     foreach ($dp_data as $key => $row) {
                                         $image=$row['image'];
                                     }
-                                ?>
 
-                                <img class="img-profile rounded-circle object-fit-dp"
-                                    src="<?=base_url()?>assets/img/<?=$image?>">
+                                    if ($image==="")
+                                    {
+                                    ?>
+                                        <img class="img-profile rounded-circle object-fit-dp"
+                                            src="<?=base_url()?>assets/img/org_img.png">
+                                    <?php
+                                    } else
+                                    {
+                                    ?>
+                                        <img class="img-profile rounded-circle object-fit-dp"
+                                            src="<?=base_url()?>assets/img/<?=$image?>">
+                                    <?php
+                                    }
+                                    ?>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

@@ -8,8 +8,11 @@
                     $count_data=count_where_double_and($table_name, $column1, $value1, $column2, $value2);
                     if ($count_data===1)
                     {
-                        redirect('/evaluation/view_evaluation/'.$url_id."/".$url_id_2);
+                        // redirect('/evaluation/view_evaluation/'.$url_id."/".$url_id_2);
+                        echo $count_data;
                     }
+                    else
+                    {
                     ?>
 
                     <!-- DataTales Example -->
@@ -450,5 +453,8 @@
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
+                    ?>
 
                 

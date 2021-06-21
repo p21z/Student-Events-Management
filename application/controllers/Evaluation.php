@@ -47,7 +47,7 @@ class Evaluation extends CI_Controller {
 
 	function view_evaluation()
 	{
-		
+		$this->eval_session_unset();
 		$this->load->view('must/perfect_function');
 
         $url_info['url_id'] = $this->uri->segment(3);
@@ -78,13 +78,14 @@ class Evaluation extends CI_Controller {
         if ($this->form_validation->run() == TRUE)
         {
 			
-            $this->eval_session();
+			$this->eval_session();
             redirect('/evaluation/add_evaluation_proc');
         }
     }
 
 	function add_evaluation_proc()
 	{
+		
 		print_r($_SESSION);
 		$this->load->view('must/perfect_function');
 		$this->load->view('evaluation/add_evaluation_proc');

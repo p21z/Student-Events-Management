@@ -19,4 +19,6 @@ $eval_data = array(
 );
 
 echo insert($eval_data, $table_name);
+
+redirect('/evaluation/view_evaluation/'.$this->session->userdata("event_id")."/".$this->session->userdata("user_id"));
 ?>

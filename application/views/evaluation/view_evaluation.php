@@ -65,7 +65,7 @@
                                     <tbody>
                                     <!-- 0 -->
                                         
-                                    <form method="post" action="<?=base_url()?>evaluation/add_evaluation">
+                                    <form method="post" action="<?=base_url()?>evaluation/add_evaluation_proc">
                                     <input type="text" name="event_id" class="form-control form-control-user add-input" autocomplete=off value="<?=$url_id?>" required hidden>
                                     <input type="text" name="user_id" class="form-control form-control-user add-input" autocomplete=off value="<?=$this->session->userdata('idxx')?>" required hidden>
                                     <input type="text" name="title" class="form-control form-control-user add-input" autocomplete=off value="<?=$event_name?>" required hidden>

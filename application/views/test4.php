@@ -1,13 +1,33 @@
-<?php
+$table_name="tbl_notif";
 
-    $password="pass";
+                                $notif_data=get($table_name);
 
-    $hash_brown= _hash_string($password);
-    echo $password. " ".$hash_brown;
-    $hash_brown_2= _hash_string($password);
+                                foreach ($notif_data as $key => $row) {
+                                    $notif_id=$row['notif_id'];
+                                    $username=$row['username'];
+                                    $fullname=$row['fullname'];
+                                    $user_type=$row['user_type'];
+                                    $off_type=$row['off_type'];
+                                    $datexx=$row['datexx'];
+                                    $timexx=$row['timexx'];
+                                    $action=$row['action'];
+                                    $org_id=$row['org_id'];
+                                    $event_id=$row['event_id'];
 
-    echo "<br><br>";
-    echo $hash_brown_2. " ".$hash_brown;
-?>
+                                ?>
 
-<script src="<?=base_url('Template/js/test5.js')?>"></script>
+                                <a class="dropdown-item d-flex align-items-center" href="<?=base_url().'events/event_details/'.$event_id?>">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Decemberx 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+
+                                <?php
+
+                                }
