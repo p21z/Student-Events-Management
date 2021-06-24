@@ -135,11 +135,11 @@ date_default_timezone_set('Asia/Singapore');
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Idkwhatocall</span>
+                    <span>Personage</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
+                        <h6 class="collapse-header">Personage Components:</h6>
                         <a class="collapse-item" href="<?=base_url()?>users">Users</a>
                         <a class="collapse-item" href="<?=base_url()?>officers">Officers</a>
                         <a class="collapse-item" href="<?=base_url()?>advisers">Advisers</a>
