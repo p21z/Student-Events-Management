@@ -37,6 +37,8 @@
     {
     ?>
         <a href="<?=base_url()?>events/event_details/<?=$event_id?>" class="card-link">Documents</a>
+        <a href="<?=base_url()?>visitors/all/<?=$event_id?>" class="card-link">Visitors</a>
+        <a href="<?=base_url()?>attendance/all/<?=$event_id?>" class="card-link">Quorum</a>
     <?php
     }
     ?>

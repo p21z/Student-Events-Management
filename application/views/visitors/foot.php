@@ -36,7 +36,10 @@
     if($statusxxx!=="Pending")
     {
     ?>
+        
+        <a href="<?=base_url()?>attendance/all/<?=$event_id?>" class="card-link">Students</a>
         <a href="<?=base_url()?>events/event_details/<?=$event_id?>" class="card-link">Documents</a>
+        <a href="#" class="card-link">Quorum</a>
     <?php
     }
     ?>
