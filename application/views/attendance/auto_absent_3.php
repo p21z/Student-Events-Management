@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Singapore');
     $auto_absent_counter=time();
     // GET EVENTS->END_DATE
     $table_name="tbl_events";

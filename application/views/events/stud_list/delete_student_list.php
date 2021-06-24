@@ -15,7 +15,7 @@
                     <input type="text" name="url_id_3" value="<?=$url_id_3?>" hidden>
                     <input type="submit" value="YES" class="btn btn-success btn-circle btn-md">
                     &nbsp;&nbsp;&nbsp;
-                    <a href="<?=base_url()?>events/event_details/<?=$url_id_2?>" class="btn btn-danger btn-circle btn-md">
+                    <a href="<?=base_url()?>events/student_list_view/<?=$url_id_2?>" class="btn btn-danger btn-circle btn-md">
                         NO
                     </a>
                 </form>

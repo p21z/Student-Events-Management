@@ -43,8 +43,34 @@ foreach ($events_data as $key => $row)
             
             <input type="text" name="driver" class="form-control form-control-user add-input" autocomplete=off placeholder="Driver" value="<?=$driver?>" required>
 
-            <input type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off placeholder="Vehicle" value="<?=$vehicle?>" required>
+            <!-- <input type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off placeholder="Vehicle" value="<?=$vehicle?>" required> -->
+            <select type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off required>
+                <option value="">Vehicle</option>
 
+                <?php
+                $table_name="tbl_vehicles";
+                $column="avail";
+                $value= 1;
+
+                $vehicle_data=get_where_custom($table_name, $column, $value);
+
+                foreach ($vehicle_data as $key => $row) {
+                    $car_id=$row['car_id'];
+                    $car_name=$row['car_name'];
+                    $car_plate=$row['car_plate'];
+                    $avail=$row['avail'];
+                
+                ?>
+
+                <!-- CONTINUE HERE -->
+                <option value="<?=$car_name?> <?=$car_plate?>"><?=$car_name?> <?=$car_plate?></option>
+
+                <?php
+                }
+                ?>
+            </select>
+
+            
             <input type="text" name="activity" class="form-control form-control-user add-input" autocomplete=off placeholder="Activity" value="<?=$activity?>" required>
 
             <input type="text" name="date_use" class="form-control form-control-user add-input" autocomplete=off placeholder="Date of use" value="<?=$date_use?>" required

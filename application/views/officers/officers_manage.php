@@ -43,6 +43,7 @@
                                             $column="user_type";
                                             $value="Officer";
 
+
                                             $user_data=get_where_custom($table_name, $column, $value);
 
                                             foreach ($user_data as $key => $row) {

@@ -38,6 +38,23 @@ function get_header_special($table_name)
 	return $result;
 }
 
+function get_desc_limit_header_special($table_name, $column, $limit)
+{
+	$conn = getConnection_header_special();
+	$sql = "SELECT * FROM $table_name ORDER BY $column DESC LIMIT $limit";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+
+function get_where_desc_limit_header_special($table_name, $column, $value, $column2, $limit)
+{
+	$conn = getConnection_header_special();
+	$sql = "SELECT * FROM $table_name where ".$column."='".$value."'ORDER BY ".$column2." DESC LIMIT ".$limit;
+	$result = $conn->query($sql);
+	return $result;
+}
+
 date_default_timezone_set('Asia/Singapore');
 ?>
 <!DOCTYPE html>
@@ -83,7 +100,7 @@ date_default_timezone_set('Asia/Singapore');
         <ul class="navbar-nav bg-gradient-white sidebar sidebar-light accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="<?=base_url()?>home">
                 <div class="sidebar-brand-icon rotate-n-10">
                 <i class="fas fa-chalkboard-teacher colorize-black"></i>
                 </div>
@@ -336,13 +353,13 @@ date_default_timezone_set('Asia/Singapore');
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">5+</span>
+                                <!-- <span class="badge badge-danger badge-counter">5+</span> -->
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
-                                    Alerts Center
+                                    Notification Center
                                 </h6>
 
                             <!-- PLAY HERE -->
@@ -352,7 +369,13 @@ date_default_timezone_set('Asia/Singapore');
                             if ($this->session->userdata('access')==="Dean")
                             {
                                 // SEE ALL NOTIF
-                                $notif_data=get_header_special("tbl_notif");
+                                $table_name_x="tbl_notif";
+                                // $column="org_id";
+                                // $value="1";
+                                // $limit=3;
+                                // $notif_data=get_header_special($table_name);
+                                // $notif_data=get_desc_hs($table_name_x);
+                                $notif_data=get_desc_limit_header_special("tbl_notif", "notif_id", 3);
 
                                 foreach ($notif_data as $key => $row) {
                                     $notif_id=$row['notif_id'];
@@ -366,6 +389,7 @@ date_default_timezone_set('Asia/Singapore');
                                     $org_id=$row['org_id'];
                                     $event_id=$row['event_id'];
                                     
+                                    $event_name="";
                                     $table_name_2="tbl_events";
                                     $column="event_id";
                                     $value=$event_id;
@@ -373,12 +397,20 @@ date_default_timezone_set('Asia/Singapore');
 
                                     foreach ($get_eventData as $key => $row)
                                     {
-                                        $event_name=$row['event_name'];
+                                       $event_name=$row['event_name'];
                                     }
 
                                 ?>
 
-                                <a class="dropdown-item d-flex align-items-center" href="<?=base_url().'events/event_details/'.$event_id?>">
+                                <a class="dropdown-item d-flex align-items-center" 
+                                    <?php if($event_name!==""){?>
+                                        href="<?=base_url().'events/event_details/'.$event_id?>"
+                                    <?php } else
+                                        { ?>
+                                        href="#"
+                                        <?php } ?>
+                                >
+                                    
                                     <div class="mr-3">
                                         <div class="icon-circle bg-primary">
                                             <i class="fas fa-file-alt text-white"></i>
@@ -389,7 +421,16 @@ date_default_timezone_set('Asia/Singapore');
                                         <?=$username?>
                                         <span class="font-weight-bold">
                                         <br>
-                                        <?=$event_name." ".$action?>
+                                        <?php
+                                        if ($event_name!=="")
+                                        {
+                                            echo $event_name." ".$action;
+                                        } else
+                                        {
+                                            echo "event id(".$event_id.") ".$action;
+                                        }
+                                        
+                                        ?>
                                        </span>
                                     </div>
                                 </a>
@@ -400,46 +441,91 @@ date_default_timezone_set('Asia/Singapore');
 
                             } else
                             {
-                                // SEE NOTIF OF ORGS YOU HAVE POSITION IN`
+                                // SEE NOTIF OF ORGS YOU HAVE POSITION IN
+                                // $notif_data=get_where_desc_limit_header_special($table_name, $column, $value, $column2, $limit);
+
+                                $officer_data=get_where_custom_header_special("tbl_officers", "user_id", $this->session->userdata('idxx'));
+
+                                foreach ($officer_data as $key => $row)
+                                {
+                                    $org_id=$row['org_id'];
+                                    
+                                    $notif_data=get_where_desc_limit_header_special("tbl_notif", "org_id", $org_id, "notif_id", 1);
+
+                                    foreach ($notif_data as $key => $row)
+                                    {
+                                        
+                                    $notif_id=$row['notif_id'];
+                                    $username=$row['username'];
+                                    $fullname=$row['fullname'];
+                                    $user_type=$row['user_type'];
+                                    $off_type=$row['off_type'];
+                                    $datexx=$row['datexx'];
+                                    $timexx=$row['timexx'];
+                                    $action=$row['action'];
+                                    $org_id=$row['org_id'];
+                                    $event_id=$row['event_id'];
+                                    
+                                    $event_name="";
+                                    $table_name_2="tbl_events";
+                                    $column="event_id";
+                                    $value=$event_id;
+                                    $get_eventData=get_where_custom_header_special($table_name_2, $column, $value);
+
+                                    foreach ($get_eventData as $key => $row)
+                                    {
+                                        $event_name=$row['event_name'];
+                                    }
+
+                                    ?>
+
+                                    <a class="dropdown-item d-flex align-items-center" 
+                                        <?php if($event_name!==""){?>
+                                            href="<?=base_url().'events/event_details/'.$event_id?>"
+                                        <?php } else
+                                            { ?>
+                                            href="#"
+                                            <?php } ?>
+                                    >
+
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-file-alt text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500"><?=$datexx?></div>
+                                            <?=$username?>
+                                            <span class="font-weight-bold">
+                                            <br>
+                                            <?php
+                                        if ($event_name!=="")
+                                        {
+                                            echo $event_name." ".$action;
+                                        } else
+                                        {
+                                            echo "event id(".$event_id.") ".$action;
+                                        }
+                                        
+                                        ?>
+                                        </span>
+                                        </div>
+                                    </a>
+
+                                    <?php
+
+
+                                    }
+                                }
+
+
                             }
 
                             ?>
                                 
                             <!-- END PLAY -->
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                
+                                <a class="dropdown-item text-center small text-gray-500" href="<?=base_url()?>notification">Show All Notifications</a>
                             </div>
                         </li>
 

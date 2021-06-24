@@ -43,6 +43,11 @@ class Events extends CI_Controller {
         $this->session->unset_userdata("statusxx");
         $this->session->unset_userdata("remarks");
 
+        $this->session->unset_userdata("org_id");
+        $this->session->unset_userdata("org_name");
+        
+        $this->session->unset_userdata("alert_msg");
+
     }
 
 	function add_events()
@@ -965,27 +970,50 @@ class Events extends CI_Controller {
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
-        $url_info['url_id_2'] = $this->uri->segment(4);
+        // $url_info['url_id_2'] = $this->uri->segment(4);
         $this->load->view('must/header');
+        // $this->load->view('test4', $url_info);
         $this->load->view('events/stud_list/add_student_list', $url_info);
         $this->load->view('must/footer');
 
-        $this->form_validation->set_rules('stud_name', 'Name', 'required');
-        if ($this->form_validation->run()==TRUE)
-        {
-            $this->student_list_session();
-            redirect('/events/add_student_list_proc/'.$this->input->post('url_id'));
-        }
+        // $this->form_validation->set_rules('stud_name', 'Name', 'required');
+        // if ($this->form_validation->run()==TRUE)
+        // {
+        //     $this->student_list_session();
+        //     redirect('/events/add_student_list_proc/'.$this->input->post('url_id'));
+        // }
+    }
+
+    function student_list_view()
+    {
+        $this->student_list_unset();
+        $this->load->view('must/perfect_function');
+        
+        $url_info['url_id'] = $this->uri->segment(3);
+        // $url_info['url_id_2'] = $this->uri->segment(4);
+        $this->load->view('must/header');
+        // $this->load->view('test4', $url_info);
+        $this->load->view('events/stud_list/student_list_view', $url_info);
+        $this->session->unset_userdata("alert_msg");
+        $this->load->view('must/footer');
+
+        // $this->form_validation->set_rules('stud_name', 'Name', 'required');
+        // if ($this->form_validation->run()==TRUE)
+        // {
+        //     $this->student_list_session();
+        //     redirect('/events/add_student_list_proc/'.$this->input->post('url_id'));
+        // }
     }
 
     function add_student_list_proc()
     {
         $this->load->view('must/perfect_function');
         $url_info['url_id'] = $this->uri->segment(3);
+        $url_info['url_id_2'] = $this->uri->segment(4);
         $this->load->view('must/header');
         $this->load->view('events/stud_list/add_student_list_proc', $url_info);
         $this->load->view('must/footer');
-        redirect('/events/event_details/'.$this->session->userdata('url_id_2'));
+        
     }
 
     function edit_student_list()
@@ -1013,7 +1041,7 @@ class Events extends CI_Controller {
         $this->load->view('must/perfect_function');
         $this->load->view('events/stud_list/edit_student_list_proc');
         // $this->events_session_unset();
-		redirect('/events/event_details/'.$this->session->userdata("url_id_2"));
+		redirect('/events/student_list_view/'.$this->session->userdata("url_id_2"));
 
     }
 
@@ -1041,8 +1069,7 @@ class Events extends CI_Controller {
         print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/stud_list/delete_student_list_proc');
-        // $this->users_session_unset();
-		redirect('/events/event_details/'.$this->session->userdata("url_id_2"));
+		redirect('/events/student_list_view/'.$this->session->userdata("url_id_2"));
     }
 
 // TRIP TICKET

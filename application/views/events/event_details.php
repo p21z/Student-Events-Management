@@ -67,7 +67,15 @@
 
             <div class="col-11">
 
-                <h4 class="card-title"><b><?=$event_name?></b></h4>
+                <h3 class="card-title"><b><?=$event_name?></b></h3>
+                <?php
+                    $org_data=get_where_custom("tbl_orgs", "org_id", $org_id);
+                    foreach ($org_data as $key =>$row)
+                    {
+                        $org_name=$row['org_name'];
+                    }
+                ?>
+                <h5 class="mb-4 font-weight-bold"><?=$org_name?></h5>
                 <p class="card-text"><?=$event_description?></p>
                 <div class="row">
 
@@ -901,7 +909,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">No student list is found</h5>
                                 <p class="card-text">Something about the said document must be written here</p>
-                                <a href="<?=base_url()?>events/add_student_list/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a form</a>
+                                <a href="<?=base_url()?>events/add_student_list/<?=$event_id?>" class="btn btn-primary">Add a form</a>
                             </div>
 
                         </div>
@@ -910,89 +918,16 @@
                     }   else
                     {
                     ?>
-                    <div class="card mt-4 mb-4 w-100">
+                    <div class="card text-center mt-4 mb-4">
+                            
                         <div class="card-body">
-
-                            <a href="<?=base_url()?>events/add_student_list/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-user-plus"></i>
-                                </span>
-                                <span class="text">
-                                    ADD STUDENT
-                                </span>
-                            </a>
-
-                            <hr>
-
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Year</th>
-                                            <th>Program</th>
-                                            <th>Section</th>
-                                            <th>Options</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Year</th>
-                                            <th>Program</th>
-                                            <th>Section</th>
-                                            <th>Options</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php
-                                        $table_name="tbl_stud_list";
-                                        $column="event_id";
-                                        $value=$url_id;
-
-                                        $events_data=get_where_custom($table_name, $column, $value);
-
-                                        foreach ($events_data as $key => $row)
-                                        {
-                                            $stud_list_id=$row['stud_list_id'];
-                                            $stud_name=$row['stud_name'];
-                                            $year=$row['year'];
-                                            $program=$row['program'];
-                                            $section=$row['section'];
-                                        ?>
-
-                                        <tr>
-                                            <td><?=$stud_name?></td>
-                                            <td><?=$year?></td>
-                                            <td><?=$program?></td>
-                                            <td><?=$section?></td>
-                                            <td>
-                                            <?php
-                                            if ($statusxxx==="Pending")
-                                            {
-                                            ?>
-                                                <a href="<?=base_url()?>events/edit_student_list/<?=$org_id?>/<?=$event_id?>/<?=$stud_list_id?>" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                                &nbsp;
-                                                <a href="<?=base_url()?>events/delete_student_list/<?=$org_id?>/<?=$event_id?>/<?=$stud_list_id?>" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            <?php
-                                            }
-                                            ?>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                        }
-                                    ?>
-                                    </tbody>
-                                </table>
-                            </div>
-
-
+                            <h5 class="card-title">Student list</h5>
+                            <p class="card-text">Something about the said document must be written here</p>
+                            <a href="<?=base_url()?>events/student_list_view/<?=$event_id?>" class="btn btn-primary">View student list</a>
                         </div>
+
                     </div>
+                    
                     <?php
                     }
                     ?>

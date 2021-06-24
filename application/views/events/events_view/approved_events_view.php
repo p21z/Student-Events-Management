@@ -1,3 +1,6 @@
+<?php
+date_default_timezone_set('Asia/Singapore');
+?>
 <div class="card shadow w-100">
 <div class="card-body">
 <div class="mt-4 ml-3">

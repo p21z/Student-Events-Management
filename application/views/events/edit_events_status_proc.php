@@ -51,11 +51,11 @@ echo update_from($user_editedValues, $url_id, $table_name, $column);
         }
 
     }
-
+    date_default_timezone_set('Asia/Singapore');
     $xdate=date('Y-m-d');
-    $xtime=date("h:i:s a");
+    $xtime=date("H:i:s");
 
-    $action= "Status changed to ".$this->session->userdata("statusxx");
+    $action= "status changed to ".$this->session->userdata("statusxx");
 
     $table_name_3="tbl_notif";
     $notif_data = array(

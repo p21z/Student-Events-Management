@@ -1,4 +1,4 @@
-        <?php
+<?php
         $event_data=get_where_custom("tbl_events", "event_id", $url_id);
         foreach ($event_data as $key =>$row)
         {
