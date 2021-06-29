@@ -8,7 +8,15 @@ class Home extends CI_Controller {
 		
 		$this->load->view('must/header');
 		$this->load->view('must/perfect_function');
-        $this->load->view('home/home');
+        
+		if ($this->session->userdata('access')==="Student")
+		{
+			$this->load->view('home/home_student');
+		} else
+		{
+			$this->load->view('home/home_not_student');
+		}
+		
         $this->load->view('must/footer');
 	}
 

@@ -12,6 +12,8 @@ class Visitors extends CI_Controller {
 		$this->load->view('must/perfect_function');
         $url_info['url_id'] = $this->uri->segment(3);
 
+        $this->load->view('visitors/auto_absent', $url_info);
+
 		$this->load->view('must/header');
 		$this->load->view('visitors/head', $url_info);
         $this->load->view('visitors/all', $url_info);

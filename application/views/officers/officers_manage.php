@@ -21,8 +21,8 @@
                                             <!-- <th>Password</th> -->
                                             <th>Full Name</th>
                                             <th>Contacts</th>
-                                            <th>???</th>
-                                            <th>???</th>
+                                            <th>Email</th>
+                                            <th>Options</th></th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -32,8 +32,8 @@
                                             <!-- <th>Password</th> -->
                                             <th>Full Name</th>
                                             <th>Contacts</th>
-                                            <th>???</th>
-                                            <th>???</th>
+                                            <th>Email</th>
+                                            <th>Options</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -91,11 +91,11 @@
                                                 <td><?=$username?></td>
                                                 <!-- <td><?=$password?></td> -->
                                                 <td><?=$firstname?> <?=$lastname?></td>
-                                                <td><?=$email?> - <?=$contact_no?></td>
-                                                <!-- <td><?=$gender?></td> -->
+                                                <td><?=$contact_no?></td>
+                                                <td><?=$email?></td>
                                                 <!-- <td><?=$user_type?></td> -->
                                                 <!-- <td><?=$time_stamp?></td> -->
-                                                <td><?=$year_level?> - <?=$programx?></td>
+                                                <!-- <td><?=$year_level?> - <?=$programx?></td> -->
                                                 
                                                 <!-- <td><?=$archive?></td> -->
                                                 <!-- <td><?=$statusxx?></td> -->
@@ -107,7 +107,7 @@
                                                         <i class="far fa-eye"></i>
                                                     </span>
                                                     <span class="text">
-                                                        View "kung saan ka officer"
+                                                        View Council
                                                     </span>
                                                 </a>
 

@@ -38,7 +38,7 @@
     ?>
         <a href="<?=base_url()?>events/event_details/<?=$event_id?>" class="card-link">Documents</a>
         <a href="<?=base_url()?>visitors/all/<?=$event_id?>" class="card-link">Visitors</a>
-        <a href="<?=base_url()?>attendance/all/<?=$event_id?>" class="card-link">Quorum</a>
+        <a href="<?=base_url()?>attendance/quorum/<?=$event_id?>" class="card-link">Quorum</a>
     <?php
     }
     ?>
@@ -47,7 +47,7 @@
     {
     ?>
         <a href="<?=base_url()?>evaluation/<?=$event_id?>" class="card-link">Evaluation</a>
-        <a href="<?=base_url()?>responses/<?=$event_id?>" class="card-link">Responses</a>
+        <a href="<?=base_url()?>evaluation/responses/<?=$event_id?>" class="card-link">Responses</a>
     <?php
     }
     ?>

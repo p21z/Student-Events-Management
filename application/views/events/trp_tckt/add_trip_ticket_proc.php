@@ -10,7 +10,9 @@ $tra_prmt_data = array(
     'activity' => $this->session->userdata("activity"),
     'date_use' => $this->session->userdata("date_use"),
     'dept_time' => $this->session->userdata("dept_time"),
-    'eta' => $this->session->userdata("eta")
+    'eta' => $this->session->userdata("eta"),
+    'passengers' => $this->session->userdata("passengers"),
+    'destination' => $this->session->userdata("destination")
 );
 
 echo insert($tra_prmt_data, $table_name);

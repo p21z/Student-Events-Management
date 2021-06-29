@@ -64,7 +64,25 @@
         
         <h3>Events</h3>
 
-        <ul class="nav nav-tabs">
+        <form method=post action="<?=base_url()?>organizations_view/search_org_events_view/<?=$org_id?>" autocomplete="off"
+            class="d-none d-sm-inline-block form-inline mr-auto md-3 my-2 my-md-0 mw-100 navbar-search w-25">
+
+            <div class="input-group">
+                <input type="text" name="search" class="form-control bg-light border-0 small pb-2" placeholder="Search for..."
+                    aria-label="Search" aria-describedby="basic-addon2" required>
+
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit" name="submit">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+                
+            </div>
+
+        </form>
+
+
+        <ul class="nav nav-tabs mt-4">
 
             <li class="nav-item">
                 <a class="nav-link <?php if($this->session->userdata('nav_active')==='Approved'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/approved_events/<?=$url_id?>">Approved</a>

@@ -72,4 +72,13 @@ echo insert($event_data, $table_name);
     );
     
     echo insert($notif_data, $table_name_3);
+
+    $event_data=get_latest_0('tbl_events', 'event_id');
+
+    foreach($event_data as $key => $row)
+    {
+        $org_id_2=$row['org_id'];
+    }
+
+    $_SESSION['org_id_2']=$org_id_2;
 ?>

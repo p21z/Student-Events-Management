@@ -3,6 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Evaluation extends CI_Controller {
 
+	function index()
+	{
+		
+		$this->load->view('must/header');
+		$this->load->view('must/perfect_function');
+
+		$this->load->view('evaluation/eval_manage');
+		
+        $this->load->view('must/footer');
+	}
+
 	function eval_session()
 	{
 		$eval_data = array(
@@ -92,5 +103,17 @@ class Evaluation extends CI_Controller {
 		// $this->events_session_unset();
 		// redirect('/organizations_view/pending_events/'.$this->session->userdata("org_id"));
 	}
+
+	function responses()
+    {
+        $this->eval_session_unset();
+        $this->load->view('must/perfect_function');
+        $url_info['url_id'] = $this->uri->segment(3);
+
+        $this->load->view('must/header');
+        $this->load->view('evaluation/responses', $url_info);
+        $this->load->view('must/footer');
+        
+    }
 
 }

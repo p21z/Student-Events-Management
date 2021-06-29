@@ -17,6 +17,8 @@ foreach ($events_data as $key => $row)
     $date_use=$row['date_use'];
     $dept_time=$row['dept_time'];
     $eta=$row['eta'];
+    $passengers=$row['passengers'];
+    $destination=$row['destination'];
 }
 
 ?>
@@ -42,6 +44,10 @@ foreach ($events_data as $key => $row)
             <input type="text" name="person" class="form-control form-control-user add-input" autocomplete=off placeholder="Person" value="<?=$person?>" required>
             
             <input type="text" name="driver" class="form-control form-control-user add-input" autocomplete=off placeholder="Driver" value="<?=$driver?>" required>
+
+            <input type="number" name="passengers" class="form-control form-control-user add-input" autocomplete=off placeholder="No. of Passengers" value="<?=$passengers?>" required>
+            
+            <input type="text" name="destination" class="form-control form-control-user add-input" autocomplete=off placeholder="Destination" value="<?=$destination?>" required>
 
             <!-- <input type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off placeholder="Vehicle" value="<?=$vehicle?>" required> -->
             <select type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off required>

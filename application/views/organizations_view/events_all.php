@@ -22,7 +22,7 @@
             <h5 class="card-header"><?=$event_name?></h5>
             <div class="card-body">
                 <div class="row">
-                    <h6 class="card-title col-6 mt-3">
+                    <h6 class="card-title col-9 mt-3">
                         <b>Date: </b><br>
                         <?php
                             if ($start_date===$end_date)
@@ -34,7 +34,7 @@
                             }
                         ?></h6>
 
-                    <h6 class="card-title col-6 mt-3">
+                    <h6 class="card-title col-3 mt-3">
                         <b>Venue: </b>
                             <br><?=$venue?></h6>
                 </div>

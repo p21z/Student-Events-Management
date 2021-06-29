@@ -60,7 +60,7 @@
 
                         <div class="mt-3">
                             <a href="<?=base_url()?>visitors/visitors_add/<?=$url_id?>"><button type="button" class="btn btn-secondary">&nbsp;Add Visitors&nbsp;</button></a>
-                            <a href="<?=base_url()?>visitors/add_attendee/<?=$url_id?>"><button type="button" class="btn btn-primary">Add Attendee</button></a>
+                            <a href="<?=base_url()?>visitors/visitors_add/<?=$url_id?>"><button type="button" class="btn btn-primary">Add Attendee</button></a>
                         </div>
 
                     </div>

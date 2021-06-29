@@ -4,15 +4,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Organizations extends CI_Controller {
 
 	function index()
-	{
-        print_r($_SESSION);
-        
+	{        
+		$this->load->view('must/perfect_function');
+        $this->orgs_session_unset();
+        $this->orgs_session_unset_2();
+        $this->orgs_search_session_unset();
+        $this->load->view('must/header');
+        $this->load->view('orgs/orgs_manage');
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->orgs_search_session();
+            redirect('/organizations/all_search');            
+        }
+	}
+
+    function inactive()
+	{        
+		$this->load->view('must/perfect_function');
+        $this->orgs_session_unset();
+        $this->orgs_session_unset_2();
+        $this->orgs_search_session_unset();
+        $this->load->view('must/header');
+        $this->load->view('orgs/orgs_manage_inactive');
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->orgs_search_session();
+            redirect('/organizations/all_search');            
+        }
+	}
+
+    function all()
+	{        
+		$this->load->view('must/perfect_function');
+        $this->orgs_session_unset();
+        $this->orgs_session_unset_2();
+        $this->orgs_search_session_unset();
+        $this->load->view('must/header');
+        $this->load->view('orgs/all');
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->orgs_search_session();
+            redirect('/organizations/all_search');            
+        }
+
+	}
+
+    function all_search()
+	{        
 		$this->load->view('must/perfect_function');
         $this->orgs_session_unset();
         $this->orgs_session_unset_2();
         $this->load->view('must/header');
-        $this->load->view('orgs/orgs_manage');
+        $this->load->view('orgs/all_search');
         $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->orgs_search_session();
+            redirect('/organizations/all_search');            
+        }
 	}
 
     function orgs_session()
@@ -23,7 +83,8 @@ class Organizations extends CI_Controller {
             'org_id' => $this->input->post('org_id'),
             'org_name' => $this->input->post('org_name'),
             'org_description' => $this->input->post('org_description'),
-            'org_category' => $this->input->post('org_category')
+            'org_category' => $this->input->post('org_category'),
+            'Archive' => $this->input->post('Archive')
         );
 
         $this->session->set_userdata($org_data);
@@ -36,7 +97,25 @@ class Organizations extends CI_Controller {
         $this->session->unset_userdata("org_name");
         $this->session->unset_userdata("org_description");
         $this->session->unset_userdata("org_category");
+        $this->session->unset_userdata("Archive");
+
     }
+
+    function orgs_search_session()
+    {
+
+        $org_data = array(
+            'search' => $this->input->post('search')
+        );
+        $this->session->set_userdata($org_data);
+        
+    }
+
+    function orgs_search_session_unset()
+    {
+        $this->session->unset_userdata("search");
+    }
+
 
     function orgs_session_2()
     {
@@ -135,6 +214,31 @@ class Organizations extends CI_Controller {
 		
         
 	}
+
+    function organizations_archive()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+        $this->load->view('must/header');
+        $this->load->view('orgs/orgs_archive', $url_info);
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('Archive','Archive','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->orgs_session();
+            redirect('/organizations/organizations_archive_proc');
+        }
+    }
+
+    function organizations_archive_proc()
+    {
+        print_r($_SESSION);
+        $this->load->view('must/perfect_function');
+        $this->load->view('orgs/orgs_archive_proc');
+        // $this->users_session_unset();
+		redirect('organizations');
+    }
 
     function organizations_edit()
     {

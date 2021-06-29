@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cafeteria System</title>
+    <title>School Events Management</title>
 
     <!-- Custom fonts for this template-->
     <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

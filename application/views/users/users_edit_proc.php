@@ -7,7 +7,6 @@ $column="user_id";
 
 $user_editedValues = array(
     
-    'password' => $this->session->userdata("password"),
     'firstname' => $this->session->userdata("firstname"),
     'lastname' => $this->session->userdata("lastname"),
     'email' => $this->session->userdata("email"),
@@ -18,7 +17,8 @@ $user_editedValues = array(
     'year_level' => $this->session->userdata("year_level"),
     'program' => $this->session->userdata("program"),
     'section' => $this->session->userdata("section"),
-    'statusxx' => $this->session->userdata("statusxx")
+    'statusxx' => $this->session->userdata("statusxx"),
+    'counterxx' => 0
     
 );
 

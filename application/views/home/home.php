@@ -21,10 +21,22 @@
                 $end_date=$row['end_date'];
                 $venue=$row['venue'];
                 $event_description=$row['event_description'];
+                $event_image=$row['event_image'];
+                $statusxx=$row['statusxx'];
+
         ?>
 
                 <div class="card" class="w-100 mb-4 mt-4" style="margin-bottom: 30px;">
-                    <img src="https:via.placeholder.com/1200x200" class="card-img-top" alt="...">
+                    <?php
+                    if ($event_image!=="")
+                    {?>
+                        <img src="<?=base_url()?>assets/img/<?=$event_image?>" class="card-img-top home-event-pic" alt="...">
+                    <?php } else
+                    { ?>
+                        <img src="<?=base_url()?>assets/img/org_img.png" class="card-img-top home-event-pic" alt="...">
+                    <?php
+                    }
+                    ?>
                     <div class="card-body">
                         <h4 class="card-title"><?=$event_name?></h4>
 

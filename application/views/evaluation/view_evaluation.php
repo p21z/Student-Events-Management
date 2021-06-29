@@ -483,15 +483,35 @@
                                             <td colspan="6">
 
                                                 <div align=center>
+
+                                                    <?php
+                                                    if($this->session->userdata('access')==="Student")
+                                                    {
+                                                    ?>
+                                                        <a href="<?=base_url()?>evaluation" class="btn btn-danger btn-icon-split btn-lg" style=" margin-left:1%; margin-top:1%; margin-bottom: 1%">
+                                                            <span class="icon text-white-50">
+                                                                <i class="fas fa-ban"></i>
+                                                            </span>
+                                                            <span class="text">
+                                                                BACK
+                                                            </span>
+                                                        </a>
+                                                    <?php
+                                                    } else
+                                                    {
+                                                    ?>
+                                                        <a href="<?=base_url()?>events/event_details/<?=$url_id?>" class="btn btn-danger btn-icon-split btn-lg" style=" margin-left:1%; margin-top:1%; margin-bottom: 1%">
+                                                            <span class="icon text-white-50">
+                                                                <i class="fas fa-ban"></i>
+                                                            </span>
+                                                            <span class="text">
+                                                                BACK
+                                                            </span>
+                                                        </a>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                     
-                                                    <a href="<?=base_url()?>events/event_details/<?=$url_id?>" class="btn btn-danger btn-icon-split btn-lg" style=" margin-left:1%; margin-top:1%; margin-bottom: 1%">
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-ban"></i>
-                                                        </span>
-                                                        <span class="text">
-                                                            BACK
-                                                        </span>
-                                                    </a>
                                                 </div>
 
                                             </td>

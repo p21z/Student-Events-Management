@@ -54,7 +54,7 @@ foreach ($rsrv_cfr_data as $key => $row)
 
             <!-- <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" value="<?=$this->session->userdata("fund_source")?>" required> -->
 
-            <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Amount" value="<?=$this->session->userdata("num_users")?>" required>
+            <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Hours of Usage" value="<?=$this->session->userdata("num_users")?>" required>
 
             <input type="text" name="person_respo" class="form-control form-control-user add-input" autocomplete=off placeholder="Person responsiblef" value="<?=$this->session->userdata("person_respo")?>" required>
 
@@ -79,7 +79,7 @@ foreach ($rsrv_cfr_data as $key => $row)
 
                 <!-- <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" value="<?=$fund_source?>" required> -->
 
-                <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Amount" value="<?=$amount?>" required>
+                <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Hours of Usage" value="<?=$amount?>" required>
 
                 <input type="text" name="person_respo" class="form-control form-control-user add-input" autocomplete=off placeholder="Person responsible" value="<?=$person_respo?>"required>
                 

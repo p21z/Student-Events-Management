@@ -3,8 +3,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Organizations_view extends CI_Controller {
 
+    function search_org_events_view()
+	{
+        $this->events_search_session();
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
+        // $this->session->set_userdata('nav_active', 'Pending');
+        
+		$this->load->view('must/header');
+        $this->load->view('organizations_view/head', $url_info);
+        $this->session->unset_userdata("nav_active");
+        
+        $this->load->view('organizations_view/search_org_events_view');
+
+        $this->load->view('organizations_view/foot');
+        $this->load->view('must/footer');
+	}
+
 	function approved_events()
 	{
+        $this->events_search_session_unset();
         $this->load->view('must/perfect_function');
 
         $url_info['url_id'] = $this->uri->segment(3);
@@ -18,10 +37,18 @@ class Organizations_view extends CI_Controller {
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');
+
+        // $this->form_validation->set_rules('search','Search','required');
+        // if ($this->form_validation->run() == TRUE)
+        // {
+        //     $this->events_search_session();
+        //     redirect('/organizations_view/search_org_events_view');            
+        // }
 	}
 
     function pending_events()
 	{
+        $this->events_search_session_unset();
         $this->load->view('must/perfect_function');
 
         $url_info['url_id'] = $this->uri->segment(3);
@@ -39,6 +66,7 @@ class Organizations_view extends CI_Controller {
 
     function archived_events()
 	{
+        $this->events_search_session_unset();
         $this->load->view('must/perfect_function');
 
         $url_info['url_id'] = $this->uri->segment(3);
@@ -56,6 +84,7 @@ class Organizations_view extends CI_Controller {
 
     function all_events()
 	{
+        $this->events_search_session_unset();
         $this->load->view('must/perfect_function');
 
         $url_info['url_id'] = $this->uri->segment(3);
@@ -75,4 +104,20 @@ class Organizations_view extends CI_Controller {
 	{
         echo "hello";
 	}
+
+    function events_search_session()
+    {
+
+        $org_data = array(
+            'search' => $this->input->post('search')
+        );
+        $this->session->set_userdata($org_data);
+        
+    }
+
+    function events_search_session_unset()
+    {
+        $this->session->unset_userdata("search");
+    }
+
 }

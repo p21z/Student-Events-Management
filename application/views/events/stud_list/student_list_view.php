@@ -5,6 +5,14 @@
             $statusxx=$row['statusxx'];
         }
         ?>
+        <button onclick="stud_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+        <script>
+        function stud_print() {
+        window.open("<?= base_url() ?>prints/student_list/<?=$url_id?>");
+        }
+
+        </script>
                     <div class="card mt-4 mb-4 w-100">
                     <div class="card-header py-3">
                             <h5 class="m-0 font-weight-bold text-primary">Student List</h5>

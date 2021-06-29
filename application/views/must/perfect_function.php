@@ -578,7 +578,15 @@ function get_where_not_2_custom($table_name, $column1, $value1, $column2, $value
 function get_where_not_custom($table_name, $column1, $value1)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where ".$column1."!='".$value1."'";
+	$sql = "SELECT * FROM $table_name where ".$column1." != '".$value1."'";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function get_where_not_special()
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM $table_name WHERE org_category != 'dean'";
 	$result = $conn->query($sql);
 	return $result;
 }
@@ -591,131 +599,101 @@ function get_where_not_hybrid_custom($table_name, $column1, $value1, $column2, $
 	return $result;
 }
 
-function acc_search($table_name, $search)
+function all_orgs_search($search)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (id LIKE '%$search%' OR
-	 user_type LIKE '%$search%' OR 
-	 reference_id LIKE '%$search%' OR 
-	 fullname LIKE '%$search%' OR 
-	 username LIKE '%$search%')";
+	$sql = "SELECT * FROM tbl_orgs where
+	 (org_name LIKE '%$search%' OR
+	 org_category LIKE '%$search%' OR 
+	 org_description LIKE '%$search%' OR 
+	 org_abbr LIKE '%$search%') AND org_category != 'dean'";
 	$result = $conn->query($sql);
 	return $result;
 }
 
-function food_search($table_name, $search)
+function all_orgs_search_count($search)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (food_id LIKE '%$search%' OR
-	 food_name LIKE '%$search%' OR 
-	 'image' LIKE '%$search%' OR 
-	 description LIKE '%$search%' OR
-	 status LIKE '%$search%')";
+	$sql = "SELECT * FROM tbl_orgs where
+	 (org_name LIKE '%$search%' OR
+	 org_category LIKE '%$search%' OR 
+	 org_description LIKE '%$search%' OR 
+	 org_abbr LIKE '%$search%') AND org_category != 'dean'";
+	$result = $conn->query($sql);
+	$rowcount=mysqli_num_rows($result);
+	return $rowcount;
+}
+
+function all_event_search($search)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM tbl_events where
+	 (event_name LIKE '%$search%' OR
+	 'start_date' LIKE '%$search%' OR 
+	 end_date LIKE '%$search%' OR 
+	 venue LIKE '%$search%') ORDER BY event_id DESC";
 	$result = $conn->query($sql);
 	return $result;
 }
 
-function food_av_search($table_name, $search)
+function all_event_search_count($search)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (food_id LIKE '%$search%' OR
-	 food_name LIKE '%$search%' OR 
-	 'image' LIKE '%$search%' OR 
-	 description LIKE '%$search%') AND (status='Available')";
+	$sql = "SELECT * FROM tbl_events where
+	 (event_name LIKE '%$search%' OR
+	 'start_date' LIKE '%$search%' OR 
+	 end_date LIKE '%$search%' OR 
+	 venue LIKE '%$search%') ORDER BY event_id DESC";
+	$result = $conn->query($sql);
+	$rowcount=mysqli_num_rows($result);
+	return $rowcount;
+}
+
+function all_org_event_search($search, $org_id)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM tbl_events where
+	 (event_name LIKE '%$search%' OR
+	 'start_date' LIKE '%$search%' OR 
+	 end_date LIKE '%$search%' OR 
+	 venue LIKE '%$search%') AND org_id = '".$org_id."' ORDER BY event_id DESC";
 	$result = $conn->query($sql);
 	return $result;
 }
 
-function reserve_active_search($table_name, $search)
+function all_org_event_search_count($search, $org_id)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (reserve_id LIKE '%$search%' OR
-	 customer_id LIKE '%$search%' OR 
-	 customer_name LIKE '%$search%' OR 
-	 xtime LIKE '%$search%' OR 
-	 xdate LIKE '%$search%')  AND (status != 'Cleared')  AND (status != 'Denied')";
+	$sql = "SELECT * FROM tbl_events where
+	 (event_name LIKE '%$search%' OR
+	 'start_date' LIKE '%$search%' OR 
+	 end_date LIKE '%$search%' OR 
+	 venue LIKE '%$search%') AND org_id = '".$org_id."' ORDER BY event_id DESC";
+	$result = $conn->query($sql);
+	$rowcount=mysqli_num_rows($result);
+	return $rowcount;
+}
+
+function get_where_proj_spec($value3)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM tbl_attendee where (statusxx ='Present' || statusxx='Late') && user_id = '".$value3."' ORDER BY attendance_id DESC";
 	$result = $conn->query($sql);
 	return $result;
 }
 
-function reserve_inactive_search($table_name, $search)
+function get_where_proj_spec_2($value3)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (reserve_id LIKE '%$search%' OR
-	 customer_id LIKE '%$search%' OR 
-	 customer_name LIKE '%$search%' OR 
-	 xtime LIKE '%$search%' OR 
-	 xdate LIKE '%$search%')  AND (status = 'Cleared' OR status = 'Denied')";
+	$sql = "SELECT * FROM tbl_officers where (off_type ='Adviser' || off_type='Governor' || off_type='Chair') && org_id = '".$value3."'";
 	$result = $conn->query($sql);
 	return $result;
 }
 
-function order_pend_search($table_name, $search)
+function count_where_proj_spec($value3)
 {
 	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (order_id LIKE '%$search%' OR
-	 total_list LIKE '%$search%' OR
-	 carts LIKE '%$search%' OR 
-	 id LIKE '%$search%' OR 
-	 fullname LIKE '%$search%')  AND (status = 'Pending')";
-	$result = $conn->query($sql);
-	return $result;
-}
-
-function order_rd_search($table_name, $search)
-{
-	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (order_id LIKE '%$search%' OR
-	 total_list LIKE '%$search%' OR
-	 carts LIKE '%$search%' OR 
-	 id LIKE '%$search%' OR 
-	 fullname LIKE '%$search%')  AND (status = 'Ready')";
-	$result = $conn->query($sql);
-	return $result;
-}
-
-function order_dn_search($table_name, $search)
-{
-	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (order_id LIKE '%$search%' OR
-	 total_list LIKE '%$search%' OR
-	 carts LIKE '%$search%' OR 
-	 id LIKE '%$search%' OR 
-	 fullname LIKE '%$search%')  AND (status != 'Pending' OR status != 'Ready')";
-	$result = $conn->query($sql);
-	return $result;
-}
-
-function order_mn_search($table_name, $search, $idxx)
-{
-	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (order_id LIKE '%$search%' OR
-	 total_list LIKE '%$search%' OR
-	 carts LIKE '%$search%' OR 
-	 id LIKE '%$search%' OR 
-	 fullname LIKE '%$search%') AND (id = $idxx) ORDER BY order_id DESC";
-	$result = $conn->query($sql);
-	return $result;
-}
-
-function order_mn_search_count($table_name, $search, $idxx)
-{
-	$conn = getConnectionx();
-	$sql = "SELECT * FROM $table_name where
-	 (order_id LIKE '%$search%' OR
-	 total_list LIKE '%$search%' OR
-	 carts LIKE '%$search%' OR 
-	 id LIKE '%$search%' OR 
-	 fullname LIKE '%$search%') AND (id = $idxx) ORDER BY order_id DESC";
+	$sql = "SELECT * FROM tbl_attendee where (statusxx ='Present' || statusxx='Late') && user_id = '".$value3."'";
 	$result = $conn->query($sql);
 	$rowcount=mysqli_num_rows($result);
 	return $rowcount;

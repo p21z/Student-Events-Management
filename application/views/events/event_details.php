@@ -190,8 +190,15 @@
                 {
                 ?>
 
-                <!-- REDISGN TO TABLE -->
-                <div class="card mt-4 mb-4 w-100">
+                <button onclick="reservation_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+                <script>
+                function reservation_print() {
+                window.open("<?= base_url() ?>prints/function_room/<?=$url_id?>");
+                }
+                
+                </script>
+                <div class="card mt-3 mb-4 w-100">
                     <div class="card-body">
                         
                         <a href="<?=base_url()?>events/add_common_function_room/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
@@ -365,8 +372,14 @@
                             $datexx=$row['datexx'];
 
                 ?>
+                    <button onclick="cash_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
 
-                    <div class="card text-center mt-4 mb-4 w-75 csh_req_card">
+                    <script>
+                    function cash_print() {
+                    window.open("<?= base_url() ?>prints/cash_req/<?=$url_id?>");
+                    }
+                    </script>
+                    <div class="card text-center mt-3 mb-4 w-75 csh_req_card">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-11">&nbsp;
@@ -522,7 +535,14 @@
                 }   else
                 {    
                 ?>
-                    <div class="card mt-4 mb-4 w-75">
+                    <button onclick="cater_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+                    <script>
+                    function cater_print() {
+                    window.open("<?= base_url() ?>prints/catering/<?=$url_id?>");
+                    }
+                    </script>
+                    <div class="card mt-3 mb-4 w-75">
                         <div class="card-body">
                             
                             <a href="<?=base_url()?>events/add_catering_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
@@ -671,7 +691,14 @@
                         $program_budget=$row['program_budget'];
                     }
                 ?>
-                 <div class="card text-center mt-4 mb-4 w-75">
+                <button onclick="incamp_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+                <script>
+                function incamp_print() {
+                window.open("<?= base_url() ?>prints/incampus/<?=$url_id?>");
+                }
+                </script>
+                 <div class="card text-center mt-3 mb-4 w-75">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-11">&nbsp;
@@ -800,7 +827,14 @@
                 }   else
                 {
                 ?>
-                <div class="card mt-4 mb-4 w-100">
+                <button onclick="travel_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+                <script>
+                function travel_print() {
+                window.open("<?= base_url() ?>prints/travel_permit/<?=$url_id?>");
+                }
+                </script>
+                <div class="card mt-4 mb-3 w-100">
                     <div class="card-body">
                         
                         <a href="<?=base_url()?>events/add_travel_permit/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
@@ -968,6 +1002,13 @@
                 } else
                 {
                 ?>
+                <button onclick="trip_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+                <script>
+                function trip_print() {
+                window.open("<?= base_url() ?>prints/trip_ticket/<?=$url_id?>");
+                }
+                </script>
                     <div class="card mt-4 mb-4 w-100">
                         <div class="card-body">
                             
@@ -992,7 +1033,9 @@
                                             <th>Activity</th>
                                             <th>Date use</th>
                                             <th>Departure time</th>
-                                            <th>Estimated time of arrival</th>
+                                            <th>ETA</th>
+                                            <th>Passengers</th>
+                                            <th>Destination</th>
                                             <th>Options</th>
                                         </tr>
                                     </thead>
@@ -1005,7 +1048,9 @@
                                             <th>Activity</th>
                                             <th>Date use</th>
                                             <th>Departure time</th>
-                                            <th>Estimated time of arrival</th>
+                                            <th>ETA</th>
+                                            <th>Passengers</th>
+                                            <th>Destination</th>
                                             <th>Options</th>
                                         </tr>
                                     </tfoot>
@@ -1030,6 +1075,8 @@
                                             $date_use=$row['date_use'];
                                             $dept_time=$row['dept_time'];
                                             $eta=$row['eta'];
+                                            $passengers=$row['passengers'];
+                                            $destination=$row['destination'];
 
                                         ?>
 
@@ -1041,6 +1088,8 @@
                                             <td><?=$date_use?></td>
                                             <td><?=date('h:i a', strtotime($dept_time))?></td>
                                             <td><?=date('h:i a', strtotime($eta))?></td>
+                                            <td><?=$passengers?></td>
+                                            <td><?=$destination?></td>
                                             <td>
                                             <?php
                                             if ($statusxxx==="Pending")
@@ -1088,7 +1137,7 @@
     ?>
         <a href="<?=base_url()?>attendance/all/<?=$event_id?>" class="card-link">Students</a>
         <a href="<?=base_url()?>visitors/all/<?=$event_id?>" class="card-link">Visitors</a>
-        <a href="#" class="card-link">Quorum</a>
+        <a href="<?=base_url()?>attendance/quorum/<?=$event_id?>" class="card-link">Quorum</a>
     <?php
     }
     ?>
@@ -1115,7 +1164,7 @@
     <?php
         }
     ?>
-        <a href="<?=base_url()?>responses/<?=$event_id?>" class="card-link">Responses</a>
+        <a href="<?=base_url()?>evaluation/responses/<?=$event_id?>" class="card-link">Responses</a>
     <?php
     }
     ?>

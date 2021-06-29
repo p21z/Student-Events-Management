@@ -15,8 +15,12 @@
             <input type="text" name="request_unit" class="form-control form-control-user add-input" autocomplete=off placeholder="Request Unit" value="SITE" readonly required>
 
             <input type="text" name="person" class="form-control form-control-user add-input" autocomplete=off placeholder="Person" required>
-            
+
             <input type="text" name="driver" class="form-control form-control-user add-input" autocomplete=off placeholder="Driver" required>
+
+            <input type="number" name="passengers" class="form-control form-control-user add-input" autocomplete=off placeholder="No. of Passengers" required>
+            
+            <input type="text" name="destination" class="form-control form-control-user add-input" autocomplete=off placeholder="Destination" required>
 
             <!-- <input type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off placeholder="Vehicle" required> -->
             <select type="text" name="vehicle" class="form-control form-control-user add-input" autocomplete=off required>

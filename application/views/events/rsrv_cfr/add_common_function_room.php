@@ -24,7 +24,7 @@
 
             <!-- <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" value="<?=$this->session->userdata("fund_source")?>" required> -->
 
-            <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Amount" value="<?=$this->session->userdata("num_users")?>" required>
+            <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Hours of Usage" value="<?=$this->session->userdata("num_users")?>" required>
 
             <input type="text" name="person_respo" class="form-control form-control-user add-input" autocomplete=off placeholder="Person responsible" value="<?=$this->session->userdata("person_respo")?>" required>
 
@@ -47,7 +47,7 @@
 
                 <!-- <input type="text" name="fund_source" class="form-control form-control-user add-input" autocomplete=off placeholder="Source of funds" required> -->
 
-                <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Amount" required>
+                <input type="number" name="amount" class="form-control form-control-user add-input" autocomplete=off placeholder="Hours of Usage" required>
 
                 <input type="text" name="person_respo" class="form-control form-control-user add-input" autocomplete=off placeholder="Person responsible" required>
                 

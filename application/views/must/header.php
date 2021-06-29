@@ -55,6 +55,22 @@ function get_where_desc_limit_header_special($table_name, $column, $value, $colu
 	return $result;
 }
 
+function get_where_not_header_special($table_name, $column1, $value1)
+{
+	$conn = getConnection_header_special();
+	$sql = "SELECT * FROM $table_name where ".$column1." != '".$value1."'";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function get_where_not_2_custom_header_special($table_name, $column1, $value1, $column2, $value2)
+{
+	$conn = getConnection_header_special();
+	$sql = "SELECT * FROM $table_name where ".$column1."!='".$value1."' and ".$column2." != '".$value2."'";
+	$result = $conn->query($sql);
+	return $result;
+}
+
 date_default_timezone_set('Asia/Singapore');
 ?>
 <!DOCTYPE html>
@@ -104,7 +120,7 @@ date_default_timezone_set('Asia/Singapore');
                 <div class="sidebar-brand-icon rotate-n-10">
                 <i class="fas fa-chalkboard-teacher colorize-black"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3 colorize-black">SEMS<sup></sup></div>
+                <div class="sidebar-brand-text mx-3 colorize-black">SITE<br>EVENTS</div>
             </a>
 
             <!-- Divider -->
@@ -134,7 +150,7 @@ date_default_timezone_set('Asia/Singapore');
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-users"></i>
                     <span>Personage</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -147,15 +163,13 @@ date_default_timezone_set('Asia/Singapore');
                     </div>
                 </div>
             </li>
-            <?php
-                }
-            ?>
+            
             <!-- Nav Item - Utilities Collapse Menu -->
             
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-calendar-day"></i>
                     <span>Events</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -169,6 +183,49 @@ date_default_timezone_set('Asia/Singapore');
                     </div>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <?php
+                    $orgs_data_2=get_where_custom_header_special('tbl_orgs', 'org_category', 'dean');
+
+                    foreach ($orgs_data_2 as $key =>$row)
+                    {
+                        $org_id_2=$row['org_id'];
+                        $org_name_2=$row['org_name'];
+                ?>
+                        <a class="nav-link" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id_2?>">
+                            <i class="fas fa-building"></i>
+                            <span><?=$org_name_2?></span>
+                        </a>
+                <?php
+                    }
+                ?>
+                
+            </li>
+
+            <?php
+                }
+            ?>
+            <?php
+                if ($this->session->userdata('access')==="Student")
+                {
+            ?>
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Student Modules
+                </div>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url()?>evaluation">
+                        <i class="fas fa-star"></i>
+                        <span>Evaluation</span>
+                    </a>
+                </li>
+            <?php
+                }
+            ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -196,7 +253,7 @@ date_default_timezone_set('Asia/Singapore');
                                 $table_name = "tbl_orgs";
                                 // $column = "org_id";
                                 
-                                $get_orgData = get_header_special($table_name);
+                                $get_orgData = get_where_not_2_custom_header_special($table_name, 'org_category', 'dean', 'Archive', 1);
                     
                                 foreach ($get_orgData as $key => $row)
                                 {
@@ -268,18 +325,18 @@ date_default_timezone_set('Asia/Singapore');
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -307,18 +364,7 @@ date_default_timezone_set('Asia/Singapore');
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-dark" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -530,70 +576,7 @@ date_default_timezone_set('Asia/Singapore');
                         </li>
 
                         <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
+                        
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

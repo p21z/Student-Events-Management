@@ -74,7 +74,7 @@ class Events extends CI_Controller {
         $this->load->view('must/perfect_function');
         $this->load->view('events/add_events_proc');
         $this->events_session_unset();
-		redirect('/organizations_view/pending_events/'.$this->session->userdata("org_id"));
+		redirect('/organizations_view/pending_events/'.$this->session->userdata("org_id_2"));
     }
 
     function edit_events()
@@ -1090,7 +1090,10 @@ class Events extends CI_Controller {
         'activity' => $this->input->post('activity'),
         'date_use' => $this->input->post('date_use'),
         'dept_time' => $this->input->post('dept_time'),
-        'eta' => $this->input->post('eta')
+        'eta' => $this->input->post('eta'),
+        'eta' => $this->input->post('eta'),
+        'passengers' => $this->input->post('passengers'),
+        'destination' => $this->input->post('destination'),
         );
 
         $this->session->set_userdata($cash_requisition_data_1);
@@ -1110,6 +1113,8 @@ class Events extends CI_Controller {
         $this->session->unset_userdata("date_use");
         $this->session->unset_userdata("dept_time");
         $this->session->unset_userdata("eta");
+        $this->session->unset_userdata("passengers");
+        $this->session->unset_userdata("destination");
 
     }
 
@@ -1208,9 +1213,17 @@ class Events extends CI_Controller {
     {
         $this->load->view('must/perfect_function');
         $this->events_session_unset();
+        $this->events_search_session_unset();
         $this->load->view('must/header');
         $this->load->view('events/events_view/all_events_view');
         $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
         
     } 
 
@@ -1218,9 +1231,17 @@ class Events extends CI_Controller {
     {
         $this->load->view('must/perfect_function');
         $this->events_session_unset();
+        $this->events_search_session_unset();
         $this->load->view('must/header');
         $this->load->view('events/events_view/archived_events_view');
         $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
         
     }
 
@@ -1228,9 +1249,17 @@ class Events extends CI_Controller {
     {
         $this->load->view('must/perfect_function');
         $this->events_session_unset();
+        $this->events_search_session_unset();
         $this->load->view('must/header');
         $this->load->view('events/events_view/pending_events_view');
         $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
         
     }
 
@@ -1238,9 +1267,35 @@ class Events extends CI_Controller {
     {
         $this->load->view('must/perfect_function');
         $this->events_session_unset();
+        $this->events_search_session_unset();
         $this->load->view('must/header');
         $this->load->view('events/events_view/approved_events_view');
         $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
+        
+    }
+
+    function search_events_view()
+    {
+        
+        $this->load->view('must/perfect_function');
+        $this->events_session_unset();
+        $this->load->view('must/header');
+        $this->load->view('events/events_view/search_events_view');
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
         
     }
 
@@ -1264,6 +1319,23 @@ class Events extends CI_Controller {
             $this->load->view('must/footer');
             // redirect('/profile') ;   
         }
+
+// SEARCH
+
+    function events_search_session()
+    {
+
+        $org_data = array(
+            'search' => $this->input->post('search')
+        );
+        $this->session->set_userdata($org_data);
+        
+    }
+
+    function events_search_session_unset()
+    {
+        $this->session->unset_userdata("search");
+    }
 
 
 

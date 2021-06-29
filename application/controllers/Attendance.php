@@ -47,6 +47,18 @@ class Attendance extends CI_Controller {
         
     }
 
+    function quorum()
+    {
+        $this->attendee_session_unset();
+        $this->load->view('must/perfect_function');
+        $url_info['url_id'] = $this->uri->segment(3);
+
+        $this->load->view('must/header');
+        $this->load->view('attendance/quorum', $url_info);
+        $this->load->view('must/footer');
+        
+    }
+
     function present()
     {
         $this->attendee_session_unset();
