@@ -5,7 +5,7 @@ $table_name = "tbl_users";
 
 $user_data = array(
     'user_id' => $this->session->userdata("user_id"),
-    'username' => $this->session->userdata("username"),
+    'username' => $this->session->userdata("username_1"),
     'password' => _hash_string($this->session->userdata("password")),
     'firstname' => $this->session->userdata("firstname"),
     'lastname' => $this->session->userdata("lastname"),

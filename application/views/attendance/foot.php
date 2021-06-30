@@ -44,10 +44,27 @@
     ?>
     <?php
     if($statusxxx==="Archived")
-    {
+    {   $table_name="tbl_evaluation";
+        $column1="event_id";
+        $column2="user_id";
+        $value1=$url_id;
+        $value2=$this->session->userdata('idxx');
+        $count_data=count_where_double_and($table_name, $column1, $value1, $column2, $value2);
+        // echo $count_data;
+        if ($count_data===1)
+        {
     ?>
-        <a href="<?=base_url()?>evaluation/<?=$event_id?>" class="card-link">Evaluation</a>
+        <a href="<?=base_url()?>evaluation/view_evaluation/<?=$event_id?>/<?=$this->session->userdata('idxx')?>" class="card-link">View Evaluation</a>
+    <?php
+        } else
+        {
+    ?>
+        <a href="<?=base_url()?>evaluation/add_evaluation/<?=$event_id?>/<?=$this->session->userdata('idxx')?>" class="card-link">Evaluation</a>
+    <?php
+        }
+    ?>
         <a href="<?=base_url()?>evaluation/responses/<?=$event_id?>" class="card-link">Responses</a>
+
     <?php
     }
     ?>

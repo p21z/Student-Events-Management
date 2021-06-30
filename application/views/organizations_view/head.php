@@ -56,7 +56,7 @@
                 <p class="card-text org-desc-head">
                     <?=$org_description?>
                 </p>
-                <a href="<?=base_url()?>events/add_events/<?=$url_id?>" class="btn btn-primary">Go somewhere</a>
+                <a href="<?=base_url()?>events/add_events/<?=$url_id?>" class="btn btn-primary">Add event</a>
             </div>
         </div>
 

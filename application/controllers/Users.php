@@ -22,7 +22,7 @@ class Users extends CI_Controller {
             'url_id' => $this->input->post('url_id'),
 
             'user_id' => $this->input->post('user_id'),
-            'username' => $this->input->post('username'),
+            'username_1' => $this->input->post('username'),
 			'firstname' => $this->input->post('firstname'),
 			'lastname' => $this->input->post('lastname'),
 			'password' => $this->input->post('password'),
@@ -70,7 +70,7 @@ class Users extends CI_Controller {
         $this->session->unset_userdata("url_id");
     
         $this->session->unset_userdata("user_id");
-        $this->session->unset_userdata("username");
+        $this->session->unset_userdata("username_1");
         $this->session->unset_userdata("password");
         $this->session->unset_userdata("firstname");
         $this->session->unset_userdata("lastname");

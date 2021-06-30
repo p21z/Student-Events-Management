@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 		$this->load->view('must/header');
 		$this->load->view('must/perfect_function');
         
-		if ($this->session->userdata('access')==="Student")
+		if ($this->session->userdata('access')==="Student" OR $this->session->userdata('access')==="Officer")
 		{
 			$this->load->view('home/home_student');
 		} else

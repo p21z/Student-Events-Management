@@ -65,7 +65,7 @@
     <div class="card-body">
         <div class="row">
 
-            <div class="col-11">
+            <div class="col-10">
 
                 <h3 class="card-title"><b><?=$event_name?></b></h3>
                 <?php
@@ -126,28 +126,34 @@
 
             </div>
 
-            <div class="col-1 text-right">
+            <div class="col-2 text-right row" style="margin: 0 auto;">
+                
                 <?php
                 if ($statusxxx==="Pending")
                 {
                 ?>
+                <div class="col-2">
                     <a href="<?=base_url()?>events/change_picture/<?=$event_id?>" class="btn btn-info btn-circle btn-sm">
                         <i class="far fa-image"></i>
                     </a>
+                </div>                    
 
                     &nbsp;
-                
+                <div class="col-2">
                     <a href="<?=base_url()?>events/edit_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-warning btn-circle btn-sm">
                     <i class="far fa-edit"></i>
                 </a>
+                </div>   
                 <?php
                 }
                 ?>
                 
                 &nbsp;
-                <a href="<?=base_url()?>events/delete_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-danger btn-circle btn-sm">
-                    <i class="fas fa-trash"></i>
-                </a>
+                <div class="col-2">
+                    <a href="<?=base_url()?>events/delete_events/<?=$org_id?>/<?=$event_id?>" class="btn btn-danger btn-circle btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>                    
 
             </div>
 

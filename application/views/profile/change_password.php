@@ -37,7 +37,7 @@
                     <i class="fas fa-ban"></i>
                 </span>
                 <span class="text">
-                    CANCEL
+                    BACK
                 </span>
             </a>
 

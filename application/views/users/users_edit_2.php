@@ -38,7 +38,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
             
             <div class="" style="">
 
-                <input type="number" name="year_level" class="form-control form-control-user add-input" autocomplete=off value="<?=$year_level?>" required>
+                <input type="number" name="year_level" class="form-control form-control-user add-input" autocomplete=off placeholder="Year Level" value="<?=$year_level?>" required>
 
                 <select type="text" name="program" class="form-control form-control-user add-input" autocomplete=off required>
                 <option value="">Program</option>
@@ -48,7 +48,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
                 <option value="BSEnSE">BSEnSE</option>
                 </select>
 
-                <input type="text" name="section" class="form-control form-control-user add-input" autocomplete=off value="<?=$section?>">
+                <input type="text" name="section" class="form-control form-control-user add-input" autocomplete=off placeholder="Section" value="<?=$section?>">
 
             </div>
 

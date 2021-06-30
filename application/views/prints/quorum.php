@@ -91,7 +91,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-2">
         <h2 class="h1 mb-0 text-gray-800"><?=$event_name?><br>
         <span style="font-size: 20px;">Date:
             <?php
@@ -103,7 +103,7 @@
                 }
 ?>
         
-        <span style="font-size: 20px; margin-left: 50px;">Date:
+        <span style="font-size: 20px; margin-left: 50px;">Venue:
         <?php
             echo $venue;
         ?>
@@ -122,7 +122,7 @@
 
 <div class="row">
     <!-- Earnings (Monthly) Card Example -->
-  <div class="col-6 col-md-6 mb-4">
+  <div class="col-6 col-md-6 mb-2">
       <div class="card shadow h-100 py-2" style="border-left-color: #316879; border-left-style: solid; border-left-width: thick;">
           <div class="card-body">
               <div class="row no-gutters align-items-center">
@@ -147,7 +147,7 @@
   </div>
 
 
-  <div class="col-6 col-md-6 mb-4">
+  <div class="col-6 col-md-6 mb-2">
       <div class="card shadow h-100 py-2" style="border-left-color: #f47a60; border-left-style: solid; border-left-width: thick;">
           <div class="card-body">
               <div class="row no-gutters align-items-center">
@@ -171,7 +171,7 @@
       </div>
   </div>
 
-  <div class="col-6 col-md-6 mb-4">
+  <div class="col-6 col-md-6 mb-2">
       <div class="card shadow h-100 py-2" style="border-left-color: #acbfc1; border-left-style: solid; border-left-width: thick;">
           <div class="card-body">
               <div class="row no-gutters align-items-center">
@@ -195,7 +195,7 @@
       </div>
   </div>
 
-  <div class="col-6 col-md-6 mb-4">
+  <div class="col-6 col-md-6 mb-2">
       <div class="card shadow h-100 py-2" style="border-left-color: #72b5ae; border-left-style: solid; border-left-width: thick;">
           <div class="card-body">
               <div class="row no-gutters align-items-center">

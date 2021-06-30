@@ -156,14 +156,6 @@
             <br>
 
             <!-- BUTTONS -->
-            <button type="submit" class="btn btn-success btn-icon-split" style="margin-left:%; margin-top:3%; margin-bottom: 5%" disabled>
-                <span class="icon text-white-50">
-                    <i class="fas fa-user-plus"></i>
-                </span>
-                <span class="text">
-                    NEXT
-                </span>
-            </button>
             
             &nbsp;&nbsp;
             <a href="<?=base_url()?>officers/officer_details/<?=$this->session->userdata('user_id')?>" class="btn btn-danger btn-icon-split" style=" margin-top:3%; margin-bottom: 5%">

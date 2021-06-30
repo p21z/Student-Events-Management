@@ -64,6 +64,7 @@ $get_orgData = get_where_custom($table_name, $column, $org_id);
                     <input type="text" name="lastname" class="form-control form-control-user add-input" autocomplete=off value="<?=$firstname?> <?=$lastname?>" required readonly>
 
                 <select type="text" name="off_type" class="form-control form-control-user add-input" autocomplete=off required>
+                            <option value="">Position</option>
                     <?php
                         if ($org_category=="Paulinian Student Government")
                         {

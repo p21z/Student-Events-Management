@@ -57,7 +57,7 @@ $all_data = $present_data + $late_data + $absent_data;
             }
         ?>
         
-        <span style="font-size: 14px; margin-left: 50px;">Date:
+        <span style="font-size: 14px; margin-left: 50px;">Venue:
         <?php
             echo $venue;
         ?>
@@ -230,7 +230,7 @@ $all_data = $present_data + $late_data + $absent_data;
   <div class="card pb-5 pt-3" style="width: 32%">
     <h4 class="font-weight-bold" style="text-align: center; color: #72b5ae;"> Visitor </h4>
     <?php
-      $count_visitors=count_where('tbl_evaluation', 'event_id', $url_id);
+      $count_visitors=count_where('tbl_visitor', 'event_id', $url_id);
       if ($count_visitors===0){
         echo "<h1 class='text-center mt-5'>N/A<br><br><br><br><br></h1>";
       } else

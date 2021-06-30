@@ -70,7 +70,7 @@
                     "image" => $photo
                     );
 
-                    // update_from($dp_data, $value, $table_name, $column);
+                    update_from($dp_data, $value, $table_name, $column);
             
             $_SESSION['err_msg1']="Your image was successfully changed!";
             redirect('/users/users_edit/'.$url_id);

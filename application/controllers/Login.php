@@ -5,6 +5,7 @@ class Login extends CI_Controller {
 
 	function index()
 	{
+        session_destroy();
         $this->load->view('must/perfect_function');
 		$this->load->view('login/login');
 

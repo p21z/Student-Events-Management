@@ -21,7 +21,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
 <div align=center>
     <div class="card mb-4 w-75">
         <div class="card-header">
-            EDIT USER
+            EDIT VISITOR
         </div>
 
 

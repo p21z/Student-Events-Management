@@ -35,7 +35,7 @@ foreach ($events_data as $key => $row)
 <div align=center>
     <div class="card mb-4 w-75">
         <div class="card-header">
-            <span class="ml-5">EDIT EVENTS</span>
+            <span class="ml-5">EDIT EVENT</span>
         </div>
 
         <form method="post" action="<?=base_url()?>events/edit_events/<?=$url_id?>/<?=$url_id_2?>">

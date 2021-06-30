@@ -6,12 +6,12 @@
 
         <form method="post" action="<?=base_url()?>users/users_add">
             <?php
-                if($this->session->userdata("username"))
+                if($this->session->userdata("username_1"))
                 {
             ?>
                 <div class="" style="">
 
-                    <input type="text" name="username" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("username")?> required>
+                    <input type="text" name="username" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("username_1")?> required>
 
                     <input type="text" name="firstname" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("firstname")?> required>
 

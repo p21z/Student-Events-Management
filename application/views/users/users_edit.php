@@ -48,7 +48,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
 
         <form method="post" action="<?=base_url()?>users/users_edit">
             <?php
-                if($this->session->userdata("username"))
+                if($this->session->userdata("username_1"))
                 {
             ?>
             
@@ -56,7 +56,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
 
                 <input type="text" name="url_id" value='<?=$this->session->userdata("url_id")?>'' hidden>
 
-                    <input type="text" name="username" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("username")?> required readonly>
+                    <input type="text" name="username" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("username_1")?> required readonly>
 
                     <input type="text" name="firstname" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("firstname")?> required>
 

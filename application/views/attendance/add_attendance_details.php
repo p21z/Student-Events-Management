@@ -1,7 +1,7 @@
 <div align=center>
     <div class="card mb-4 w-75">
         <div class="card-header">
-            ADD NEW ORGANIZATION
+            ADD ATTENDANCE
         </div>
 
         <form method="post" action="<?=base_url()?>attendance/add_attendee_details/<?=$url_id?>/<?=$url_id_2?>">

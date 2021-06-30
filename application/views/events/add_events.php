@@ -15,7 +15,7 @@
 <div align=center>
     <div class="card mb-4 w-75">
         <div class="card-header">
-            ADD NEW USER
+            ADD NEW EVENT
         </div>
 
             <div class="" style="">
