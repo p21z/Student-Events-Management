@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 02:24 PM
+-- Generation Time: Jul 01, 2021 at 04:46 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -388,7 +388,7 @@ INSERT INTO `tbl_orgs` (`org_id`, `org_name`, `org_category`, `org_description`,
 (55, 'Institute of Computer Engineers of the Philippines', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra vel turpis. ', 'ICpEP.se', 'ICPEP.png', 'ICPEP.jpg', 0),
 (56, 'Office of the Dean', 'dean', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing at in tellus.', '', '', '', 0),
 (59, 'Philippine Institute of Civil Engineers', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere urna nec tincidunt praesent semper feugiat nibh. Sollicitudin tempor id eu nisl nunc.', 'PICE', 'PICE.png', 'PICE.jpg', 0),
-(60, 'PSES', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae. Enim ut tellus elementum sagittis vitae et leo.', 'PSES', '203180134_196525449057746_9007705449871490238_n.png', '207095678_234158338300986_1370998387050515346_n.jpg', 0),
+(60, 'PSES', 'Program-based', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae. Enim ut tellus elementum sagittis vitae et leo.', 'PSES', '203180134_196525449057746_9007705449871490238_n.png', 'PSES.jpg', 0),
 (61, 'Orgtest', 'Program-based', 'sdfdsf', '1231', '', '', 1);
 
 -- --------------------------------------------------------
@@ -556,7 +556,7 @@ CREATE TABLE `tbl_users` (
 
 INSERT INTO `tbl_users` (`user_id`, `username`, `password`, `firstname`, `lastname`, `email`, `contact_no`, `gender`, `user_type`, `time_stamp`, `year_level`, `program`, `section`, `archive`, `statusxx`, `counterxx`, `image`) VALUES
 (1, 'user1', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Chrysta', 'Reeves', 'chrystalR@gmail.co', '0932457953', 'Female', 'Dean', '', '', '', '', 0, 0, 0, ''),
-(11, 'user2', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Anastasia ', 'Moss', 'anasmoss@flag.io', '935236545', 'Female', 'Adviser', '2021-04-16', '', '', '', 0, 0, 0, ''),
+(11, 'user2', '2db4c1811f424582a90f8d7ee77995cf018d9443', 'Anastasia ', 'Moss', 'anasmoss@flag.io', '935236545', 'Female', 'Adviser', '2021-04-16', '', '', '', 0, 0, 0, ''),
 (12, 'norma', 'de2a4d5751ab06dc4f987142db57c26d50925c8a', 'Normal', 'Liny', 'norma13@gma.il', '093457821', 'Female', 'Student', '2021-04-18', '3', 'BSCpE', 'C', 0, 0, 0, ''),
 (13, 'user3', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Male', 'Officer', '2021-04-18', '3', 'BSCpE', 'B', 0, 0, 0, ''),
 (14, 'user4', 'pass', 'Jack', 'Synderen', 'synderen@twit.ch', '0923565342', 'Male', 'Adviser', '2021-04-18', '', '', '', 0, 0, 0, ''),
