@@ -3,7 +3,7 @@
     {
         redirect('/login');
     }
-    print_r($_SESSION);
+    // print_r($_SESSION);
 
 
 function getConnection_header_special()
@@ -192,6 +192,7 @@ date_default_timezone_set('Asia/Singapore');
                     {
                         $org_id_2=$row['org_id'];
                         $org_name_2=$row['org_name'];
+                        
                 ?>
                         <a class="nav-link" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id_2?>">
                             <i class="fas fa-building"></i>
@@ -259,10 +260,11 @@ date_default_timezone_set('Asia/Singapore');
                                 {
                                     $org_id=$row['org_id'];
                                     $org_name=$row['org_name'];
+                                    $org_abbr=$row['org_abbr'];
                                 
                         ?>
 
-                        <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_name ?></a>
+                        <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_abbr ?></a>
 
                         <?php
                                 }

@@ -11,6 +11,7 @@ $user_editedValues = array(
     'time_needed' => $this->session->userdata("time_needed"),
     'occasion' => $this->session->userdata("occasion"),
     'num_guest' => $this->session->userdata("num_guest"),
+    'orderxx' => $this->session->userdata("order"),
     'menu' => $this->session->userdata("menu"),
     'venue' => $this->session->userdata("venue"),
     'remarks' => $this->session->userdata("remarks")

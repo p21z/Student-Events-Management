@@ -13,6 +13,8 @@
 
                 <input type="text" name="org_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Name" value="<?=$this->session->userdata("org_name")?>" required>
 
+                <input type="text" name="org_abbr" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Abbreviation/Acronym" value="<?=$this->session->userdata("org_abbr")?>" required>
+
                 <div class="form-floating">
                     <textarea name="org_description" class="form-control form-control-user add-input" placeholder="Say something about the organization" id="floatingTextarea2" style="height: 100px" required><?=$this->session->userdata("org_description")?></textarea>
                 </div>
@@ -24,6 +26,8 @@
             <div class="" style="">
 
                 <input type="text" name="org_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Name" required>
+
+                <input type="text" name="org_abbr" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Abbreviation/Acronym" required>
 
                 <div class="form-floating">
                     <textarea name="org_description" class="form-control form-control-user add-input" placeholder="Say something about the organization" id="floatingTextarea2" style="height: 100px"></textarea>

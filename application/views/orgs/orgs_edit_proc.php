@@ -9,7 +9,9 @@ $user_editedValues = array(
     
     'org_name' => $this->session->userdata("org_name"),
     'org_description' => $this->session->userdata("org_description"),
-    'org_category' => $this->session->userdata("org_category")
+    'org_category' => $this->session->userdata("org_category"),
+    'org_abbr' => $this->session->userdata("org_abbr")
+    
 
 );
 

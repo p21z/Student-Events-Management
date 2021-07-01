@@ -1,5 +1,5 @@
 <?php
-print_r($_SESSION);
+// print_r($_SESSION);
 $table_name="tbl_officers";
 $column="off_id";
 

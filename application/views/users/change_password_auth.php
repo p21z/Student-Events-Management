@@ -13,12 +13,14 @@ if($this->session->userdata('new_pass_1')===$this->session->userdata('new_pass_2
         $username=$row['username'];
         $pass_db=$row['password'];
     }
-    echo $pass_db." ".$this->session->userdata("new_pass_1");
+    // echo $pass_db." ".$this->session->userdata("new_pass_1");
 
     if($pass_db===_hash_string($this->session->userdata('old_pass')))
     {
         $user_editedValues = array(
-            'password' => _hash_string($this->session->userdata("new_pass_1"))
+            'password' => _hash_string($this->session->userdata("new_pass_1")),
+            'statusxx' => 0,
+            'counterxx' => 0
         );
         echo update_from($user_editedValues, $this->session->userdata('url_id'), $table_name, $column);
         // add session for success message

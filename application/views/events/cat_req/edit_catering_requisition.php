@@ -13,6 +13,7 @@ foreach ($events_data as $key => $row)
     $time_needed=$row['time_needed'];
     $occasion=$row['occasion'];
     $num_guest=$row['num_guest'];
+    $order=$row['orderxx'];
     $menu=$row['menu'];
     $venue=$row['venue'];
     $remarks=$row['remarks'];
@@ -36,15 +37,17 @@ foreach ($events_data as $key => $row)
 
             <input type="text" name="url_id_3" class="form-control form-control-user add-input" autocomplete=off placeholder="URL ID 2-event id " value="<?=$url_id_3?>" required hidden>
 
-            <input type="text" name="datexx" class="form-control form-control-user add-input" autocomplete=off placeholder="Bus Fare" value="<?=$datexx?>"
+            <input type="text" name="datexx" class="form-control form-control-user add-input" autocomplete=off placeholder="Date" value="<?=$datexx?>"
             onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>
 
-            <input type="text" name="time_needed" class="form-control form-control-user add-input" autocomplete=off placeholder="Taxi Fare" value="<?=$time_needed?>"
+            <input type="text" name="time_needed" class="form-control form-control-user add-input" autocomplete=off placeholder="Time needed" value="<?=$time_needed?>"
             onfocus="(this.type='time')" onblur="if(this.value==''){this.type='text'}" required>
 
-            <input type="text" name="occasion" class="form-control form-control-user add-input" autocomplete=off placeholder="Other fares" value="<?=$occasion?>">
+            <input type="text" name="occasion" class="form-control form-control-user add-input" autocomplete=off placeholder="Occasion" value="<?=$occasion?>">
 
-            <input type="number" name="num_guest" class="form-control form-control-user add-input" autocomplete=off placeholder="Food allowance" value="<?=$num_guest?>">
+            <input type="number" name="num_guest" class="form-control form-control-user add-input" autocomplete=off placeholder="Number of guests" value="<?=$num_guest?>">
+
+            <input type="text" name="order" class="form-control form-control-user add-input" autocomplete=off placeholder="Order" value="<?=$order?>" required>
 
             <select type="text" name="menu" class="form-control form-control-user add-input" autocomplete=off required>
                 <option value="">Menu</option>
@@ -56,7 +59,7 @@ foreach ($events_data as $key => $row)
 
             <input type="text" name="venue" class="form-control form-control-user add-input" autocomplete=off placeholder="Accomodation" value="<?=$venue?>">
 
-            <textarea name="remarks" class="form-control form-control-user add-input" placeholder="Purpose" id="floatingTextarea2" style="height: 100px"><?=$remarks?></textarea>
+            <textarea name="remarks" class="form-control form-control-user add-input" placeholder="Remarks" id="floatingTextarea2" style="height: 100px"><?=$remarks?></textarea>
             
 
             </div>

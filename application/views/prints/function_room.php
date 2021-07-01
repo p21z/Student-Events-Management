@@ -91,36 +91,7 @@ margin-right: auto;">
         <tr>
             <td colspan="4" style="width: 467.5pt;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0in 5.4pt;vertical-align: top;">
                 <p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'>Person Responsible:
-                
-                <?php
-
-                $event_data=get_where_custom('tbl_events', 'event_id', $url_id);
-
-                foreach ($event_data as $key => $row)
-                {
-                    $org_id=$row['org_id'];
-                    $event_name=$row['event_name'];
-                    // echo $org_id." org_id "; 
-                    $officer_data=get_where_proj_spec_2($org_id);
-
-                    foreach ($officer_data as $key => $row)
-                    {
-                        $user_id=$row['user_id'];
-                        // echo $user_id." user_id "; 
-                        $user_data=get_where_custom('tbl_users', 'user_id', $user_id);
-                        $user_count=count_where('tbl_users', 'user_id', $user_id);
-                        foreach ($user_data as $key => $row)
-                        {
-                            $firstname=$row['firstname'];
-                            $lastname=$row['lastname'];
-
-                            echo '<b><u>'.$firstname.' '.$lastname.'</u></b> ';
-
-                        }
-                    }
-                }
-
-                ?>
+                    <b><u><?=$person_respo?></u></b>
                 </p>
             </td>
         </tr>

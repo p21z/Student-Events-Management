@@ -51,23 +51,6 @@
                             <h5 class="m-0 font-weight-bold text-primary">Student List</h5>
                         </div>
                         <div class="card-body">
-                            <?php
-                            if ($statusxx==="Pending")
-                            {
-                            ?>
-                            <a href="<?=base_url()?>events/add_student_list/<?=$url_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-user-plus"></i>
-                                </span>
-                                <span class="text">
-                                    ADD STUDENT
-                                </span>
-                            </a>
-
-                            <hr>
-                            <?php
-                            }
-                            ?>
                             
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -77,14 +60,6 @@
                                             <th>Year</th>
                                             <th>Program</th>
                                             <th>Section</th>
-                                            <?php
-                                            if ($statusxx==="Pending")
-                                            {
-                                            ?>
-                                            <th>Options</th>
-                                            <?php
-                                            }
-                                            ?>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -93,14 +68,6 @@
                                             <th>Year</th>
                                             <th>Program</th>
                                             <th>Section</th>
-                                            <?php
-                                            if ($statusxx==="Pending")
-                                            {
-                                            ?>
-                                            <th>Options</th>
-                                            <?php
-                                            }
-                                            ?>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -125,19 +92,6 @@
                                             <td><?=$year?></td>
                                             <td><?=$program?></td>
                                             <td><?=$section?></td>
-                                            
-                                            <?php
-                                            if ($statusxx==="Pending")
-                                            {
-                                            ?>
-                                            <td>
-                                                <a href="<?=base_url()?>events/delete_student_list/<?=$url_id?>/<?=$url_id?>/<?=$stud_list_id?>" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                            <?php
-                                            }
-                                            ?>
                                             
                                         </tr>
                                     <?php

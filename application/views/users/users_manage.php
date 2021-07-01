@@ -71,6 +71,7 @@
                                                 $contact_no=$row['contact_no'];
                                                 $gender=$row['gender'];
                                                 $user_type=$row['user_type'];
+                                                $user_type_1=$row['user_type'];
                                                 $time_stamp=$row['time_stamp'];
                                                 $year_level=$row['year_level'];
                                                 $program=$row['program'];
@@ -168,10 +169,16 @@
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;
+                                                    
+                                                    <?php
+                                                    if ($user_type!=="Dean")
+                                                    {?>
                                                     <a href="<?=base_url()?>users/users_delete/<?=$user_id?>" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
-                                                    
+                                                    <?php
+                                                    }
+                                                    ?> 
                                                 </td>
                                             </tr>
                                             

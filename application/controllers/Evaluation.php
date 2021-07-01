@@ -97,7 +97,7 @@ class Evaluation extends CI_Controller {
 	function add_evaluation_proc()
 	{
 		
-		print_r($_SESSION);
+		// print_r($_SESSION);
 		$this->load->view('must/perfect_function');
 		$this->load->view('evaluation/add_evaluation_proc');
 		// $this->events_session_unset();

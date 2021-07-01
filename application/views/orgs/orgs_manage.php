@@ -64,6 +64,7 @@
                 foreach ($orgs_data as $key => $row) {
                     $org_id=$row['org_id'];
                     $org_name=$row['org_name'];
+                    $org_abbr=$row['org_abbr'];
                     $org_category=$row['org_category'];
                     $org_description=$row['org_description'];
                     $org_image=$row['org_image'];
@@ -151,7 +152,8 @@
                                     <table class="text-black"" id="dataTable" width="100%" cellspacing="0">
                                         <tbody>
                                             <tr>
-                                                <td><h5>Category: <b><?=$org_category?></b></h5></td>
+                                                <td><h5>Abbreviation/Acronym: <b><?=$org_abbr?></b></h5></td>
+                                                <td><h5>Type: <b><?=$org_category?></b></h5></td>
                                                 <td><h5>Category: <b>
                                                 <?php if($archive==="1")
                                                 {?>
@@ -164,7 +166,7 @@
                                                 </b></h5></td>
                                             </tr>
                                             <tr>
-                                                <td colspan=2>
+                                                <td colspan=3>
                                                     <h5 style="margin-top: 10px;">Description: </h5>
                                                     <?=$org_description?>
                                                 </td>
@@ -174,7 +176,7 @@
                                             {
                                             ?>
                                                 <tr>
-                                                <td colspan=2>
+                                                <td colspan=3>
                                                     <h5 style="margin-top: 10px;">Included: </h5>
                                                     <?php
 

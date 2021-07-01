@@ -68,7 +68,7 @@ foreach ($events_data as $key => $row)
 
             <textarea name="objective_2" class="form-control form-control-user add-input" placeholder="Objective 2" id="floatingTextarea2" style="height: 100px"><?=$objective_2?></textarea>
 
-            <textarea name="objective_3" class="form-control form-control-user add-input" placeholder="Objective 3" id="floatingTextarea2" style="height: 100px"<?=$objective_3?>></textarea>
+            <textarea name="objective_3" class="form-control form-control-user add-input" placeholder="Objective 3" id="floatingTextarea2" style="height: 100px"><?=$objective_3?></textarea>
 
             </div>
 

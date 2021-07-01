@@ -11,6 +11,7 @@ $get_orgData = get_where_custom($table_name, $column, $url_id);
         $org_name=$row['org_name'];
         $org_description=$row['org_description'];
         $org_category=$row['org_category'];
+        $org_abbr=$row['org_abbr'];
         
     }
     
@@ -34,6 +35,8 @@ $get_orgData = get_where_custom($table_name, $column, $url_id);
                 <input type="text" name="org_id" value="<?=$this->session->userdata("org_id")?>" hidden>
 
                 <input type="text" name="org_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Name" value="<?=$this->session->userdata("org_name")?>" required>
+                
+                <input type="text" name="org_abbr" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Name" value="<?=$this->session->userdata("org_abbr")?>" required>
 
                 <div class="form-floating">
                     <textarea name="org_description" class="form-control form-control-user add-input" placeholder="Say something about the organization" id="floatingTextarea2" style="height: 100px"><?=$this->session->userdata("org_description")?></textarea>
@@ -50,6 +53,8 @@ $get_orgData = get_where_custom($table_name, $column, $url_id);
                 <input type="text" name="org_id" value="<?=$org_id?>" hidden>
 
                 <input type="text" name="org_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Name" value="<?=$org_name?>" required>
+
+                <input type="text" name="org_abbr" class="form-control form-control-user add-input" autocomplete=off placeholder="Organization Abbreviation/Acronym" value="<?=$org_abbr?>" required>
 
                 <div class="form-floating">
                     <textarea name="org_description" class="form-control form-control-user add-input" placeholder="Say something about the organization" id="floatingTextarea2" style="height: 100px" required><?=$org_description?></textarea>

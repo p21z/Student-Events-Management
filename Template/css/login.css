@@ -1,0 +1,124 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: "open sans";
+    color: #fff;
+}
+
+
+.form-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0,0,0,0.3));
+    width: 380px;
+    padding: 70px 60px;
+    border-radius: 10px;
+    box-shadow: 100000px 5000000px 80000px rgb(0, 0, 0);
+    z-index: 1;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 2em;
+    text-align: left;
+    margin-bottom: 2em;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+.control label{
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.control input{
+    width: 100%;
+    display: block;
+    padding: 8px;
+    color: #000;
+    border: none;
+    outline: none;
+    margin: 0.8em 0;
+    border-radius: 10px;
+}
+
+.control input[type="submit"]{
+    background: rgb(18, 190, 69);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    opacity: .8;
+    transition: opacity .3s ease;
+
+
+}
+.control input[type="submit"]:hover{
+    opacity: 2;
+
+}
+
+
+
+
+.video-container {
+    position: fixed;
+
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .video-container {
+        width:100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .video-container { 
+        width:auto;
+        height: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .video-container {
+        display: none;
+    }
+    body {
+        background: url('assets/img/SITE.jpg');
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
+}
+
+
+

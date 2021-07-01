@@ -7,7 +7,8 @@ class Login extends CI_Controller {
 	{
         session_destroy();
         $this->load->view('must/perfect_function');
-		$this->load->view('login/login');
+		// $this->load->view('login/login');
+        $this->load->view('test');
 
 	}
 

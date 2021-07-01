@@ -116,6 +116,7 @@ foreach ($event_data as $key => $row)
         $time_needed=$row['time_needed'];
         $occasion=$row['occasion'];
         $num_guest=$row['num_guest'];
+        $order=$row['orderxx'];
         $menu=$row['menu'];
         $venue=$row['venue'];
         $remarks=$row['remarks'];
@@ -134,7 +135,7 @@ foreach ($event_data as $key => $row)
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><b><?=$num_guest ?></b></p>
             </td>
             <td colspan="2" style="width: 20.2946%; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0cm 5.4pt; vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><b><?=$menu ?></b></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><b><?=$order."-".$menu ?></b></p>
             </td>
             <td style="width: 83.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><b><?=$venue ?></b></p>

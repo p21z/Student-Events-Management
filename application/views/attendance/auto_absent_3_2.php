@@ -13,12 +13,12 @@
 
         $statusxx=$row['statusxx'];
 
-        echo "FROM ALL ATTENDEE DATA -->";
-        echo "attendance_id: ".$attendance_id." ";
-        echo "event_id: ".$event_id." ";
-        echo "user_id: ".$user_id." ";
-        echo "statusxx: ".$statusxx." ";
-        echo "<br>";
+        // echo "FROM ALL ATTENDEE DATA -->";
+        // echo "attendance_id: ".$attendance_id." ";
+        // echo "event_id: ".$event_id." ";
+        // echo "user_id: ".$user_id." ";
+        // echo "statusxx: ".$statusxx." ";
+        // echo "<br>";
 
         
         $user_data_2=get_where_double_and($table_name, "event_id", $event_id, "user_id", $user_id);
@@ -29,12 +29,12 @@
             $user_id=$row['user_id'];
             $statusxx=$row['statusxx'];
 
-            echo "FROM SPECIFIC ATTENDEE DATA -->";
-            echo "attendance_id: ".$attendance_id." ";
-            echo "event_id: ".$event_id." ";
-            echo "user_id: ".$user_id." ";
-            echo "statusxx: ".$statusxx." ";
-            echo "<br>";
+            // echo "FROM SPECIFIC ATTENDEE DATA -->";
+            // echo "attendance_id: ".$attendance_id." ";
+            // echo "event_id: ".$event_id." ";
+            // echo "user_id: ".$user_id." ";
+            // echo "statusxx: ".$statusxx." ";
+            // echo "<br>";
 
             if ($statusxx==="Absent")
             {
@@ -44,7 +44,7 @@
                 echo delete_from($attendance_id, $table_name, $column);
             }
         }
-        echo "<hr>";
+        // echo "<hr>";
 
         
     }

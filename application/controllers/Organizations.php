@@ -84,7 +84,8 @@ class Organizations extends CI_Controller {
             'org_name' => $this->input->post('org_name'),
             'org_description' => $this->input->post('org_description'),
             'org_category' => $this->input->post('org_category'),
-            'Archive' => $this->input->post('Archive')
+            'Archive' => $this->input->post('Archive'),
+            'org_abbr' => $this->input->post('org_abbr')
         );
 
         $this->session->set_userdata($org_data);
@@ -98,6 +99,7 @@ class Organizations extends CI_Controller {
         $this->session->unset_userdata("org_description");
         $this->session->unset_userdata("org_category");
         $this->session->unset_userdata("Archive");
+        $this->session->unset_userdata("org_abbr");
 
     }
 
@@ -233,7 +235,7 @@ class Organizations extends CI_Controller {
 
     function organizations_archive_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('orgs/orgs_archive_proc');
         // $this->users_session_unset();
@@ -269,7 +271,7 @@ class Organizations extends CI_Controller {
         $this->load->view('must/perfect_function');
         if ($this->session->userdata("org_category")==="Program-based")
         {
-            print_r($_SESSION);
+            // print_r($_SESSION);
             
             $this->load->view('must/header');
             $this->load->view('orgs/orgs_edit_2');

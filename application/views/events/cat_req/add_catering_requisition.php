@@ -30,6 +30,8 @@
 
             <input type="number" name="num_guest" class="form-control form-control-user add-input" autocomplete=off placeholder="Number of guests" required>
 
+            <input type="text" name="order" class="form-control form-control-user add-input" autocomplete=off placeholder="Order" required>
+
             <select type="text" name="menu" class="form-control form-control-user add-input" autocomplete=off required>
                 <option value="">Menu</option>
                 <option value="Breakfast">Breakfast</option>

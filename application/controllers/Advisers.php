@@ -55,7 +55,7 @@ class Advisers extends CI_Controller {
             'user_id' => $this->uri->segment(3)
         );
         $this->session->set_userdata($url_data);
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('must/header');
 		$this->load->view('advisers/position_add_options');
@@ -81,7 +81,7 @@ class Advisers extends CI_Controller {
             $this->officer_session();
             redirect('/advisers/position_add_proc');
         }
-        print_r($_SESSION);
+        // print_r($_SESSION);
     }
 
     function position_add_proc()
@@ -107,7 +107,7 @@ class Advisers extends CI_Controller {
             $this->officer_session_2();
             redirect('/advisers/position_edit_proc');
         }
-        print_r($_SESSION);
+        // print_r($_SESSION);
     }
 
     function position_edit_proc()

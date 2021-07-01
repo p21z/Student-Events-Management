@@ -59,7 +59,7 @@
             onfocus="(this.type='time')" onblur="if(this.value==''){this.type='text'}">
 
             <input type="text" name="eta" class="form-control form-control-user add-input" autocomplete=off placeholder="Date of return" required
-            onfocus="(this.type='time')" onblur="if(this.value==''){this.type='text'}">
+            onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
 
             </div>
 

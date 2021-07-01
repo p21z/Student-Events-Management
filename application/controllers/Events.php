@@ -184,7 +184,7 @@ class Events extends CI_Controller {
 
     function delete_events_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/delete_events_proc');
         // $this->users_session_unset();
@@ -302,7 +302,7 @@ class Events extends CI_Controller {
 
     function add_common_function_room_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
@@ -382,7 +382,7 @@ class Events extends CI_Controller {
 
     function delete_common_function_room_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/rsrv_cfr/delete_common_function_room_proc');
         // $this->users_session_unset();
@@ -473,7 +473,7 @@ class Events extends CI_Controller {
 
     function add_cash_requisition_room_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
@@ -536,7 +536,7 @@ class Events extends CI_Controller {
 
     function delete_cash_requisition_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/csh_req/delete_cash_requisition_proc');
         // $this->users_session_unset();
@@ -557,6 +557,7 @@ class Events extends CI_Controller {
         'time_needed' => $this->input->post('time_needed'),
         'occasion' => $this->input->post('occasion'),
         'num_guest' => $this->input->post('num_guest'),
+        'order' => $this->input->post('order'),
         'menu' => $this->input->post('menu'),
         'venue' => $this->input->post('venue'),
         'remarks' => $this->input->post('remarks'),
@@ -575,6 +576,7 @@ class Events extends CI_Controller {
         $this->session->unset_userdata("time_needed");
         $this->session->unset_userdata("occasion");
         $this->session->unset_userdata("num_guest");
+        $this->session->unset_userdata("order");
         $this->session->unset_userdata("menu");
         $this->session->unset_userdata("venue");
         $this->session->unset_userdata("remarks");
@@ -600,7 +602,7 @@ class Events extends CI_Controller {
 
     function add_catering_requisition_room_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
@@ -663,7 +665,7 @@ class Events extends CI_Controller {
 
     function delete_catering_requisition_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/cat_req/delete_catering_requisition_proc');
         // $this->users_session_unset();
@@ -734,7 +736,7 @@ class Events extends CI_Controller {
 
     function add_in_campus_activity_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
@@ -767,7 +769,7 @@ class Events extends CI_Controller {
 
     function edit_in_campus_activity_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         echo "jndfg";
         $this->load->view('events/in_cmp/edit_in_campus_activity_proc');
@@ -797,7 +799,7 @@ class Events extends CI_Controller {
 
     function delete_in_campus_activity_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/in_cmp/delete_in_campus_activity_proc');
         // $this->users_session_unset();
@@ -864,7 +866,7 @@ class Events extends CI_Controller {
 
     function add_travel_permit_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
@@ -925,7 +927,7 @@ class Events extends CI_Controller {
 
     function delete_travel_permit_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/tra_prmt/delete_travel_permit_proc');
         // $this->users_session_unset();
@@ -1066,7 +1068,7 @@ class Events extends CI_Controller {
 
     function delete_student_list_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/stud_list/delete_student_list_proc');
 		redirect('/events/student_list_view/'.$this->session->userdata("url_id_2"));
@@ -1138,7 +1140,7 @@ class Events extends CI_Controller {
 
     function add_trip_ticket_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         
         $url_info['url_id'] = $this->uri->segment(3);
@@ -1200,7 +1202,7 @@ class Events extends CI_Controller {
 
     function delete_trip_ticket_proc()
     {
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/trp_tckt/delete_trip_ticket_proc');
         // $this->users_session_unset();

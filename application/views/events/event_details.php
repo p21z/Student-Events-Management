@@ -111,6 +111,7 @@
                     
                     
                     <br>
+                    <br>
                     <form action="<?=base_url()?>events/edit_events_remarks/<?=$org_id?>/<?=$event_id?>" method="post">
                         <div class="input-group mb-3 w-75" style="margin-top:-5%;">
                             <div class="input-group-prepend">
@@ -175,7 +176,7 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This document is needed to use any facility or function room within the university.</p>
 
                             <?php
                             if($statusxxx==="Pending")
@@ -332,7 +333,7 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This document is needed in requesting cash or cheque in the Business Affairs Office.</p>
 
                             <?php
                             if($statusxxx==="Pending")
@@ -522,7 +523,7 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This document is needed to request catering from the canteen.</p>
                             <!-- CONTINUE THIS N NEXT FORMS -->
                             <?php
                             if($statusxxx==="Pending")
@@ -548,7 +549,7 @@
                     window.open("<?= base_url() ?>prints/catering/<?=$url_id?>");
                     }
                     </script>
-                    <div class="card mt-3 mb-4 w-75">
+                    <div class="card mt-3 mb-4 w-100">
                         <div class="card-body">
                             
                             <a href="<?=base_url()?>events/add_catering_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
@@ -602,6 +603,7 @@
                                                 $time_needed=$row['time_needed'];
                                                 $occasion=$row['occasion'];
                                                 $num_guest=$row['num_guest'];
+                                                $order=$row['orderxx'];
                                                 $menu=$row['menu'];
                                                 $venue=$row['venue'];
                                                 $remarks=$row['remarks'];
@@ -613,7 +615,7 @@
                                                 <td><?=date('h:i a', strtotime($time_needed))?></td>
                                                 <td><?=$occasion?></td>
                                                 <td><?=$num_guest?></td>
-                                                <td><?=$menu?></td>
+                                                <td><?=$order?>-<?=$menu?></td>
                                                 <td><?=$venue?></td>
                                                 <td><?=$remarks?></td>
                                                 <td>
@@ -658,7 +660,7 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This document is needed to be accredited by the Office of Student Affairs.</p>
                             <?php
                             if($statusxxx==="Pending")
                             {
@@ -815,7 +817,7 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This document is needed to file official businesses outside the university.</p>
                             <?php
                             if($statusxxx==="Pending")
                             {
@@ -948,7 +950,7 @@
                             
                             <div class="card-body">
                                 <h5 class="card-title">No student list is found</h5>
-                                <p class="card-text">Something about the said document must be written here</p>
+                                <p class="card-text">This attached document is needed to file students' official business outside the university.</p>
                                 <a href="<?=base_url()?>events/add_student_list/<?=$event_id?>" class="btn btn-primary">Add a form</a>
                             </div>
 
@@ -962,7 +964,7 @@
                             
                         <div class="card-body">
                             <h5 class="card-title">Student list</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This attached document is needed to file students' official business outside the university.</p>
                             <a href="<?=base_url()?>events/student_list_view/<?=$event_id?>" class="btn btn-primary">View student list</a>
                         </div>
 
@@ -990,7 +992,7 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">No document is found</h5>
-                            <p class="card-text">Something about the said document must be written here</p>
+                            <p class="card-text">This document is needed to request the use of university-owned vehicles.</p>
                             <?php
                             if($statusxxx==="Pending")
                             {

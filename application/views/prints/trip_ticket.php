@@ -15,6 +15,8 @@ foreach ($trp_tckt_data as $key => $row)
     $date_use=$row['date_use'];
     $dept_time=$row['dept_time'];
     $eta=$row['eta'];
+    $passengers=$row['passengers'];
+    $destination=$row['destination'];
 
 
 ?>
@@ -106,12 +108,12 @@ margin-right: auto;">
             </tr>
             <tr>
                 <td colspan="2" style="width: 4.25in;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0in 5.4pt;vertical-align: top;">
-                    <p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'>4. &nbsp; No. of Passengers:_________________________________</p>
+                    <p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'>4. &nbsp; No. of Passengers: <b><u><?=$passengers?></u></b> </p>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="width: 4.25in;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0in 5.4pt;vertical-align: top;">
-                    <p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'>5. &nbsp; Destination:______________________________________</p>
+                    <p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'>5. &nbsp; Destination: <b><u><?=$destination?></u></b></p>
                 </td>
             </tr>
             <tr>

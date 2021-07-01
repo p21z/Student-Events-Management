@@ -17,9 +17,9 @@ date_default_timezone_set('Asia/Singapore');
     }
     
     // echo strtotime("+1 day", strtotime($end_date));
-    echo "auto_absent_counter= ".date('d-m-Y H:i:s',$auto_absent_counter)."<br>";
-    echo "end_date= ".strtotime("+1 day", strtotime($end_date))."<br>";
-    echo "end_date= ".date('d-m-Y H:i:s', strtotime("+1 day", strtotime($end_date)))."<br>";
+    // echo "auto_absent_counter= ".date('d-m-Y H:i:s',$auto_absent_counter)."<br>";
+    // echo "end_date= ".strtotime("+1 day", strtotime($end_date))."<br>";
+    // echo "end_date= ".date('d-m-Y H:i:s', strtotime("+1 day", strtotime($end_date)))."<br>";
 
 
     if( $auto_absent_counter>strtotime("+1 day", strtotime($end_date)) )
