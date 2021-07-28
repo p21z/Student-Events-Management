@@ -1,0 +1,137 @@
+[33mcommit 99fec2ad59bc5c342ec50dbdb824288e511be027[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: p21z <prim@hackthenorth.ph>
+Date:   Wed Jul 28 12:51:17 2021 +0800
+
+    added forgot password feature
+
+[33mcommit 961d7ee6b0bfb6d9d463bcb1ac70cbff60f920de[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu Jul 1 22:47:30 2021 +0800
+
+    ready for testing 3.01
+
+[33mcommit e1b0c954679d583fed0cd39af5bd8fff8630ee09[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu Jul 1 22:45:38 2021 +0800
+
+    ready for testing 3
+
+[33mcommit 83cb098a69632ee098adcde4f650a79e7f1b3619[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Wed Jun 30 16:10:21 2021 +0800
+
+    ready for testing 2
+
+[33mcommit d9ca2c76a8cf1a49d0758e93b77d3fee86d5380b[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Tue Jun 29 22:30:00 2021 +0800
+
+    ready for testing 1
+
+[33mcommit e237ccb1945acfbaba1984d3a8ded0a2c118ecaf[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Fri Jun 25 00:21:24 2021 +0800
+
+    fixed links for event foot
+
+[33mcommit 7de7d959cfe447465aff0f73e92aea0c539bfd73[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Fri Jun 25 00:12:20 2021 +0800
+
+    added basic version of visitor reg
+
+[33mcommit fc0f0ca9af9f17765abab3431008e551c29d0a8e[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu Jun 24 18:22:54 2021 +0800
+
+    push test
+
+[33mcommit 023fcb4405864376c7d84f9fd30dc2d4a01f82a4[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu Jun 24 17:59:31 2021 +0800
+
+    finished notifications feature
+
+[33mcommit b701fbbdc0aa9a2df70d89d54c6926d8bb3a61aa[m[33m ([m[1;31morigin/evaluationFix[m[33m)[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Mon Jun 21 15:00:43 2021 +0800
+
+    Fixed evaluation, Contains incomplete notification features
+
+[33mcommit 5743811789de02c6350497b83f7bc0597065e045[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Fri Jun 18 14:50:06 2021 +0800
+
+    finished all image functions
+
+[33mcommit 75074faf9c383e8c6ae824828290781d4fbef15e[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Fri Jun 11 15:54:01 2021 +0800
+
+    added profile picture functionality
+
+[33mcommit 54fbc7d3e0bb64394eaf19696f1e6dffce62ef1f[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Wed Jun 9 14:01:27 2021 +0800
+
+    Fixed bugs from predef 1, added evaluation function
+
+[33mcommit 0318cb043fdc3cf85975d29abad2894a4dfd3f41[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Sun May 30 23:15:53 2021 +0800
+
+    updated semm.sql
+
+[33mcommit c3852a42026c2c94a41541771b773a0f0f0b9a46[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Sun May 30 23:01:45 2021 +0800
+
+    added hash function in users
+
+[33mcommit 32f02ff11a9b603a27dfab853a4ed107d57ec86f[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Fri May 28 01:21:29 2021 +0800
+
+    system ready for pre-defense-Capstone 2
+
+[33mcommit 75ae10e294ae2067ef6254a7ac7995ee5d2c4757[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu May 20 23:21:11 2021 +0800
+
+    completed events preparation MVP
+
+[33mcommit 1320d97537d05b0096f449918f754702494213cd[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Fri May 14 00:02:44 2021 +0800
+
+    started events preparation page
+
+[33mcommit 6dee145639052e1abbc743c89eb553a6abbe7f4f[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu Apr 29 00:03:15 2021 +0800
+
+    added organizations in nav, ideas for organization_view
+
+[33mcommit a66ebaecb248fe616e9c8c04f22dae2edeb90641[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Mon Apr 26 15:43:21 2021 +0800
+
+     completed officer position functions
+
+[33mcommit fb2399b016d0c352d76e67130bd309485f5888ed[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Thu Apr 22 22:49:02 2021 +0800
+
+    added officers view and position options
+
+[33mcommit 1e8c08c747a78b514d137299bcd971626fe8804a[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Wed Apr 21 00:09:54 2021 +0800
+
+    Made R, U, D for organizations
+
+[33mcommit 2d2fb9bb081fd1c3a40629dc31ade1394eda7bdf[m
+Author: paradigm <prim@hackthenorth.ph>
+Date:   Tue Apr 20 09:32:38 2021 +0800
+
+    Initial commit
