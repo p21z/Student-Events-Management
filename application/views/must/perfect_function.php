@@ -606,7 +606,7 @@ function all_orgs_search($search)
 	 (org_name LIKE '%$search%' OR
 	 org_category LIKE '%$search%' OR 
 	 org_description LIKE '%$search%' OR 
-	 org_abbr LIKE '%$search%') AND org_category != 'dean'";
+	 org_abbr LIKE '%$search%')";
 	$result = $conn->query($sql);
 	return $result;
 }
@@ -618,7 +618,7 @@ function all_orgs_search_count($search)
 	 (org_name LIKE '%$search%' OR
 	 org_category LIKE '%$search%' OR 
 	 org_description LIKE '%$search%' OR 
-	 org_abbr LIKE '%$search%') AND org_category != 'dean'";
+	 org_abbr LIKE '%$search%')";
 	$result = $conn->query($sql);
 	$rowcount=mysqli_num_rows($result);
 	return $rowcount;

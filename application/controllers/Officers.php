@@ -103,7 +103,6 @@ class Officers extends CI_Controller {
         $this->form_validation->set_rules('off_type','Officer Type','required');
         if ($this->form_validation->run() == TRUE)
         {
-            echo "kahsfj";
             $this->officer_session_2();
             redirect('/officers/position_edit_proc');
         }

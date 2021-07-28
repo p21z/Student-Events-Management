@@ -142,15 +142,19 @@
 
                                             &nbsp;
 
-                                            <a href="<?=base_url()?>organizations/organizations_edit/<?=$org_id?>" class="btn btn-warning btn-circle btn-sm">
-                                                <i class="far fa-edit"></i>
-                                            </a>
+                                            
 
-                                            &nbsp;
-
-                                            <a href="<?=base_url()?>organizations/organizations_archive/<?=$org_id?>" class="btn btn-danger btn-circle btn-sm">
-                                                <i class="fas fa-archive"></i>
-                                            </a>
+                                            
+                                            <?php if($org_category!=="dean"){?>
+                                                <a href="<?=base_url()?>organizations/organizations_edit/<?=$org_id?>" class="btn btn-warning btn-circle btn-sm">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                &nbsp;
+                                                <a href="<?=base_url()?>organizations/organizations_archive/<?=$org_id?>" class="btn btn-danger btn-circle btn-sm">
+                                                    <i class="fas fa-archive"></i>
+                                                </a>
+                                            <?php } ?>
+                                            
                                         </td>
                                     </tr>
                                 </table>

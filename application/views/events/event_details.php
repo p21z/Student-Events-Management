@@ -207,7 +207,8 @@
                 </script>
                 <div class="card mt-3 mb-4 w-100">
                     <div class="card-body">
-                        
+                    <?php if($statusxxx==="Pending")
+                    {?>
                         <a href="<?=base_url()?>events/add_common_function_room/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
                             <span class="icon text-white-50">
                                 <i class="fas fa-user-plus"></i>
@@ -216,6 +217,7 @@
                                 ADD FORM
                             </span>
                         </a>
+                    <?php } ?>
 
                         <hr>
 
@@ -551,7 +553,8 @@
                     </script>
                     <div class="card mt-3 mb-4 w-100">
                         <div class="card-body">
-                            
+                        <?php if($statusxxx==="Pending")
+                            {?>
                             <a href="<?=base_url()?>events/add_catering_requisition/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-user-plus"></i>
@@ -560,6 +563,7 @@
                                     ADD ORDER
                                 </span>
                             </a>
+                        <?php   } ?>
 
                             <hr>
 
@@ -844,7 +848,8 @@
                 </script>
                 <div class="card mt-4 mb-3 w-100">
                     <div class="card-body">
-                        
+                    <?php if($statusxxx==="Pending")
+                        {?>
                         <a href="<?=base_url()?>events/add_travel_permit/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
                             <span class="icon text-white-50">
                                 <i class="fas fa-user-plus"></i>
@@ -853,6 +858,7 @@
                                 ADD TRAVEL PERMIT
                             </span>
                         </a>
+                    <?php   } ?>
 
                         <hr>
                         <div class="table-responsive">
@@ -1019,7 +1025,8 @@
                 </script>
                     <div class="card mt-4 mb-4 w-100">
                         <div class="card-body">
-                            
+                        <?php if($statusxxx==="Pending")
+                            {?>
                             <a href="<?=base_url()?>events/add_trip_ticket/<?=$org_id?>/<?=$event_id?>" class="btn btn-secondary btn-icon-split add-item" style="margin-top:-1px;">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-user-plus"></i>
@@ -1028,6 +1035,7 @@
                                     ADD TRIP TICKET
                                 </span>
                             </a>
+                        <?php   } ?>
 
                             <hr>
                             <div class="table-responsive">

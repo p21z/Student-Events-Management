@@ -63,7 +63,7 @@ $get_orgData = get_where_custom($table_name, $column, $url_id);
             <?php
                 }
             ?>
-
+                
                 <select type="text" name="org_category" class="form-control form-control-user add-input" autocomplete=off required>
                 <option value="">Organization Category</option>
                 <option value="Paulinian Student Government">Paulinian Student Government</option>

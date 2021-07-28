@@ -21,7 +21,7 @@
         $section=$row['section'];
         if ($section!=="")
         {
-            $programx=$program."-".$section;
+            $programx=$program;
         } else
         {
             $programx=$program;
@@ -59,17 +59,17 @@
         
         <tr>
             <td>Username: <?=$username?></td>
-            <td>???: <?=$year_level?>-<?=$programx?></td>
+            <td>Year level: <?=$year_level?></td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>Email: <?=$email?></td>
+            <td>Program: <?=$programx?></td>
         </tr>
         <tr>
         <td>Contact no: <?=$contact_no?></td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
         </tr>
         <tr>
             <td colspan=3><hr></td>

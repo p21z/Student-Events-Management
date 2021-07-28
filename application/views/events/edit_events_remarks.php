@@ -49,7 +49,7 @@ foreach ($events_data as $key => $row)
 
             <input type="text" name="event_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Event name" value="<?=$event_name?>" required readonly>
 
-            <textarea name="remarks" class="form-control form-control-user add-input" autocomplete=off required><?=$remarks?></textarea>
+            <textarea name="remarks" class="form-control form-control-user add-input" autocomplete=off><?=$remarks?></textarea>
 
             
             </div>
