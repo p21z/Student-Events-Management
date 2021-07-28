@@ -39,42 +39,44 @@
             <br>
             <?php
                 if (isset($_SESSION['login'])){
-                    if ($_SESSION['login']==1){
+                    if ($_SESSION['login']==3){
                         echo "
                             <div class='card border-bottom-danger text-danger'>
                                 <div class='card-body' style='border-bottom-color: #d9534f; border-bottom-style: solid; border-bottom-width: thick;'>
-                                Invalid Username or Password
+                                Invalid Username
+                                </div> 
+                            </div><br>";
+                            unset($_SESSION['login']);
+                    } elseif ($_SESSION['login']==4)
+                    {
+                        echo "
+                            <div class='card border-bottom-danger text-success'>
+                                <div class='card-body' style='border-bottom-color: #5cb85c; border-bottom-style: solid; border-bottom-width: thick;'>
+                                New Password sent in your email!
                                 </div> 
                             </div><br>";
                             unset($_SESSION['login']);
                     }
                 }
-                if (isset($_SESSION['login'])){
-                    if ($_SESSION['login']==2){
-                        echo "
-                            <div class='card' style='border-bottom-color: #d9534f; border-bottom-style: solid; border-bottom-width: thick;'>
-                                <div class='card-body text-danger'>
-                                <b style='font-size:20px; text-align:center;'>Account Disabled</b> <p> Contact the Admin to get help</p>
-                                </div>
-                            </div>";
-                            unset($_SESSION['login']);
-                    }
-                }
+               
             ?>
     
-        <form method=post action="<?=base_url()?>login/login_proc">
+        <form method=post action="<?=base_url()?>login/forgot_pass_proc">
 
             <div class="control">
             <label for="name">Username</label>
-                <input type="text" name="username"required autocomplete="off" class="form-control form-control-user">
+                <input type="text" name="username" required autocomplete="off" class="form-control form-control-user">
 
-            <div class="control">
-            <label for="name">Password</label>
-                <input type="password" name="password" required autocomplete="off" class="form-control form-control-user" >
+                <div id="box-container"> 
+                    <div id="box1">
+                        <input type="submit" value="Reset password" class="btn btn-success text-white" style="margin-top: 10px; width: 99%">
+                    </div>
+                    <div id="box2">
+                        <a href="<?=base_url()?>login" class="btn btn-danger" style="margin-top: 10px; width: 99%; padding: 7px;">Back</a>
+                    </div>
+                </div>
+                
 
-                <input type="submit" value="Login" class="btn btn-success" style="margin-top: 30px;">
-
-                <a href="<?=base_url()?>login/forgot_pass" class="btn btn-warning text-secondary" style="margin-top: 10px; width: 100%;">Forgot Password</a>
         </form>
 </section>
 

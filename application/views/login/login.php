@@ -1,6 +1,6 @@
 <?php
-    // session_start();
-    // print_r($_SESSION);
+    session_start();
+    print_r($_SESSION);
     // session_destroy();
 ?>
 
@@ -53,7 +53,7 @@
                         echo "
                             <div class='card mt-4 py-3 border-bottom-danger'>
                                 <div class='card-body text-danger'>
-                                <b>ACCOUNT DISABLED <br> CONTACT THE ADMIN TO GET HELP</b>
+                                <b>ACCOUNT DISABLED <br> RESET YOUR PASSWORD OR CONTACT THE ADMIN TO GET HELP</b>
                                 </div>
                             </div>";
                             unset($_SESSION['login']);

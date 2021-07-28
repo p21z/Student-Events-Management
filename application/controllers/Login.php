@@ -5,10 +5,10 @@ class Login extends CI_Controller {
 
 	function index()
 	{
-        session_destroy();
+        // session_destroy();
         $this->load->view('must/perfect_function');
 		// $this->load->view('login/login');
-        $this->load->view('test');
+        $this->load->view('login/login2');
 
 	}
 
@@ -50,6 +50,32 @@ class Login extends CI_Controller {
         $user_info = $this->get_data_human_or_not();
         $this->load->view('login/answer', $user_info);
     }
+
+    function forgot_pass()
+    {
+        $this->load->view('must/perfect_function');
+        $this->load->view('login/forgot_pass');
+    }
+
+    function get_data_forgot_pass()
+    {
+        $data['username'] = $this->input->post('username', TRUE);
+        return $data;
+    }
+
+    function forgot_pass_proc()
+    {
+        $this->load->view('must/perfect_function');
+        $user_info = $this->get_data_forgot_pass();
+        $this->load->view('login/forgot_pass_proc', $user_info);
+        $this->load->view('phpmailer/forgot_pass_email');
+        $this->load->view('login/forgot_pass_proc_2');
+
+        redirect(base_url().'login/forgot_pass');
+    }
+
+    
+
 
     
 }
