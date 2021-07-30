@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 04:46 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Jul 30, 2021 at 01:14 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,6 +42,50 @@ CREATE TABLE `tbl_attendee` (
   `section` varchar(65) NOT NULL,
   `statusxx` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_attendee`
+--
+
+INSERT INTO `tbl_attendee` (`attendance_id`, `event_id`, `user_id`, `username`, `firstname`, `lastname`, `email`, `contact_no`, `user_type`, `year_level`, `program`, `section`, `statusxx`) VALUES
+(1, 4, 12, 'norma', 'Normal', 'Liny', 'norma13@gma.il', '093457821', 'Student', '3', 'BSCpE', 'C', 'Absent'),
+(2, 4, 13, 'user3', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Officer', '3', 'BSCpE', 'B', 'Absent'),
+(3, 4, 18, 'user5', 'Francis', 'Tuliao', 'ptuliao@sagi.ru', '0908426542', 'Officer', '2', 'BSCE', 'B', 'Absent'),
+(4, 4, 19, 'user6', 'Graig ', 'Wairner', 'gwairner@g.co', '0927591400', 'Student', '3', 'BSIT', '', 'Absent'),
+(5, 4, 20, 'user7', 'Robin', 'Rosario', 'rrosario@syse.io', '09283342', 'Officer', '2', 'BSCpE', 'B', 'Absent'),
+(6, 4, 21, 'user8', 'Bryce ', 'Mahoney', 'mbryce@osdf.com', '0985649324', 'Officer', '3', 'BSIT', '', 'Absent'),
+(7, 4, 22, 'user9', 'Ellsworth', 'Howell', 'howellell@gmco.re', '0934256477', 'Student', '1', 'BSEnSE', 'C', 'Absent'),
+(8, 4, 24, 'user10', 'Amara', 'Kent', 'kent_amara@hexa.on', '09765769035', 'Student', '4', 'BSEnSE', 'A', 'Absent'),
+(9, 4, 28, 'user13', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Student', '3', 'BSCpE', 'A', 'Absent'),
+(10, 4, 208, 'user14', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Student', '1', 'BSIT', 'A', 'Absent'),
+(11, 4, 209, 'user_today', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Officer', '2', 'BSCE', 'B', 'Absent'),
+(61, 13, 19, 'user6', 'Graig ', 'Wairner', 'gwairner@g.co', '0927591400', 'Student', '3', 'BSIT', '', ''),
+(62, 13, 21, 'user8', 'Bryce ', 'Mahoney', 'mbryce@osdf.com', '0985649324', 'Officer', '3', 'BSIT', '', ''),
+(63, 13, 208, 'user14', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Student', '1', 'BSIT', 'A', ''),
+(64, 13, 12, 'norma', 'Normal', 'Liny', 'norma13@gma.il', '093457821', 'Student', '3', 'BSCpE', 'C', 'Present'),
+(65, 13, 13, 'user3', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Officer', '3', 'BSCpE', 'B', ''),
+(66, 13, 20, 'user7', 'Robin', 'Rosario', 'rrosario@syse.io', '09283342', 'Officer', '2', 'BSCpE', 'B', ''),
+(67, 13, 28, 'user13', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Student', '3', 'BSCpE', 'A', ''),
+(68, 15, 12, 'norma', 'Normal', 'Liny', 'norma13@gma.il', '093457821', 'Student', '3', 'BSCpE', 'C', 'Absent'),
+(69, 15, 13, 'user3', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Officer', '3', 'BSCpE', 'B', 'Absent'),
+(70, 15, 18, 'user5', 'Francis', 'Tuliao', 'ptuliao@sagi.ru', '0908426542', 'Officer', '2', 'BSCE', 'B', 'Absent'),
+(71, 15, 19, 'user6', 'Graig ', 'Wairner', 'gwairner@g.co', '0927591400', 'Student', '3', 'BSIT', '', 'Absent'),
+(72, 15, 20, 'user7', 'Robin', 'Rosario', 'rrosario@syse.io', '09283342', 'Officer', '2', 'BSCpE', 'B', 'Absent'),
+(73, 15, 21, 'user8', 'Bryce ', 'Mahoney', 'mbryce@osdf.com', '0985649324', 'Officer', '3', 'BSIT', '', 'Absent'),
+(74, 15, 22, 'user9', 'Ellsworth', 'Howell', 'howellell@gmco.re', '0934256477', 'Student', '1', 'BSEnSE', 'C', 'Absent'),
+(75, 15, 28, 'user13', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Student', '3', 'BSCpE', 'A', 'Absent'),
+(76, 15, 208, 'user14', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Student', '1', 'BSIT', 'A', 'Absent'),
+(77, 15, 209, 'user_today', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Officer', '2', 'BSCE', 'B', 'Absent'),
+(78, 16, 12, 'norma', 'Normal', 'Liny', 'norma13@gma.il', '093457821', 'Student', '3', 'BSCpE', 'C', ''),
+(79, 16, 13, 'user3', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Officer', '3', 'BSCpE', 'B', ''),
+(80, 16, 18, 'user5', 'Francis', 'Tuliao', 'ptuliao@sagi.ru', '0908426542', 'Officer', '2', 'BSCE', 'B', ''),
+(81, 16, 19, 'user6', 'Graig ', 'Wairner', 'gwairner@g.co', '0927591400', 'Student', '3', 'BSIT', '', ''),
+(82, 16, 20, 'user7', 'Robin', 'Rosario', 'rrosario@syse.io', '09283342', 'Officer', '2', 'BSCpE', 'B', ''),
+(83, 16, 21, 'user8', 'Bryce ', 'Mahoney', 'mbryce@osdf.com', '0985649324', 'Officer', '3', 'BSIT', '', ''),
+(84, 16, 22, 'user9', 'Ellsworth', 'Howell', 'howellell@gmco.re', '0934256477', 'Student', '1', 'BSEnSE', 'C', ''),
+(85, 16, 28, 'user13', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Student', '3', 'BSCpE', 'A', ''),
+(86, 16, 208, 'user14', 'Caius ', 'Beck', 'cbeck99@check.me', '09478404500', 'Student', '1', 'BSIT', 'A', ''),
+(87, 16, 209, 'user_today', 'Jodi ', 'Akhtar', 'jakhtar@rubick.io', '0935504511', 'Officer', '2', 'BSCE', 'B', '');
 
 -- --------------------------------------------------------
 
@@ -142,7 +186,16 @@ CREATE TABLE `tbl_evaluation` (
 --
 
 INSERT INTO `tbl_evaluation` (`eval_id`, `event_id`, `user_id`, `title`, `datexx`, `venue`, `ans1`, `ans2`, `ans3`, `ans4`, `ans5`, `ans6`, `ans7`, `ans8`) VALUES
-(1, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '3', '2', '2', '3', '1', '2', '2', '1');
+(1, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '3', '3', '3', '3', '3', '3', '3', '3'),
+(2, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '2', '2', '3', '3', '3', '3', '3', '3'),
+(7, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '2', '2', '2', '2', '3', '3', '3', '3'),
+(8, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '2', '2', '2', '2', '2', '2', '3', '3'),
+(9, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '2', '2', '2', '2', '2', '2', '2', '2'),
+(10, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '1', '1', '2', '2', '2', '2', '2', '2'),
+(11, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '1', '1', '1', '1', '2', '2', '2', '2'),
+(12, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '0', '0', '0', '0', '0', '0', '0', '0'),
+(13, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '1', '0', '3', '3', '2', '0', '1', '1'),
+(14, 1, 1, 'Hyperlink', '2021-07-04', 'Gymnasium', '3', '0', '1', '1', '0', '0', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -168,20 +221,27 @@ CREATE TABLE `tbl_events` (
   `cat_req_id` varchar(65) NOT NULL,
   `trip_tkt_id` varchar(65) NOT NULL,
   `trip_prmt_id` varchar(65) NOT NULL,
-  `event_image` varchar(65) NOT NULL
+  `event_image` varchar(65) NOT NULL,
+  `prog_base` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_events`
 --
 
-INSERT INTO `tbl_events` (`event_id`, `org_id`, `event_name`, `start_date`, `end_date`, `start_time`, `end_time`, `venue`, `event_description`, `remarks`, `statusxx`, `in_cmp_id`, `rsrv_cfr_id`, `csh_req_id`, `cat_req_id`, `trip_tkt_id`, `trip_prmt_id`, `event_image`) VALUES
-(1, 1, 'Hyperlink', '2021-07-04', '2021-07-04', '09:00', '21:00', 'Gymnasium', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas sed enim ut sem. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat.', 'Approved', 'Pending', '', '', '', '', '', '', '73460743_465611770967915_1373363969544159232_n.jpg'),
-(2, 1, 'Paulympics', '2021-07-07', '2021-07-09', '09:00', '12:00', 'Student Center', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor.', '', 'Approved', '', '', '', '', '', '', 'Paulympics-48.jpg'),
-(3, 1, 'iHeart SITE', '2021-07-30', '2021-07-31', '13:00', '09:00', 'Grandstand', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Pending', '', '', '', '', '', '', ''),
-(4, 56, 'Students Assembly', '2021-06-16', '2021-06-16', '08:00', '12:00', 'Mere Madeline Hall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Archived', '', '', '', '', '', '', ''),
-(5, 56, 'Parents Assembly', '2021-06-19', '2021-06-19', '08:00', '12:00', 'Mere Madeline Hall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Pending', '', '', '', '', '', '', ''),
-(6, 56, 'Cyber Summit', '2021-08-19', '2021-08-21', '09:00', '12:00', 'Global Center', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Pending', '', '', '', '', '', '', '');
+INSERT INTO `tbl_events` (`event_id`, `org_id`, `event_name`, `start_date`, `end_date`, `start_time`, `end_time`, `venue`, `event_description`, `remarks`, `statusxx`, `in_cmp_id`, `rsrv_cfr_id`, `csh_req_id`, `cat_req_id`, `trip_tkt_id`, `trip_prmt_id`, `event_image`, `prog_base`) VALUES
+(1, 1, 'Hyperlink', '2021-07-04', '2021-07-04', '09:00', '21:00', 'Gymnasium', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas sed enim ut sem. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat.', 'Approved', 'Archived', '', '', '', '', '', '', '73460743_465611770967915_1373363969544159232_n.jpg', ''),
+(2, 1, 'Paulympics', '2021-07-07', '2021-07-09', '09:00', '12:00', 'Student Center', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor.', '', 'Archived', '', '', '', '', '', '', 'Paulympics-48.jpg', ''),
+(3, 1, 'iHeart SITE', '2021-07-30', '2021-07-31', '13:00', '09:00', 'Grandstand', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Pending', '', '', '', '', '', '', '', ''),
+(4, 56, 'Students Assembly', '2021-06-16', '2021-06-16', '08:00', '12:00', 'Mere Madeline Hall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Archived', '', '', '', '', '', '', '', ''),
+(5, 56, 'Parents Assembly', '2021-06-19', '2021-06-19', '08:00', '12:00', 'Mere Madeline Hall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Pending', '', '', '', '', '', '', '', ''),
+(6, 56, 'Cyber Summit', '2021-08-19', '2021-08-21', '09:00', '12:00', 'Global Center', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Ut lectus arcu bibendum at varius.', '', 'Pending', '', '', '', '', '', '', '', ''),
+(9, 51, 'asdf', '2021-07-30', '2021-07-30', '09:57', '09:57', 'fggh', 'fgdhgdfhfgdhdfgh', '', 'Approved', '', '', '', '', '', '', '', 'Y'),
+(10, 50, 'fghyh', '2021-07-30', '2021-07-30', '10:00', '10:00', 'gyhj', 'zdrgsfthyjdtyjrtyh', '', 'Pending', '', '', '', '', '', '', '', ''),
+(12, 51, 'asdf', '2021-07-30', '2021-07-30', '13:47', '13:47', 'df', 'sdfgsdfgsdf', '', 'Pending', '', '', '', '', '', '', '', 'Y'),
+(13, 51, 'asdf', '2021-07-30', '2021-07-30', '14:03', '14:03', 'vsd', 'asdgasfg asdfasdf', '', 'Approved', '', '', '', '', '', '', '', 'Y'),
+(15, 1, 'asdf', '2021-07-30', '2021-07-29', '17:59', '17:59', 'bjkfyhjdfa', 'ffdgdfghfgbfcbfvdrvrg', '', 'Archived', '', '', '', '', '', '', '', ''),
+(16, 1, 'oui', '2021-07-30', '2021-07-30', '19:07', '19:07', 'adsfadsfsd', 'gdfsgsdfgsdf tyhgjgh erthdrghrtb dfg', '', 'Approved', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -325,7 +385,30 @@ INSERT INTO `tbl_notif` (`notif_id`, `username`, `fullname`, `user_type`, `off_t
 (48, 'user1', ' Reeves', 'Dean', '', '2021-07-01', '18:09:40', 'student list added', 1, 1),
 (49, 'user1', ' Reeves', 'Dean', '', '2021-07-01', '18:24:29', 'trip ticket added', 1, 1),
 (50, 'user1', ' Reeves', 'Dean', '', '2021-07-01', '18:51:28', 'trip ticket added', 1, 1),
-(51, 'user1', ' Reeves', 'Dean', '', '2021-07-01', '20:23:18', 'status changed to Approved', 56, 4);
+(51, 'user1', ' Reeves', 'Dean', '', '2021-07-01', '20:23:18', 'status changed to Approved', 56, 4),
+(52, 'user1', ' Reeves', 'Dean', '', '2021-07-28', '12:06:56', 'status changed to Archived', 1, 1),
+(53, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '09:52:57', 'created', 51, 7),
+(54, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '09:58:01', 'created', 51, 8),
+(55, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '09:58:32', 'created', 51, 9),
+(56, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '10:00:31', 'created', 50, 10),
+(57, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '10:00:57', 'created', 1, 11),
+(58, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '10:31:07', 'status changed to Approved', 51, 9),
+(59, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '10:36:42', 'status changed to Approved', 1, 3),
+(60, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '10:36:55', 'status changed to Pending', 1, 3),
+(61, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '13:47:44', 'created', 51, 12),
+(62, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '14:03:48', 'created', 51, 13),
+(63, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '14:04:19', 'status changed to Approved', 51, 13),
+(64, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '17:55:10', 'created', 1, 14),
+(65, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '17:55:37', 'deleted', 1, 14),
+(66, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '18:00:01', 'created', 1, 15),
+(67, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '18:43:02', 'status changed to Approved', 1, 15),
+(68, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '18:43:21', 'status changed to Pending', 1, 15),
+(69, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '18:43:30', 'details edited', 1, 15),
+(70, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '18:43:35', 'status changed to Approved', 1, 15),
+(71, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '19:07:04', 'status changed to Approved', 1, 11),
+(72, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '19:07:20', 'deleted', 1, 11),
+(73, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '19:08:50', 'created', 1, 16),
+(74, 'user1', ' Reeves', 'Dean', '', '2021-07-30', '19:09:02', 'status changed to Approved', 1, 16);
 
 -- --------------------------------------------------------
 
@@ -556,7 +639,7 @@ CREATE TABLE `tbl_users` (
 
 INSERT INTO `tbl_users` (`user_id`, `username`, `password`, `firstname`, `lastname`, `email`, `contact_no`, `gender`, `user_type`, `time_stamp`, `year_level`, `program`, `section`, `archive`, `statusxx`, `counterxx`, `image`) VALUES
 (1, 'user1', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Chrysta', 'Reeves', 'chrystalR@gmail.co', '0932457953', 'Female', 'Dean', '', '', '', '', 0, 0, 0, ''),
-(11, 'user2', '2db4c1811f424582a90f8d7ee77995cf018d9443', 'Anastasia ', 'Moss', 'anasmoss@flag.io', '935236545', 'Female', 'Adviser', '2021-04-16', '', '', '', 0, 0, 0, ''),
+(11, 'user2', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Anastasia ', 'Moss', 'egoalter414@gmail.com', '935236545', 'Female', 'Adviser', '2021-04-16', '', '', '', 0, 0, 0, ''),
 (12, 'norma', 'de2a4d5751ab06dc4f987142db57c26d50925c8a', 'Normal', 'Liny', 'norma13@gma.il', '093457821', 'Female', 'Student', '2021-04-18', '3', 'BSCpE', 'C', 0, 0, 0, ''),
 (13, 'user3', '8be52126a6fde450a7162a3651d589bb51e9579d', 'Coleman ', 'Howe', 'h_cole@world.co', '0943535673', 'Male', 'Officer', '2021-04-18', '3', 'BSCpE', 'B', 0, 0, 0, ''),
 (14, 'user4', 'pass', 'Jack', 'Synderen', 'synderen@twit.ch', '0923565342', 'Male', 'Adviser', '2021-04-18', '', '', '', 0, 0, 0, ''),
@@ -565,7 +648,7 @@ INSERT INTO `tbl_users` (`user_id`, `username`, `password`, `firstname`, `lastna
 (20, 'user7', 'pass', 'Robin', 'Rosario', 'rrosario@syse.io', '09283342', 'Male', 'Officer', '2021-04-18', '2', 'BSCpE', 'B', 0, 0, 0, ''),
 (21, 'user8', 'pass', 'Bryce ', 'Mahoney', 'mbryce@osdf.com', '0985649324', 'Male', 'Officer', '2021-04-18', '3', 'BSIT', '', 0, 0, 0, ''),
 (22, 'user9', 'pass', 'Ellsworth', 'Howell', 'howellell@gmco.re', '0934256477', 'Male', 'Student', '2021-04-18', '1', 'BSEnSE', 'C', 0, 0, 0, ''),
-(24, 'user10', 'fgh', 'Amara', 'Kent', 'kent_amara@hexa.on', '09765769035', 'Female', 'Student', '2021-05-23', '4', 'BSEnSE', 'A', 0, 0, 0, ''),
+(24, 'user10', 'fgh', 'Amara', 'Kent', 'kent_amara@hexa.on', '09765769035', 'Female', 'Adviser', '2021-05-23', '', '', '', 0, 0, 0, ''),
 (25, 'user11', 'asdasd', 'Emily', ' Cotton', 'emily@cotton.ru', '09324436568', 'Female', 'Adviser', '2021-05-24', '', '', '', 0, 0, 0, ''),
 (26, 'user12', 'asdgf', 'Brayden ', 'Parks', 'brayden21@park.io', '09052843465', 'Male', 'Adviser', '2021-05-24', '', '', '', 0, 0, 0, ''),
 (28, 'user13', 'pass', 'Premium', 'Certificate', 'adsada@dfg', '345567523', 'Male', 'Student', '2021-05-26', '3', 'BSCpE', 'A', 0, 0, 0, ''),
@@ -756,7 +839,7 @@ ALTER TABLE `tbl_visitor`
 -- AUTO_INCREMENT for table `tbl_attendee`
 --
 ALTER TABLE `tbl_attendee`
-  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `tbl_cat_req`
@@ -780,13 +863,13 @@ ALTER TABLE `tbl_departments`
 -- AUTO_INCREMENT for table `tbl_evaluation`
 --
 ALTER TABLE `tbl_evaluation`
-  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_events`
 --
 ALTER TABLE `tbl_events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_follow`
@@ -810,7 +893,7 @@ ALTER TABLE `tbl_in_cmp`
 -- AUTO_INCREMENT for table `tbl_notif`
 --
 ALTER TABLE `tbl_notif`
-  MODIFY `notif_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `notif_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `tbl_officers`
