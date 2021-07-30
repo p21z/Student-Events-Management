@@ -66,7 +66,7 @@
                             <td><?=$email?></td>
                             <td><?=$year_level."-".$program." ".$section?></td>
                             <td><?=$user_type?></td>
-                            <td><?=$statusxx?></td>
+                            <td><?php if($statusxx!==""){echo $statusxx;}else{echo "N/A";}?></td>
                             <td>
                                 <a href="<?=base_url()?>attendance/edit_attendee/<?=$attendance_id?>" class="btn btn-warning btn-circle btn-sm">
                                     <i class="far fa-edit"></i>

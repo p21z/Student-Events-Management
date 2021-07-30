@@ -31,15 +31,17 @@ class Attendance extends CI_Controller {
         $this->load->view('must/perfect_function');
         $url_info['url_id'] = $this->uri->segment(3);
 
-        $this->load->view('attendance/auto_absent_3_1', $url_info);
-        $this->load->view('attendance/auto_absent_3', $url_info);
-        $this->load->view('attendance/auto_absent_3_2', $url_info);
+        // $this->load->view('attendance/auto_absent_3_1', $url_info);
+        // $this->load->view('attendance/auto_absent_3', $url_info);
+        // $this->load->view('attendance/auto_absent_3_2', $url_info);
+        
 
         $this->session->set_userdata('nav_active', 'All');
 
         $this->load->view('must/header');
 
         $this->load->view('attendance/head', $url_info);
+        $this->load->view('attendance/auto_absent_4', $url_info);
         $this->load->view('attendance/all_attendance', $url_info);
         $this->load->view('attendance/foot', $url_info);
 

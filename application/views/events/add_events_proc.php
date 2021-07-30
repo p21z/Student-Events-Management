@@ -1,4 +1,20 @@
 <?php
+
+$org_data = get_where_custom('tbl_orgs', 'org_id', $this->session->userdata('org_id'));
+
+foreach ($org_data as $key => $row)
+{
+    $org_category=$row['org_category'];
+}
+
+if ($org_category==="Program-based")
+{
+    $prog_base="Y";
+} else
+{
+    $prog_base="";
+}
+
 $table_name = "tbl_events";
 
 $event_data = array(
@@ -11,9 +27,10 @@ $event_data = array(
     'end_time' => $this->session->userdata("end_time"),
     'venue' => $this->session->userdata("venue"),
     'event_description' => $this->session->userdata("event_description"),
-    'statusxx' => "Pending"
+    'statusxx' => "Pending",
+    'prog_base' => $prog_base
 );
-
+print_r($event_data);
 echo insert($event_data, $table_name);
 
 // ______________________________________________________________________________________________________________________

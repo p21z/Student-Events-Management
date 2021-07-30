@@ -73,6 +73,7 @@ class Events extends CI_Controller {
         // print_r($_SESSION);
         $this->load->view('must/perfect_function');
         $this->load->view('events/add_events_proc');
+        $this->load->view('attendance/auto_entry');
         $this->events_session_unset();
 		redirect('/organizations_view/pending_events/'.$this->session->userdata("org_id_2"));
     }
