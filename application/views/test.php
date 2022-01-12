@@ -1,86 +1,84 @@
 <?php
-    // session_start(); 
-    // print_r($_SESSION);
-    // session_destroy();
+
+    $officer_data=get_where_custom_header_special("tbl_officers", "user_id", $this->session->userdata('idxx'));
+
+    foreach ($officer_data as $key => $row)
+    {
+        $org_id=$row['org_id'];
+
+        $notif_data=get_where_desc("tbl_notif", "org_id", $org_id, "notif_id");
+        $notif_id_array_0=array();
+        foreach ($notif_data as $key => $row)
+        {
+            
+            $notif_id=$row['notif_id'];
+
+            array_push($notif_id_array_0, $notif_id);
+
+            $username=$row['username'];
+            $fullname=$row['fullname'];
+            $user_type=$row['user_type'];
+            $off_type=$row['off_type'];
+            $datexx=$row['datexx'];
+            $timexx=$row['timexx'];
+            $action=$row['action'];
+            $org_id=$row['org_id'];
+            $event_id=$row['event_id'];
+            
+            $event_name="";
+            $table_name_2="tbl_events";
+            $column="event_id";
+            $value=$event_id;
+            $get_eventData=get_where_custom_header_special($table_name_2, $column, $value);
+            
+            foreach ($get_eventData as $key => $row)
+            {
+                $event_name=$row['event_name'];
+            }
+
+            $seen_data=get_where_custom('tbl_seen', 'user_id', $this->session->userdata('idxx'));
+            $notif_id_array=array();
+            foreach ($seen_data as $key => $row)
+            {
+                $notif_id_2=$row['notif_id'];
+                array_push($notif_id_array, $notif_id_2);
+                
+            }
+            
+        }
+    }
+
+    $notif_id_array_diff=array_diff($notif_id_array_0, $notif_id_array);
+    
+    // for ($i=0; $i < count($notif_id_array_diff); $i++)
+    foreach ($notif_id_array_diff as $value)
+    {
+        // if (isset($notif_id_array_diff[$i]))
+        // {
+    ?>
+            <!-- <a href="<?=base_url()?>test/test_add/<?=$notif_id_array_diff[$i]?>"><?=$notif_id_array_diff[$i]?></a> -->
+            <a href="<?=base_url()?>test/test_add/<?=$value?>"><?=$value?></a>
+    <?php
+        // }
+    }
+    $notif_id_array_diff_count=count($notif_id_array_diff);
+    echo "<br>";
+    
+
+    if ($notif_id_array_diff_count > 0)
+    {
+        print_r($notif_id_array_diff);
+        $notif_id_range=array_combine(range(0, ($notif_id_array_diff_count-1)), array_values($notif_id_array_diff));
+        $notif_id_range_count=count($notif_id_range);
+        echo "<br><h1>NOTIF RANGE</h1>";
+        print_r($notif_id_range);
+        echo "<h1>Unread notifications: ".$notif_id_range_count."</h1>";
+    } else
+    {
+        echo "No new notifications";
+    }
+    
+    
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=base_url()?>Template/css/login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-        <!-- Custom styles for this template-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link href="<?base_url()?>template/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="<?base_url()?>template/css/main.css" rel="stylesheet">
-
     
-    <title>School Events Management System</title>
-</head>
-
-<body>
-<section>
     
-    <div class="form-container">
-            <h1>School 
-            <br>Events Management System</h1>
-            <br>
-            <?php
-                if (isset($_SESSION['login'])){
-                    if ($_SESSION['login']==1){
-                        echo "
-                            <div class='card border-bottom-danger text-danger'>
-                                <div class='card-body' style='border-bottom-color: #d9534f; border-bottom-style: solid; border-bottom-width: thick;'>
-                                Invalid Username or Password
-                                </div> 
-                            </div><br>";
-                            unset($_SESSION['login']);
-                    }
-                }
-                if (isset($_SESSION['login'])){
-                    if ($_SESSION['login']==2){
-                        echo "
-                            <div class='card' style='border-bottom-color: #d9534f; border-bottom-style: solid; border-bottom-width: thick;'>
-                                <div class='card-body text-danger'>
-                                <b style='font-size:20px; text-align:center;'>Account Disabled</b> <p> Contact the Admin to get help</p>
-                                </div>
-                            </div>";
-                            unset($_SESSION['login']);
-                    }
-                }
-            ?>
-    
-        <form method=post action="<?=base_url()?>login/login_proc">
-
-            <div class="control">
-            <label for="name">Username</label>
-                <input type="text" name="username"required autocomplete="off" class="form-control form-control-user">
-
-            <div class="control">
-            <label for="name">Password</label>
-                <input type="password" name="password" required autocomplete="off" class="form-control form-control-user" >
-
-                <input type="submit" value="Login" class="btn btn-success" style="margin-top: 30px;">
-
-                <a href="<?=base_url()?>login/forgot_pass" class="btn btn-warning text-secondary" style="margin-top: 10px; width: 100%;">Forgot Password</a>
-        </form>
-</section>
-
-        <video class="video-container" poster="<?=base_url()?>assets/img/SITE.jpg" autoplay loop muted> 
-            <source src="<?=base_url()?>assets/img/SITE.m4v" type="video/mp4">
-        </video>
-
-</body>
-</html>

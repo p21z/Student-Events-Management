@@ -47,11 +47,11 @@ $function_caller = $function_rand($y1, $y2);
         $operator="*";
     }
 
-echo "y1 is ".$y1;
-echo "<br> y2 is ".$y2;
-echo "<br> func is ".$function_rand;
-echo "<br> z is ".$function_caller;
-echo "<br>op is". $operator;
+// echo "y1 is ".$y1;
+// echo "<br> y2 is ".$y2;
+// echo "<br> func is ".$function_rand;
+// echo "<br> z is ".$function_caller;
+// echo "<br>op is". $operator;
 ?>
 
 <div>

@@ -83,6 +83,15 @@ function count_where($table_name, $column1, $value1)
 	return $rowcount;
 }
 
+function count_where_not($table_name, $column1, $value1)
+{	
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM $table_name where ".$column1." != '".$value1."'";
+	$result = $conn->query($sql);
+	$rowcount=mysqli_num_rows($result);
+	return $rowcount;
+}
+
 function count_where_double($table_name, $column1, $value1, $column2, $value2)
 {
 	$conn = getConnectionx();

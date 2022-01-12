@@ -8,7 +8,7 @@
         <div class="box-content">
         
         <?php
-        $target_dir = $_SERVER['DOCUMENT_ROOT']."/semm2/assets/img";
+        $target_dir = $_SERVER['DOCUMENT_ROOT']."/Student-Events-Management/assets/img";
         $target_file = $target_dir."/".basename($_FILES["image"]["name"]);
         echo $target_file;
         $uploadOk = 1;

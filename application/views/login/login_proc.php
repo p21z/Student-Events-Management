@@ -20,7 +20,7 @@ $user_data = get_where_custom($table_name, "username", $username);
     }
 
 $count_user_data = count_where($table_name, "username", $username);
-echo $count_user_data;
+// echo $count_user_data;
 
     if ($count_user_data===0)
     {
