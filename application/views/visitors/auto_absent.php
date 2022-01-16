@@ -15,7 +15,7 @@
         $event_id=$row['event_id'];
         $end_date=$row['end_date'];
 
-        echo $end_date. "<br>" ;
+        // echo $end_date. "<br>" ;
     }
 
     if( $auto_absent_counter>strtotime("+1 day", strtotime($end_date)) )

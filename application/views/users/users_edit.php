@@ -54,7 +54,7 @@ $get_userData = get_where_custom($table_name, $column, $url_id);
             
                 <div class="" style="">
 
-                <input type="text" name="url_id" value='<?=$this->session->userdata("url_id")?>'' hidden>
+                <input type="text" name="url_id" value='<?=$this->session->userdata("url_id")?>' hidden>
 
                     <input type="text" name="username" class="form-control form-control-user add-input" autocomplete=off value=<?=$this->session->userdata("username_1")?> required readonly>
 

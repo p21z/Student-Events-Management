@@ -27,11 +27,22 @@
                 $cat_req_id=$row['cat_req_id'];
                 $trip_tkt_id=$row['trip_tkt_id'];
                 $trip_prmt_id=$row['trip_prmt_id'];
+                $event_image=$row['event_image'];
                 
             }
 
-        ?>
-    <img src="https://via.placeholder.com/1080x300" class="card-img-top" alt="...">
+            if ($event_image==="")
+            {
+            ?>
+                <img src="<?=base_url()?>assets/img/org_img.png" class="card-img-top object-fit-event" alt="...">
+            <?php
+            } else
+            {
+            ?>
+                <img src="<?=base_url()?>assets/img/<?=$event_image?>" class="card-img-top object-fit-event" alt="...">
+            <?php
+            }
+            ?>
     <div class="card-body">
         <div class="row">
 

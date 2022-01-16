@@ -164,7 +164,7 @@
                 // echo "<br><br>";
                 
 
-                echo insert($attendee_data, $table_name);
+                insert($attendee_data, $table_name);
                 
                 
 

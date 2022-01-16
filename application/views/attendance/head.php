@@ -27,11 +27,22 @@
                 $cat_req_id=$row['cat_req_id'];
                 $trip_tkt_id=$row['trip_tkt_id'];
                 $trip_prmt_id=$row['trip_prmt_id'];
+                $event_image=$row['event_image'];
                 
             }
 
+            if ($event_image==="")
+            {
+            ?>
+                <img src="<?=base_url()?>assets/img/org_img.png" class="card-img-top object-fit-event" alt="...">
+            <?php
+            } else
+            {
+            ?>
+                <img src="<?=base_url()?>assets/img/<?=$event_image?>" class="card-img-top object-fit-event" alt="...">
+            <?php
+            }
         ?>
-    <img src="https://via.placeholder.com/1080x300" class="card-img-top" alt="...">
     <div class="card-body">
         <div class="row">
 
@@ -59,6 +70,7 @@
                         </div>
 
                         <div class="mt-3">
+                            <a href="<?=base_url()?>scan/scanner/<?=$url_id?>"><button type="button" class="btn btn-primary">Scan Attendee</button></a>
                             <a href="<?=base_url()?>attendance/add_attendee/<?=$url_id?>"><button type="button" class="btn btn-primary">Add Attendee</button></a>
                         </div>
 
