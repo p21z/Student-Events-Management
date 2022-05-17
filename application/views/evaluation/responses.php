@@ -52,6 +52,9 @@
   </div>
 
 <?php
+
+  
+
   // Q1 QUERIES
     $q1_r3_data=count_where_double_and('tbl_evaluation', 'event_id', $url_id, 'ans1', 3);
     $q1_r2_data=count_where_double_and('tbl_evaluation', 'event_id', $url_id, 'ans1', 2);
@@ -60,6 +63,8 @@
     // echo $q1_r3_data. " ".$q1_r2_data. " ".$q1_r1_data. " ".$q1_r0_data. "<br>";
     
     $total1=$q1_r3_data+$q1_r2_data+$q1_r1_data+$q1_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total1==0){$total1=1;}
     $mean1=(((3*$q1_r3_data)+(2*$q1_r2_data)+($q1_r1_data))/$total1);
   
   // Q2 QUERIES
@@ -70,6 +75,8 @@
     // echo $q2_r3_data. " ".$q2_r2_data. " ".$q2_r1_data. " ".$q2_r0_data. "<br>";
 
     $total2=$q2_r3_data+$q2_r2_data+$q2_r1_data+$q2_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total2==0){$total2=1;}
     $mean2=(((3*$q2_r3_data)+(2*$q2_r2_data)+($q2_r1_data))/$total2);
 
   // Q3 QUERIES
@@ -80,6 +87,8 @@
     // echo $q3_r3_data. " ".$q3_r2_data. " ".$q3_r1_data. " ".$q3_r0_data. "<br>";
 
     $total3=$q3_r3_data+$q3_r2_data+$q3_r1_data+$q3_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total3==0){$total3=1;}
     $mean3=(((3*$q3_r3_data)+(2*$q3_r2_data)+($q3_r1_data))/$total3);
 
   // Q4 QUERIES
@@ -90,6 +99,8 @@
     // echo $q4_r3_data. " ".$q4_r2_data. " ".$q4_r1_data. " ".$q4_r0_data. "<br>";
 
     $total4=$q4_r3_data+$q4_r2_data+$q4_r1_data+$q4_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total4==0){$total4=1;}
     $mean4=(((3*$q4_r3_data)+(2*$q4_r2_data)+($q4_r1_data))/$total4);
 
   // Q5 QUERIES
@@ -100,6 +111,8 @@
     // echo $q5_r3_data. " ".$q5_r2_data. " ".$q5_r1_data. " ".$q5_r0_data. "<br>";
 
     $total5=$q5_r3_data+$q5_r2_data+$q5_r1_data+$q5_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total5==0){$total5=1;}
     $mean5=(((3*$q5_r3_data)+(2*$q5_r2_data)+($q5_r1_data))/$total5);
 
   // Q6 QUERIES
@@ -110,6 +123,8 @@
     // echo $q6_r3_data. " ".$q6_r2_data. " ".$q6_r1_data. " ".$q6_r0_data. "<br>";
 
     $total6=$q6_r3_data+$q6_r2_data+$q6_r1_data+$q6_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total6==0){$total6=1;}
     $mean6=(((3*$q6_r3_data)+(2*$q6_r2_data)+($q6_r1_data))/$total6);
 
   // Q7 QUERIES
@@ -120,6 +135,8 @@
     // echo $q7_r3_data. " ".$q7_r2_data. " ".$q7_r1_data. " ".$q7_r0_data. "<br>";
 
     $total7=$q7_r3_data+$q7_r2_data+$q7_r1_data+$q7_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total7==0){$total7=1;}
     $mean7=(((3*$q7_r3_data)+(2*$q7_r2_data)+($q7_r1_data))/$total7);
 
   // Q8 QUERIES
@@ -130,6 +147,8 @@
     // echo $q8_r3_data. " ".$q8_r2_data. " ".$q8_r1_data. " ".$q8_r0_data. "<br>";
 
     $total8=$q8_r3_data+$q8_r2_data+$q8_r1_data+$q8_r0_data;
+    // IF NO EVALUATION ARE MADE
+    if($total8==0){$total8=1;}
     $mean8=(((3*$q8_r3_data)+(2*$q8_r2_data)+($q8_r1_data))/$total8);
 
 
