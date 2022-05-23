@@ -232,117 +232,108 @@ date_default_timezone_set('Asia/Singapore');
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Pages
-            </div>
-            <?php
-                if ($this->session->userdata('access')==="Dean")
-                {
-            ?>
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Organizations</span>
-                </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <?php
-                            
-                                $table_name = "tbl_orgs";
-                                // $column = "org_id";
-                                
-                                $get_orgData = get_where_not_2_custom_header_special($table_name, 'org_category', 'dean', 'Archive', 1);
-                    
-                                foreach ($get_orgData as $key => $row)
-                                {
-                                    $org_id=$row['org_id'];
-                                    $org_name=$row['org_name'];
-                                    $org_abbr=$row['org_abbr'];
-                                
-                        ?>
-
-                        <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_abbr ?></a>
-
-                        <?php
-                                }
-                } else 
-                {
-                        ?>
-
-                            <!-- Nav Item - Pages Collapse Menu -->
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                                    aria-controls="collapsePages">
-                                    <i class="fas fa-fw fa-folder"></i>
-                                    <span>My Organizations</span>
-                                </a>
-                                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                                    data-parent="#accordionSidebar">
-                                    <div class="bg-white py-2 collapse-inner rounded">
-                                        <?php
-                                            
-                                            $table_name = "tbl_officers";
-                                            $column = "user_id";
-                                            
-                                            $get_userData = get_where_custom_header_special($table_name, $column, $this->session->userdata('idxx'));
-                                
-                                            foreach ($get_userData as $key => $row)
-                                            {
-                                                $off_id=$row['off_id'];
-                                                $user_id=$row['user_id'];
-                                                $org_id=$row['org_id'];
-                                                $off_type=$row['off_type'];
-                                                
-                                                $table_name = "tbl_orgs";
-                                                $column = "org_id";
-                                                
-                                                $get_orgData = get_where_custom_header_special($table_name, $column, $org_id);
-                                    
-                                                foreach ($get_orgData as $key => $row)
-                                                {
-                                                    $org_id=$row['org_id'];
-                                                    $org_name=$row['org_name'];
-                                                }
-                                        ?>
-
-                                        <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_name ?></a>
-
-                                        <?php
-                                            }
-
-                    }
-                                        ?>
-
-                        <!-- <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item active" href="blank.html">Blank Page</a>
-                    </div> -->
+            <?php   if($this->session->userdata('access')!=="Student")
+            { ?>
+                <div class="sidebar-heading">
+                    Pages
                 </div>
-            </li>
+                <?php
+                    if ($this->session->userdata('access')==="Dean")
+                    {
+                ?>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                        aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Organizations</span>
+                    </a>
+                    <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <?php
+                                
+                                    $table_name = "tbl_orgs";
+                                    // $column = "org_id";
+                                    
+                                    $get_orgData = get_where_not_2_custom_header_special($table_name, 'org_category', 'dean', 'Archive', 1);
+                        
+                                    foreach ($get_orgData as $key => $row)
+                                    {
+                                        $org_id=$row['org_id'];
+                                        $org_name=$row['org_name'];
+                                        $org_abbr=$row['org_abbr'];
+                                    
+                            ?>
 
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li> -->
+                            <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_abbr ?></a>
 
-            <!-- Nav Item - Tables -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li> -->
+                            <?php
+                                    }
+                    } else 
+                    {
+                            ?>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+                                <!-- Nav Item - Pages Collapse Menu -->
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                                        aria-controls="collapsePages">
+                                        <i class="fas fa-fw fa-folder"></i>
+                                        <span>My Organizations</span>
+                                    </a>
+                                    <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                                        data-parent="#accordionSidebar">
+                                        <div class="bg-white py-2 collapse-inner rounded">
+                                            <?php
+                                                
+                                                $table_name = "tbl_officers";
+                                                $column = "user_id";
+                                                
+                                                $get_userData = get_where_custom_header_special($table_name, $column, $this->session->userdata('idxx'));
+                                    
+                                                foreach ($get_userData as $key => $row)
+                                                {
+                                                    $off_id=$row['off_id'];
+                                                    $user_id=$row['user_id'];
+                                                    $org_id=$row['org_id'];
+                                                    $off_type=$row['off_type'];
+                                                    
+                                                    $table_name = "tbl_orgs";
+                                                    $column = "org_id";
+                                                    
+                                                    $get_orgData = get_where_custom_header_special($table_name, $column, $org_id);
+                                        
+                                                    foreach ($get_orgData as $key => $row)
+                                                    {
+                                                        $org_id=$row['org_id'];
+                                                        $org_name=$row['org_name'];
+                                                    }
+                                            ?>
 
+                                            <a class="collapse-item" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id?>"><?= $org_name ?></a>
+
+                                            <?php
+                                                }
+
+                        }
+                                            ?>
+
+                            <!-- <a class="collapse-item" href="register.html">Register</a>
+                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Other Pages:</h6>
+                            <a class="collapse-item" href="404.html">404 Page</a>
+                            <a class="collapse-item active" href="blank.html">Blank Page</a>
+                        </div> -->
+
+                         <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                    </div>
+                </li>
+            <?php   
+            } ?>
+            
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

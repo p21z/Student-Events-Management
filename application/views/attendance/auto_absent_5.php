@@ -79,31 +79,7 @@
             }
         } else
         {
-            $attendee_data=get_where_custom("tbl_attendee", 'event_id', 12);
-            // echo ($attendee_data);
-            foreach ($attendee_data as $key => $row)
-            {   $attendance_id=$row['attendance_id'];
-                $event_id=$row['event_id'];
-                $user_id=$row['user_id'];
-
-                $username=$row['username'];
-                $firstname=$row['firstname'];
-                $lastname=$row['lastname'];
-
-                // echo $username. "<br>";
-
-                $user_data=auto_absent_specific_2($user_id);
-                echo $user_data."<br>";
-                // foreach ($user_data as $key => $row)
-                // {
-                //     echo $username=$row['username'];
-                // }
-            }
-
-
-            // $attendee_data=get_where_double_and('tbl_attendee', 'event_id', $url_id, 'statusxx', '');
-
-
+            
             $user_data=get_where_double("tbl_users", "user_type", "Officer", "user_type", "Student");
 
             foreach ($user_data as $key => $row)
@@ -122,26 +98,26 @@
                 $year_level=$row['year_level'];
                 $program=$row['program'];
                 $section=$row['section'];
-// echo $user_id. "<br>";
-                // ADDING AN ABSENT RECORD FOR EVERY USER_ID OF STUDENTS AND OFFICERS
 
-                // FILTER EXISTING
-                $attendee_data=auto_absent_specific($user_id, $url_id);
-                // print_r($attendee_data);
-                foreach ($attendee_data as $key => $row)
+                // ADDING AN ABSENT RECORD FOR EVERY USER_ID OF STUDENTS AND OFFICERS
+                $dont_add_absent_data=get_where_double('tbl_attendee', 'statusxx', 'Absent', 'event_id', $url_id);
+                echo $count_where_double_and=count_where_double_and('tbl_attendee', 'statusxx', 'Absent', 'event_id', $url_id). "<br>";
+                
+                foreach ($dont_add_absent_data as $key => $row)
                 {
+
                     $table_name = "tbl_attendee";
                     $column = "statusxx";
-    
+
                     $attendee_data = array(
-    
+
                         'event_id' => $url_id,
                         'user_id' => $user_id,
-    
+
                         'username' => $username,
                         'firstname' => $firstname,
                         'lastname' => $lastname,
-    
+
                         'email' => $email,
                         'contact_no' => $contact_no,
                         
@@ -150,31 +126,22 @@
                         'year_level' => $year_level,
                         'program' => $program,
                         'section' => $section,
-    
-                        'statusxx' => "Absent"
 
-                        
+                        'statusxx' => "Absent"
                         
                     );
-                    // echo $username. "<br>";
-                    // print_r($attendee_data);
-                    // echo "<br><br> attendee add ";
-                    // insert($attendee_data, $table_name);
+                // print_r($attendee_data);
+                // echo "<br><br> attendee add ";
+                insert($attendee_data, $table_name);
+
+                $attendee_data=auto_absent_specific_3($user_id);
+
+                
+
                 }
-               
+
 
             }
-            
-            // UPDATING
-            // foreach ($attendee_data as $key => $row)
-            // {
-            //     $attendance_id=$row['attendance_id'];
-            //     // update to absent
-            //     echo "passed 2";
-            //     $user_editedValues = array('statusxx' => "Absent");
-            //     update_from($user_editedValues, $attendance_id, 'tbl_attendee', 'attendance_id');
-            //     print_r($user_editedValues);
-            // }
         }
         
     }

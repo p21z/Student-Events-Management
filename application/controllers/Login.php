@@ -71,7 +71,7 @@ class Login extends CI_Controller {
         $this->load->view('phpmailer/forgot_pass_email');
         $this->load->view('login/forgot_pass_proc_2');
 
-        // redirect(base_url().'login/forgot_pass');
+        redirect(base_url().'login/forgot_pass');
     }
 
     

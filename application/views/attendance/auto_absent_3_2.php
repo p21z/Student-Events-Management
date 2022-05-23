@@ -40,8 +40,8 @@
             {
                 $table_name = "tbl_attendee";
                 $column = "attendance_id";
-                echo "<br><br> attendee ".$attendance_id." deleted ";
-                echo delete_from($attendance_id, $table_name, $column);
+                // echo "<br><br> attendee ".$attendance_id." deleted ";
+                delete_from($attendance_id, $table_name, $column);
             }
         }
         // echo "<hr>";

@@ -619,6 +619,35 @@ function get_where_not_hybrid_custom($table_name, $column1, $value1, $column2, $
 	return $result;
 }
 
+function auto_absent_specific($user_id, $url_id)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM tbl_attendee where user_id != '".$user_id."' and event_id = '".$url_id."' and (statusxx != 'Present' or statusxx != 'Late')";
+
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function auto_absent_specific_2($user_id)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM tbl_users where user_id != '".$user_id."' and (statusxx != 'Student' or statusxx != 'Officers')";
+
+	$result = $conn->query($sql);
+	$rowcount=mysqli_num_rows($result);
+	return $rowcount;
+}
+
+function auto_absent_specific_3($user_id)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM tbl_attendee where user_id = '".$user_id."' and (statusxx != 'Student' or statusxx != 'Officers')";
+
+	$result = $conn->query($sql);
+	$rowcount=mysqli_num_rows($result);
+	return $rowcount;
+}
+
 function all_orgs_search($search)
 {
 	$conn = getConnectionx();
