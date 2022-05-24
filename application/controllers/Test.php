@@ -7,7 +7,7 @@ class Test extends CI_Controller {
 	{
 		$this->load->view('must/perfect_function');
 		$this->load->view('must/header');
-		$this->load->view('test');
+		$this->load->view('test3');
 		$this->load->view('must/footer');
 
     }

@@ -22,6 +22,7 @@ foreach ($events_data as $key => $row)
     $event_id=$row['event_id'];
     $org_id=$row['org_id'];
     $event_name=$row['event_name'];
+    $school_year=$row['school_year'];
     $start_date=$row['start_date'];
     $start_time=$row['start_time'];
     $end_date=$row['end_date'];
@@ -47,6 +48,8 @@ foreach ($events_data as $key => $row)
             <input type="text" name="org_name" class="form-control form-control-user add-input" autocomplete=off value="<?=$org_name?>" required readonly>
 
             <input type="text" name="event_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Event name" value="<?=$event_name?>" required>
+
+            <input type="text" name="school_year" class="form-control form-control-user add-input" autocomplete=off placeholder="School year" value="<?=$school_year?>" required>
 
             <input type="text" name="start_date" class="form-control form-control-user add-input" autocomplete=off placeholder="Date Start" value="<?=$start_date?>"
             onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>

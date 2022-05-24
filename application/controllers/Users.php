@@ -16,6 +16,16 @@ class Users extends CI_Controller {
         $this->load->view('must/footer');
 	}
 
+    function users_print()
+	{
+
+		$this->load->view('must/perfect_function');
+        // $this->load->view('must/header');
+        $this->load->view('prints/head');
+        $this->load->view('users/users_print');
+        // $this->load->view('must/footer');
+	}
+
     function users_session()
     {
         $user_data = array(

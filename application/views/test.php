@@ -1,84 +1,102 @@
-<?php
 
-    $officer_data=get_where_custom_header_special("tbl_officers", "user_id", $this->session->userdata('idxx'));
 
-    foreach ($officer_data as $key => $row)
-    {
-        $org_id=$row['org_id'];
-
-        $notif_data=get_where_desc("tbl_notif", "org_id", $org_id, "notif_id");
-        $notif_id_array_0=array();
-        foreach ($notif_data as $key => $row)
-        {
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
             
-            $notif_id=$row['notif_id'];
+        </div>
+        <div class="box-content">
+        
+        <?php
+        // $target_dir = $_SERVER['DOCUMENT_ROOT']."/semm2/assets/img";
+        // $target_file = $target_dir."/".basename($_FILES["image"]["name"]);
 
-            array_push($notif_id_array_0, $notif_id);
+        $target_dir = $_SERVER['DOCUMENT_ROOT']."/semm2/assets/add_docs";
+        $target_file = $target_dir."/".basename($_FILES["file"]["name"]);
 
-            $username=$row['username'];
-            $fullname=$row['fullname'];
-            $user_type=$row['user_type'];
-            $off_type=$row['off_type'];
-            $datexx=$row['datexx'];
-            $timexx=$row['timexx'];
-            $action=$row['action'];
-            $org_id=$row['org_id'];
-            $event_id=$row['event_id'];
-            
-            $event_name="";
-            $table_name_2="tbl_events";
-            $column="event_id";
-            $value=$event_id;
-            $get_eventData=get_where_custom_header_special($table_name_2, $column, $value);
-            
-            foreach ($get_eventData as $key => $row)
-            {
-                $event_name=$row['event_name'];
-            }
-
-            $seen_data=get_where_custom('tbl_seen', 'user_id', $this->session->userdata('idxx'));
-            $notif_id_array=array();
-            foreach ($seen_data as $key => $row)
-            {
-                $notif_id_2=$row['notif_id'];
-                array_push($notif_id_array, $notif_id_2);
-                
-            }
-            
-        }
-    }
-
-    $notif_id_array_diff=array_diff($notif_id_array_0, $notif_id_array);
-    
-    // for ($i=0; $i < count($notif_id_array_diff); $i++)
-    foreach ($notif_id_array_diff as $value)
-    {
-        // if (isset($notif_id_array_diff[$i]))
-        // {
-    ?>
-            <!-- <a href="<?=base_url()?>test/test_add/<?=$notif_id_array_diff[$i]?>"><?=$notif_id_array_diff[$i]?></a> -->
-            <a href="<?=base_url()?>test/test_add/<?=$value?>"><?=$value?></a>
-    <?php
+        echo $target_file;
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // Check if image file is a actual image or fake image
+        // if(isset($_POST["submit"])) {
+        //     $check = getimagesize($_FILES["image"]["tmp_name"]);
+        //     if($check !== false) {
+        //         $uploadOk = 1;
+        //     } else {
+        //         $error_msg1 =  "File is not an image.";
+        //         $uploadOk = 0;
+        //     }
         // }
-    }
-    $notif_id_array_diff_count=count($notif_id_array_diff);
-    echo "<br>";
-    
 
-    if ($notif_id_array_diff_count > 0)
-    {
-        print_r($notif_id_array_diff);
-        $notif_id_range=array_combine(range(0, ($notif_id_array_diff_count-1)), array_values($notif_id_array_diff));
-        $notif_id_range_count=count($notif_id_range);
-        echo "<br><h1>NOTIF RANGE</h1>";
-        print_r($notif_id_range);
-        echo "<h1>Unread notifications: ".$notif_id_range_count."</h1>";
-    } else
-    {
-        echo "No new notifications";
-    }
-    
-    
-?>
-    
-    
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            $error_msg1 = "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["image"]["size"] > 5000000) {
+            $error_msg1 = "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docs") {
+            $error_msg1 = "Sorry, file type is not allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo $error_msg1;
+            $_SESSION['err_msg1']=$error_msg1;
+            redirect('/users/users_edit/'.$url_id);
+            // $_SESSION['pic_errormsg'] = $error_msg1. "Your file was not uploaded.";
+            // header("Location: article_create.php");
+        // if everything is ok, try to upload file
+        } 
+        else {
+            echo "<br>goods";
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+            // ?>
+            <div class="alert alert-success">
+
+            <!--  -->
+            <?php
+                $table_name = "tbl_users";
+                $column="user_id";
+                $value=$url_id;
+                $filename = basename($_FILES["file"]["name"]);
+
+                $file_name_data = array (
+                //columname from table => value from post
+                    "filename" => $filename
+                    );
+
+                    update_from($file_name_data, $value, $table_name, $column);
+            
+            $_SESSION['err_msg1']="Your image was successfully changed!";
+            redirect('/users/users_edit/'.$url_id);
+            ?>
+            <!--  -->
+                
+            </div>
+            <p>
+                <a href="<?= base_url() ?>article_manage.php">
+                    <button type="button" class="btn btn-primary">
+                    Return to Manage Slider Pictures Page</button>
+                </a>
+            </p>
+            <?php
+            } else {
+                $_SESSION['pic_errormsg'] = "Sorry, there was an error uploading your file.";
+                // header("Location: article_create.php");
+                redirect('/users/users_edit/'.$url_id);
+            }
+        }
+        ?>
+        </div>
+    </div><!--/span-->
+</div><!--/row-->
+

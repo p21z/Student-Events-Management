@@ -13,7 +13,8 @@ $user_editedValues = array(
     'end_date' => $this->session->userdata("end_date"),
     'end_time' => $this->session->userdata("end_time"),
     'venue' => $this->session->userdata("venue"),
-    'event_description' => $this->session->userdata("event_description")
+    'event_description' => $this->session->userdata("event_description"),
+    'school_year' => $this->session->userdata("school_year")
 );
 
 echo update_from($user_editedValues, $url_id, $table_name, $column);

@@ -28,7 +28,8 @@ $event_data = array(
     'venue' => $this->session->userdata("venue"),
     'event_description' => $this->session->userdata("event_description"),
     'statusxx' => "Pending",
-    'prog_base' => $prog_base
+    'prog_base' => $prog_base,
+    'school_year' => $this->session->userdata("school_year")
 );
 print_r($event_data);
 echo insert($event_data, $table_name);

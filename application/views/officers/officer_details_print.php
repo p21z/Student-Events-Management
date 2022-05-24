@@ -1,3 +1,22 @@
+
+<!-- Page Heading -->
+<?php
+date_default_timezone_set('Asia/Singapore');
+$xdate=date('Y-m-d');
+?>
+
+<link href="<?=base_url('Template/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="<?=base_url('Template/css/sb-admin-2.min.css')?>" rel="stylesheet">
+    <link href="<?=base_url('Template/css/main.css')?>" rel="stylesheet">
+    <link href="<?=base_url('Template/css/collapse.css')?>" rel="stylesheet">
+
+    <link href="<?=base_url('Template/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">    
+
 <div class="card col-8">
     <!-- <img src="https://via.placeholder.com/720x540"> -->
   <div class="card-body">
@@ -82,47 +101,22 @@
 
     <h4 class="mb-3">POSITIONS</h4>
 
-    <a href="<?=base_url()?>officers/position_add_options/<?=$url_id?>" class="btn btn-outline-secondary btn-icon-split add-item btn-sm mb-4">
-        <span class="icon text-white-50">
-            <i class="fas fa-user-plus"></i>
-        </span>
-        <span class="text">
-            ADD POSITION
-        </span>
-    </a>
+  
+   as of (<?=   $xdate ?>)
 
-    <a href="<?=base_url()?>officers/" class="btn btn-outline-danger btn-icon-split add-item btn-sm mb-4">
-        <span class="icon text-red-50">
-            <i class="fas fa-user-plus"></i>
-        </span>
-        <span class="text">
-            GO BACK
-        </span>
-    </a>
-
-    <br>
-
-    <button onclick="quorum_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-file-invoice fa-sm text-white-50 p-1"></i> Generate document </button>
-    <script>
-        function quorum_print() {
-        window.open("<?= base_url() ?>officers/officer_details_print/<?=$url_id?>");
-        } 
-    </script>
-<br><br>
     <table class="table table-sm table-striped">
         <thead>
             <tr>
                 <th>Organization</th>
                 <th>Position</th>
-                <th>Options</th>
+              
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <th>Organization</th>
                 <th>Position</th>
-                <th>Options</th>
+               
             </tr>
         </tfoot>
         <tbody>
@@ -156,15 +150,7 @@
                     <?=$org_name?>
                 </td>
                 <td><?=$off_type?></td>
-                <td>
-                    <a href="<?=base_url()?>officers/position_edit/<?=$off_id?>" class="btn btn-warning btn-circle btn-sm" style="margin-bottom: 6px;">
-                        <i class="far fa-edit"></i>
-                    </a>
-                    &nbsp;&nbsp;&nbsp;
-                    <a href="<?=base_url()?>officers/position_delete/<?=$off_id?>" class="btn btn-danger btn-circle btn-sm" style="margin-bottom: 6px;">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                </td>
+                
             </tr>
             
         <?php

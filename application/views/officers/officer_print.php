@@ -1,45 +1,52 @@
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800"></h1>
-                    <p class="mb-4"></p>
+<?php
+date_default_timezone_set('Asia/Singapore');
+$xdate=date('Y-m-d');
+?>
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+<link href="<?=base_url('Template/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="<?=base_url('Template/css/sb-admin-2.min.css')?>" rel="stylesheet">
+    <link href="<?=base_url('Template/css/main.css')?>" rel="stylesheet">
+    <link href="<?=base_url('Template/css/collapse.css')?>" rel="stylesheet">
+
+    <link href="<?=base_url('Template/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">    
+
+<div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Officers</h5>
+                            <h6 class="m-0 font-weight-bold text-primary">Officers (as of <?= $xdate ?>)</h6>
                         </div>
                         <div class="card-body">
 
-                        <button onclick="quorum_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                            <i class="fas fa-file-invoice fa-sm text-white-50 p-1"></i> Generate document </button>
-                        <script>
-                            function quorum_print() {
-                            window.open("<?= base_url() ?>officers/officer_print");
-                            } 
-                        </script>
+
                             <hr>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                           
                                             <th>Username</th>
                                             <!-- <th>Password</th> -->
                                             <th>Full Name</th>
                                             <th>Contacts</th>
                                             <th>Email</th>
-                                            <th>Options</th></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>#</th>
+                                            
                                             <th>Username</th>
                                             <!-- <th>Password</th> -->
                                             <th>Full Name</th>
                                             <th>Contacts</th>
                                             <th>Email</th>
-                                            <th>Options</th>
+                                            
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -80,20 +87,7 @@
                                         ?>
 
                                             <tr>
-                                                <td>
-                                                <?php
-                                                    if ($image==="")
-                                                    {
-                                                        echo '<i class="fas fa-user-circle fa-3x"></i>';
-                                                    } else
-                                                    {
-                                                    ?> 
-                                                    <img class="img-profile rounded-circle object-fit-dp-manage"
-                                                    src="<?=base_url()?>assets/img/<?=$image?>">
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </td>
+                                                
                                                 <td><?=$username?></td>
                                                 <!-- <td><?=$password?></td> -->
                                                 <td><?=$firstname?> <?=$lastname?></td>
@@ -106,18 +100,7 @@
                                                 <!-- <td><?=$archive?></td> -->
                                                 <!-- <td><?=$statusxx?></td> -->
                                                 <!-- <td>0</td> -->
-                                                <td>
-
-                                                <a href="<?=base_url()?>officers/officer_details/<?=$user_id?>" class="btn btn-dark btn-icon-split">
-                                                    <span class="icon text-white-50">
-                                                        <i class="far fa-eye"></i>
-                                                    </span>
-                                                    <span class="text">
-                                                        View Council
-                                                    </span>
-                                                </a>
-
-                                                </td>
+                                                
                                             </tr>
                                             
                                         <?php   }

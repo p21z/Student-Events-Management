@@ -21,7 +21,9 @@ class Events extends CI_Controller {
             'venue' => $this->input->post('venue'),
             'event_description' => $this->input->post('event_description'),
             'statusxx' => $this->input->post('statusxx'),
-            'remarks' => $this->input->post('remarks')
+            'statusxx' => $this->input->post('statusxx'),
+            'remarks' => $this->input->post('remarks'),
+            'school_year' => $this->input->post('school_year')
         );
 
         $this->session->set_userdata($events_data);
@@ -42,6 +44,7 @@ class Events extends CI_Controller {
         $this->session->unset_userdata("event_description");
         $this->session->unset_userdata("statusxx");
         $this->session->unset_userdata("remarks");
+        $this->session->unset_userdata("school_year");
 
         $this->session->unset_userdata("org_id");
         $this->session->unset_userdata("org_name");

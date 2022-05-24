@@ -50,6 +50,14 @@
                     </span>
                 </a>
 
+                <button onclick="quorum_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-file-invoice fa-sm text-white-50 p-1"></i> Generate document </button>
+                        <script>
+                            function quorum_print() {
+                            window.open("<?= base_url() ?>organizations/orgs_print");
+                            } 
+                        </script>
+
             </div>
 
             <hr>

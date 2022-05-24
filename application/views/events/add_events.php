@@ -25,6 +25,8 @@
                 <input type="text" name="org_name" class="form-control form-control-user add-input" autocomplete=off value="<?=$org_name?>" required readonly>
 
                 <input type="text" name="event_name" class="form-control form-control-user add-input" autocomplete=off placeholder="Event name" required>
+                <input type="text" name="school_year" class="form-control form-control-user add-input" autocomplete=off placeholder="School year" required>
+
 
                 <input type="text" name="start_date" class="form-control form-control-user add-input" autocomplete=off placeholder="Date Start"
                 onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>

@@ -21,6 +21,25 @@ class Organizations extends CI_Controller {
         }
 	}
 
+    function orgs_print()
+	{        
+		$this->load->view('must/perfect_function');
+        $this->orgs_session_unset();
+        $this->orgs_session_unset_2();
+        $this->orgs_search_session_unset();
+        // $this->load->view('must/header');
+        $this->load->view('prints/head');
+        $this->load->view('orgs/orgs_print');
+        // $this->load->view('must/footer');
+
+        // $this->form_validation->set_rules('search','Search','required');
+        // if ($this->form_validation->run() == TRUE)
+        // {
+        //     $this->orgs_search_session();
+        //     redirect('/organizations/all_search');            
+        // }
+	}
+
     function inactive()
 	{        
 		$this->load->view('must/perfect_function');

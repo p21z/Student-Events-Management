@@ -472,6 +472,18 @@ date_default_timezone_set('Asia/Singapore');
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
+                            
+                            <a class="nav-link" href="<?=base_url('assets/img/helpdesk.pdf')?>" id="alertsDropdown" role="button"
+                                data-toggle="" aria-haspopup="true" aria-expanded="false" target="_blank">
+                                <i class="fas fa-question fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <!-- <span class="badge badge-danger badge-counter">5+</span> -->
+                            </a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>

@@ -11,6 +11,27 @@ class Officers extends CI_Controller {
         $this->load->view('must/footer');
 	}
 
+    function officer_print()
+	{
+
+		$this->load->view('must/perfect_function');
+        // $this->load->view('must/header');
+        $this->load->view('prints/head');
+        $this->load->view('officers/officer_print');
+        // $this->load->view('must/footer');
+	}
+
+    function officer_details_print()
+	{
+        $this->users_session_unset();
+        $url_info['url_id'] = $this->uri->segment(3);
+		$this->load->view('must/perfect_function');
+        // $this->load->view('must/header');
+        $this->load->view('prints/head');
+        $this->load->view('officers/officer_details_print', $url_info);
+        // $this->load->view('must/footer');
+	}
+
     function officer_session()
     {
         $officer_data = array(

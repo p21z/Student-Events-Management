@@ -47,6 +47,7 @@
                 $trip_tkt_id=$row['trip_tkt_id'];
                 $trip_prmt_id=$row['trip_prmt_id'];
                 $event_image=$row['event_image'];
+                $school_year=$row['school_year'];
                 
             }
 
@@ -94,6 +95,10 @@
                         
                         <div class="mt-3">
                             <b>Venue:</b> <?=$venue?>
+                        </div>
+
+                        <div class="mt-3">
+                            <b>Academic Year:</b> <?=$school_year?>
                         </div>
 
                     </div>
@@ -1145,7 +1150,43 @@
 
 <!-- -------------------------------------------------------------- -->
 <!-- OTHER documents -->
+<button type="button" class="collapsiblex w-100">Other documents</button>
+            <div class="content">
+                <?php
+                $count_other_doc=0;
+                if ($count_other_doc===0)
+                {
+                ?>
+                    <div class="card text-center mt-4 mb-4">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">No document is found</h5>
+                            <p class="card-text">Upload other documents here</p>
+                            <?php
+                            if($statusxxx==="Pending")
+                            {
+                            ?>
+                                <a href="<?=base_url()?>events/add_other_document/<?=$org_id?>/<?=$event_id?>" class="btn btn-primary">Add a document</a>
+                            <?php
+                            }
+                            ?>
+                            
+                        </div>
 
+                    </div>
+
+                <?php
+                } else
+                {
+                ?>
+                <button onclick="trip_print()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-download fa-sm text-white-50"></i>Generate document</button>
+
+                <script>
+                function trip_print() {
+                window.open("<?= base_url() ?>prints/trip_ticket/<?=$url_id?>");
+                }
+                </script>
+                <?php   } ?>
 <!-- -------------------------------------------------------------- -->
 
         </li>

@@ -1,14 +1,14 @@
-<a href="<?=base_url()?>test">Return</a> hello! <?=$notif_id?>
-
 <?php
 
-$seen_data = array
-(
-  'user_id' => $this->session->userdata('idxx'),
-  'notif_id' => $notif_id
-);
+// $file1=base_url().'assets/img/helpdesk.pdf';
+// $file1='http://localhost/Student-Events-Management/assets/img/helpdesk.pdf';
+$file1='C:/xampp/htdocs/Student-Events-Management/assets/img/helpdesk.pdf';
+// $file1='helpdesk.pdf';
+echo $file1;
 
-echo insert($seen_data, 'tbl_seen');
-
+header('Content-type:application/pdf');
+header('Content-Description:inline;filename="'. $file1 .'"');
+header('Content-Transfer-Encoding:binary');
+header('Accept-ranges:bytes');
+@readfile($file1);
 ?>
-
