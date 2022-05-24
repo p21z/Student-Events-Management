@@ -1,11 +1,14 @@
+<?php
+date_default_timezone_set('Asia/Singapore');
+?>
 <div class="card shadow w-100">
 <div class="card-body">
 <div class="mt-4 ml-3">
         
         <h3>Events</h3>
-
+        
         <br>
-        <form method=post action="<?=base_url()?>events/archived_events_view" autocomplete="off"
+        <form method=post action="<?=base_url()?>events/approved_events_view" autocomplete="off"
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search w-25">
 
             <div class="input-group">
@@ -34,13 +37,13 @@
             </li>
             <?php   } ?>
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="<?=base_url()?>events/for_approval_events_view">For approval</a>
+            <a class="nav-link active" aria-current="page" href="<?=base_url()?>events/for_approval_events_view">For approval</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?=base_url()?>events/denied_events_view">Denied</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?=base_url()?>events/archived_events_view">Archived</a>
+            <a class="nav-link" aria-current="page" href="<?=base_url()?>events/archived_events_view">Archived</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?=base_url()?>events/all_events_view">All</a>
@@ -53,7 +56,7 @@
         <?php
             $table_name="tbl_events";
             $column1="statusxx";
-            $value1="Archived";
+            $value1="For approval";
             $column3="event_id";
 
 
@@ -68,6 +71,25 @@
                 $end_date=$row['end_date'];
                 $venue=$row['venue'];
                 $statusxx=$row['statusxx'];
+
+                // UPDATE STATUSXX WHEN END DATE PASSES
+                $current_date=date('Y-m-d');
+                // echo $current_date;
+
+                if ($current_date>$end_date)
+                {
+                    $user_editedValues = array(
+                        'statusxx' => "Archived"
+                    );
+                    echo update_from($user_editedValues, $event_id, $table_name, "event_id");
+                    ?>
+                    <div class="card ml-3 mt-3 border-bottom-danger mt-3" style="width: 28%">
+                        <h5 class="card-header text-danger"><?=$event_name?></h5>
+                        <div class="card-body text-danger">Event has been moved to archive</div>
+                    </div>
+                <?php
+                } else 
+                {
         ?>
             <div class="card ml-3 mt-3
                 <?php
@@ -80,6 +102,11 @@
                   {
                 ?>
                         border-bottom-info
+                <?php
+                  } elseif ($statusxx==="For approval")
+                  {
+                ?>
+                        border-bottom-success
                 <?php
                   } else
                   {
@@ -119,6 +146,11 @@
                 ?>
                         btn-info
                 <?php
+                  } elseif ($statusxx==="For approval")
+                  {
+                ?>
+                        btn-success
+                <?php
                   } else
                   {
                 ?>
@@ -129,6 +161,7 @@
                 </div>
             </div>
         <?php
+                }
             }
         ?>
 

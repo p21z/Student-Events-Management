@@ -654,7 +654,7 @@
                 ?> 
             </div>
 <!-- IN CAMPUS -->
-            <button type="button" class="collapsiblex w-100">In-campus activity</button>
+            <button type="button" class="collapsiblex w-100">In/out-campus activity</button>
             <div class="content">
                 <?php
                 if ($count_in_cmp===0)
@@ -1023,6 +1023,7 @@
                 window.open("<?= base_url() ?>prints/trip_ticket/<?=$url_id?>");
                 }
                 </script>
+
                     <div class="card mt-4 mb-4 w-100">
                         <div class="card-body">
                         <?php if($statusxxx==="Pending")
@@ -1142,11 +1143,18 @@
                 
             </div>
 
+<!-- -------------------------------------------------------------- -->
+<!-- OTHER documents -->
+
+<!-- -------------------------------------------------------------- -->
+
         </li>
         
     </ul>
             
-<div class="card-body">
+
+
+    <div class="card-body">
     <?php
     if($statusxxx!=="Pending")
     {

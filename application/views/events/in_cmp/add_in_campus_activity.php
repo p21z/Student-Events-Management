@@ -1,7 +1,7 @@
 <div align=center>
     <div class="card mb-4 w-75">
         <div class="card-header">
-            <span class="ml-5">IN CAMPUS ACTIVITY</span>
+            <span class="ml-5">IN/OUT CAMPUS ACTIVITY</span>
         </div>
 
         <form method="post" action="<?=base_url()?>events/add_in_campus_activity/<?=$url_id?>/<?=$url_id_2?>">

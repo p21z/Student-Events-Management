@@ -5,7 +5,7 @@ class Users extends CI_Controller {
 
 	function index()
 	{
-        if ($this->session->userdata('access')!== "Dean")
+        if (($this->session->userdata('access')!== "Dean") and ($this->session->userdata('access')!== "Dean 2"))
         {
             redirect('/home');
         }

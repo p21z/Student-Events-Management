@@ -31,8 +31,16 @@ date_default_timezone_set('Asia/Singapore');
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="<?=base_url()?>events/approved_events_view">Approved</a>
             </li>
+            <?php if ($this->session->userdata('access')!=="Dean 2"){?>
             <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?=base_url()?>events/pending_events_view">Pending</a>
+            </li>
+            <?php   } ?>
+            <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?=base_url()?>events/for_approval_events_view">For approval</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?=base_url()?>events/denied_events_view">Denied</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?=base_url()?>events/archived_events_view">Archived</a>

@@ -88,6 +88,12 @@
                 <a class="nav-link <?php if($this->session->userdata('nav_active')==='Approved'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/approved_events/<?=$url_id?>">Approved</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link <?php if($this->session->userdata('nav_active')==='For approval'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/for_approval_events/<?=$url_id?>">For approval</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php if($this->session->userdata('nav_active')==='Denied'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/denied_events/<?=$url_id?>">Denied</a>
+            </li>
+            <li class="nav-item">
             <a class="nav-link <?php if($this->session->userdata('nav_active')==='Pending'){?>active<?php } ?>" aria-current="page" href="<?=base_url()?>organizations_view/pending_events/<?=$url_id?>">Pending</a>
             </li>
             <li class="nav-item">

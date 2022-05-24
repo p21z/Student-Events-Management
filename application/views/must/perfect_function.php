@@ -537,6 +537,14 @@ function get_where_desc($table_name, $column, $value, $column2)
 	return $result;
 }
 
+function get_where_not_desc($table_name, $column, $value, $column2)
+{
+	$conn = getConnectionx();
+	$sql = "SELECT * FROM $table_name where ".$column."!='".$value."'ORDER BY ".$column2." DESC";
+	$result = $conn->query($sql);
+	return $result;
+}
+
 function get_latest_0($table_name, $order_id)
 {
 	$conn = getConnectionx();

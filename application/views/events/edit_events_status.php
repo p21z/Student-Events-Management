@@ -52,7 +52,14 @@ foreach ($events_data as $key => $row)
             
                 <option value="">Status</option>
                 <option value="Pending">Pending</option>
-                <option value="Approved">Approved</option>
+                <option value="For approval">For approval</option>
+
+                <?php   if ($this->session->userdata('access')==="Dean 2"){
+                ?>
+                    <option value="Approved">Approved</option>
+                    <option value="Denied">Denied</option>
+                <?php
+                } ?>
                 <option value="Archived">Archived</option>
             
             </select>

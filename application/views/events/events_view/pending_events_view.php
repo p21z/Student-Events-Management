@@ -32,6 +32,12 @@
             <a class="nav-link active" aria-current="page" href="<?=base_url()?>events/pending_events_view">Pending</a>
             </li>
             <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?=base_url()?>events/for_approval_events_view">For approval</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?=base_url()?>events/denied_events_view">Denied</a>
+            </li>
+            <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?=base_url()?>events/archived_events_view">Archived</a>
             </li>
             <li class="nav-item">

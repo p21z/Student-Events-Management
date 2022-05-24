@@ -147,7 +147,7 @@ class Events extends CI_Controller {
         $this->load->view('events/edit_events_remarks', $url_info);
         $this->load->view('must/footer');
 
-        $this->form_validation->set_rules('remarks', 'Remarks', 'required');
+        $this->form_validation->set_rules('url_id_2', 'URL ID', 'required');
         if ($this->form_validation->run()==TRUE)
         {
             $this->events_session();
@@ -1228,7 +1228,43 @@ class Events extends CI_Controller {
             redirect('/events/search_events_view');            
         }
         
-    } 
+    }
+    
+    function for_approval_events_view()
+    {
+        $this->load->view('must/perfect_function');
+        $this->events_session_unset();
+        $this->events_search_session_unset();
+        $this->load->view('must/header');
+        $this->load->view('events/events_view/for_approval_events_view');
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
+        
+    }
+
+    function denied_events_view()
+    {
+        $this->load->view('must/perfect_function');
+        $this->events_session_unset();
+        $this->events_search_session_unset();
+        $this->load->view('must/header');
+        $this->load->view('events/events_view/denied_events_view');
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('search','Search','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_search_session();
+            redirect('/events/search_events_view');            
+        }
+        
+    }
 
     function archived_events_view()
     {

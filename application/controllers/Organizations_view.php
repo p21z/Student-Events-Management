@@ -46,19 +46,37 @@ class Organizations_view extends CI_Controller {
         // }
 	}
 
-    function pending_events()
+    function for_approval_events()
 	{
         $this->events_search_session_unset();
         $this->load->view('must/perfect_function');
 
         $url_info['url_id'] = $this->uri->segment(3);
-        $this->session->set_userdata('nav_active', 'Pending');
+        $this->session->set_userdata('nav_active', 'For approval');
         
 		$this->load->view('must/header');
         $this->load->view('organizations_view/head', $url_info);
         $this->session->unset_userdata("nav_active");
         
-        $this->load->view('organizations_view/events_pending');
+        $this->load->view('organizations_view/events_for_approval');
+
+        $this->load->view('organizations_view/foot');
+        $this->load->view('must/footer');
+	}
+
+    function denied_events()
+	{
+        $this->events_search_session_unset();
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->session->set_userdata('nav_active', 'Denied');
+        
+		$this->load->view('must/header');
+        $this->load->view('organizations_view/head', $url_info);
+        $this->session->unset_userdata("nav_active");
+        
+        $this->load->view('organizations_view/events_denied');
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');
@@ -77,6 +95,24 @@ class Organizations_view extends CI_Controller {
         $this->session->unset_userdata("nav_active");
         
         $this->load->view('organizations_view/events_archived');
+
+        $this->load->view('organizations_view/foot');
+        $this->load->view('must/footer');
+	}
+
+    function pending_events()
+	{
+        $this->events_search_session_unset();
+        $this->load->view('must/perfect_function');
+
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->session->set_userdata('nav_active', 'Pending');
+        
+		$this->load->view('must/header');
+        $this->load->view('organizations_view/head', $url_info);
+        $this->session->unset_userdata("nav_active");
+        
+        $this->load->view('organizations_view/events_pending');
 
         $this->load->view('organizations_view/foot');
         $this->load->view('must/footer');

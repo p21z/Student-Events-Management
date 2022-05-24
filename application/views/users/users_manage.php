@@ -112,7 +112,7 @@
                                                 <td><?=$email?></td>
                                                 <td><?=$contact_no?></td>
                                                 <td><?=$gender?></td>
-                                                <td><?=$user_type?></td>
+                                                <td><?php   if ($user_type==="Dean"){echo "Admin";} elseif ($user_type==="Dean 2"){echo "Dean";}else{echo $user_type;} ?>
                                                 <td>
                                                     <?php
                                                     
@@ -171,7 +171,7 @@
                                                     &nbsp;&nbsp;&nbsp;
                                                     
                                                     <?php
-                                                    if ($user_type!=="Dean")
+                                                    if ($user_type!=="Dean" AND $user_type!=="Dean 2")
                                                     {?>
                                                     <a href="<?=base_url()?>users/users_delete/<?=$user_id?>" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>

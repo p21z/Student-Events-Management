@@ -175,8 +175,10 @@ date_default_timezone_set('Asia/Singapore');
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <h6 class="collapse-header">Events Filters:</h6>
                         <a class="collapse-item" href="<?=base_url()?>events/pending_events_view"">Pending</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/for_approval_events_view"">For approval</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/denied_events_view"">Denied</a>
                         <a class="collapse-item" href="<?=base_url()?>events/approved_events_view"">Approved</a>
                         <a class="collapse-item" href="<?=base_url()?>events/archived_events_view"">Archived</a>
                         <a class="collapse-item" href="<?=base_url()?>events/all_events_view"">All</a>
@@ -207,6 +209,84 @@ date_default_timezone_set('Asia/Singapore');
             <?php
                 }
             ?>
+
+            <!-- ____________________________________________________________________ -->
+            <!-- DEAN SIDE -->
+            <?php
+                if ($this->session->userdata('access')==="Dean 2")
+                {
+            ?>
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Dean  Modules
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-users"></i>
+                    <span>Personage</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Personage Components:</h6>
+                        <a class="collapse-item" href="<?=base_url()?>users">Users</a>
+                        <a class="collapse-item" href="<?=base_url()?>officers">Officers</a>
+                        <a class="collapse-item" href="<?=base_url()?>advisers">Advisers</a>
+                        <a class="collapse-item" href="<?=base_url()?>organizations">Organizations</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Nav Item - Utilities Collapse Menu -->
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Events</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Events Filters:</h6>
+                        <!-- <a class="collapse-item" href="<?=base_url()?>events/pending_events_view"">Pending</a> -->
+                        <a class="collapse-item" href="<?=base_url()?>events/for_approval_events_view"">For approval</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/denied_events_view"">Denied</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/approved_events_view"">Approved</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/archived_events_view"">Archived</a>
+                        <a class="collapse-item" href="<?=base_url()?>events/all_events_view"">All</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <?php
+                    $orgs_data_2=get_where_custom_header_special('tbl_orgs', 'org_category', 'dean');
+
+                    foreach ($orgs_data_2 as $key =>$row)
+                    {
+                        $org_id_2=$row['org_id'];
+                        $org_name_2=$row['org_name'];
+                        
+                ?>
+                        <a class="nav-link" href="<?=base_url()?>organizations_view/approved_events/<?=$org_id_2?>">
+                            <i class="fas fa-building"></i>
+                            <span><?=$org_name_2?></span>
+                        </a>
+                <?php
+                    }
+                ?>
+                
+            </li>
+
+            <?php
+                }
+            ?>
+            <!-- ________________________________________________ -->
             <?php
                 if ($this->session->userdata('access')==="Student")
                 {
@@ -228,6 +308,9 @@ date_default_timezone_set('Asia/Singapore');
                 }
             ?>
 
+            <?php
+        if ($this->session->userdata('access')!=="Dean 2")
+        { ?>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -316,6 +399,7 @@ date_default_timezone_set('Asia/Singapore');
                                                 }
 
                         }
+            }    
                                             ?>
 
                             <!-- <a class="collapse-item" href="register.html">Register</a>
