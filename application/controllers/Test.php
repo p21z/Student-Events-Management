@@ -5,10 +5,23 @@ class Test extends CI_Controller {
 
 	function index()
 	{
+		helper(['form']);
+
+		$rules= [
+			'TheFile' => 'uploaded[theFile]'
+		];
+
+		if ($this->validate($rules))	{
+			// ss
+		} else {
+			$data['validation'] = $this->validator;
+		}
+
 		$this->load->view('must/perfect_function');
 		$this->load->view('must/header');
-		$this->load->view('test3');
+		$this->load->view('test5');
 		$this->load->view('must/footer');
+		
 
     }
 
@@ -35,5 +48,24 @@ class Test extends CI_Controller {
 	// 	$this->load->view('test3');
 	// 	$this->load->view('must/footer');
 	// }
+
+	function test5()
+    {
+        // $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('test5');
+		$this->load->view('must/footer');
+    }
+
+    function test6()
+    {
+        // $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('test6');
+		$this->load->view('must/footer');
+        // redirect('/profile') ;   
+    }
 
 }

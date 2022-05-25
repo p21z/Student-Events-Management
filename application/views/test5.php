@@ -1,33 +1,64 @@
-<?php
 
-$inc_data=get_where_custom('tbl_inclusion', 'org_id', 51);
 
-foreach ($inc_data as $key => $row)
-{
-    $inc_id=$row['inc_id'];
-    $org_id=$row['org_id'];
-    $prog_id=$row['prog_id'];
+<div align=center>
 
-    echo $inc_id."-".$org_id."-".$prog_id."-";
+<div class="card mb-4 w-75">
 
-    $prog_data=get_where_custom('tbl_programs', 'prog_id', $prog_id);
+  <div class="card-header">
+      ADD NEW FILE
+  </div>
 
-    foreach ($prog_data as $key => $row)
-    {
-        $prog_name=$row['prog_name'];
-        $prog_abbrv=$row['prog_abbrv'];
+  <form method="post" action="<?=base_url()?>test/test6" enctype="multipart/form-data">
+
+    <div class="" style="">
+
+      <div class="input-group mb-3" style="width:40%; margin-top:5%;">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+          </div>
+          
+
+          
+          <div class="custom-file">
+
+            
+              <input type="file" name="file1" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+          </div>
+      </div>
+
+    </div>
+
+      <br>
+      <br>
+
+      <!-- BUTTONS -->
+      <button type="submit" class="btn btn-success btn-icon-split" style="margin-left:%; margin-top:3%; margin-bottom: 5%">
+        <span class="icon text-white-50">
+          <i class="fas fa-user-plus"></i>
+        </span>
+        <span class="text">
+          CHANGE PICTURE
+        </span>
+      </button>
         
-        echo $prog_abbrv."<br>";
+      &nbsp;&nbsp;
+      <!-- <a href="<?=base_url()?>users/users_edit/<?=$url_id?>" class="btn btn-danger btn-icon-split" style=" margin-top:3%; margin-bottom: 5%">
+        <span class="icon text-white-50">
+          <i class="fas fa-ban"></i>
+        </span>
+        <span class="text">
+          BACK
+        </span>
+      </a> -->
 
-        $stud_data=get_where_custom('tbl_users', 'program', $prog_abbrv);
+    
+  <form>
 
-        foreach ($stud_data as $key => $row)
-        {
-            $username=$row['username'];
+</div>
 
-            echo $username."<br>";
-        }
-    }
-}
+</div>
 
-?>
+
+
+

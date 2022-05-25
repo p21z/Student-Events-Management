@@ -1379,6 +1379,61 @@ class Events extends CI_Controller {
         $this->session->unset_userdata("search");
     }
 
+    function other_docs()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('events/plus_docs/other_docs', $url_info);
+		$this->load->view('must/footer');
+    }
 
+    function other_docs_add_proc()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('events/plus_docs/other_docs_add_proc', $url_info);
+		$this->load->view('must/footer');
+        // redirect('/profile') ;   
+    }
+
+    function other_docs_print()
+    {
+        $url_info['url_id'] = $this->uri->segment(3);
+        $url_info['url_id_2'] = $this->uri->segment(4);
+        $this->load->view('must/perfect_function');
+		$this->load->view('must/header');
+		$this->load->view('events/plus_docs/other_docs_print', $url_info);
+		$this->load->view('must/footer');
+        // redirect('/profile') ;   
+    }
+
+    function other_docs_delete()
+    {
+
+        $url_info['url_id'] = $this->uri->segment(3);
+        $url_info['url_id_2'] = $this->uri->segment(4);
+        $this->load->view('must/perfect_function');
+        $this->load->view('must/header');
+        $this->load->view('events/plus_docs/other_docs_delete', $url_info);
+        $this->load->view('must/footer');
+
+        $this->form_validation->set_rules('url_id','URL ID','required');
+        if ($this->form_validation->run() == TRUE)
+        {
+            $this->events_session();
+            redirect('/events/other_docs_delete_proc');
+        }
+    }
+
+    function other_docs_delete_proc()
+    {
+        // print_r($_SESSION);
+        $this->load->view('must/perfect_function');
+        $this->load->view('events/plus_docs/other_docs_delete_proc');
+        // $this->users_session_unset();
+		redirect('/events/other_docs/'.$this->session->userdata("url_id"));
+    }
 
 }
